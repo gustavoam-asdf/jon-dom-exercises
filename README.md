@@ -1,5 +1,3 @@
-https://www.youtube.com/watch?v=ISApT6Lersk&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA&index=82
-
 <h1 align="center">DOM Exercises proposed by Jon Mircha</h1>
 
 <div align="center">
@@ -23,7 +21,7 @@ https://www.youtube.com/watch?v=ISApT6Lersk&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-Ko
 
 ## Overview
 
-![screenshot](https://drive.google.com/uc?export=download&id=12FQjx-WVhzqgnymhnVkZveNAmoyCROQH)
+<!-- ![screenshot](https://drive.google.com/uc?export=download&id=12FQjx-WVhzqgnymhnVkZveNAmoyCROQH) -->
 
 
 I developed the exercises proposed in the Jon Mircha javacript course [Jon-Mircha-Course](https://youtube.com/playlist?list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA) to practice my javascript knowledge of the DOM using typescript.
@@ -32,9 +30,9 @@ You can find the solution at: [gustavoam-asdf/jon-dom-exercices](https://gustavo
 
 ### Built With
 
-- [Typescript](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot)
-- [Normalize](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
-- [GH-Pages](https://fontawesome.com/)
+- [Typescript](https://www.typescriptlang.org/docs/)
+- [Normalize](https://necolas.github.io/normalize.css/)
+- [GH-Pages](https://github.com/tschaub/gh-pages)
 
 ## Features
 
