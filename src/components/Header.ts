@@ -9,7 +9,7 @@ const Header = (): HTMLElement => {
   text.innerHTML = 'Ejercicios del DOM'
   text.classList.add('text')
 
-  sr.appendChild(text)
+  sr.append(text)
 
   return header
 }

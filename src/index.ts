@@ -1,4 +1,5 @@
-import Header from './components/Header.js'
+import App from './App.js'
+
 const root: HTMLElement | null = document.getElementById('root')
 
-root?.prepend(Header)
+root?.prepend(App)

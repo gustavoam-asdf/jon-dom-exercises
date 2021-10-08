@@ -1,0 +1,6 @@
+@import url(../index.css);
+
+:host {
+  text-decoration: none;
+  font-weight: bold;
+}
