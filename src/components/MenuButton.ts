@@ -1,5 +1,3 @@
-import Icons from './Icons'
-
 const MenuButton = (iconClass: string): HTMLElement => {
   const button = document.createElement('div')
 
