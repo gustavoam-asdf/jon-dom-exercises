@@ -1,4 +1,4 @@
-import './styles/components/Header.css'
+import './styles/Header.css'
 
 const Header = (): HTMLElement => {
   const header = document.createElement('header')

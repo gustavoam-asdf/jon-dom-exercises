@@ -36,5 +36,14 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'build')
+  },
+  devServer: {
+    port: 5500,
+    client: {
+      overlay: true,
+      progress: true
+    },
+    watchFiles: ['.ts', '.css'],
+    compress: true
   }
 }
