@@ -1,7 +1,6 @@
 @import url(./variables.css);
-@import url(./MenuItem.css);
 
-ul {
+.menu-list {
   list-style: none;
   padding: 0;
   margin: 0;
