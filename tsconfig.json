@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "ES5",
     "module": "ESNext",
-    "outDir": "./public/build",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

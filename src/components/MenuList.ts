@@ -1,4 +1,4 @@
-import StyleLink from './StyleLink.js'
+import StyleLink from './StyleLink'
 
 const MenuList = (listItems: HTMLLIElement[]): HTMLElement => {
   const menu = document.createElement('nav')
@@ -7,7 +7,7 @@ const MenuList = (listItems: HTMLLIElement[]): HTMLElement => {
 
   const list: HTMLUListElement = document.createElement('ul')
   const listFragment: DocumentFragment = document.createDocumentFragment()
-  listItems.forEach((listItem: HTMLElement) => listFragment.append(listItem))
+  listItems.forEach(listItem => listFragment.append(listItem))
   list.append(listFragment)
 
   sr.append(list)

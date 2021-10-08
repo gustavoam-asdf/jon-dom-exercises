@@ -1,9 +1,8 @@
-import StyleLink from './StyleLink.js'
+import './styles/components/Header.css'
 
 const Header = (): HTMLElement => {
   const header = document.createElement('header')
   const sr: ShadowRoot = header.attachShadow({ mode: 'closed' })
-  sr.prepend(StyleLink('components/header'))
 
   const text: HTMLSpanElement = document.createElement('h1')
   text.innerHTML = 'Ejercicios del DOM'
@@ -14,4 +13,4 @@ const Header = (): HTMLElement => {
   return header
 }
 
-export default Header()
+export default Header

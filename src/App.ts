@@ -1,16 +1,14 @@
-import Header from './components/Header.js'
-import MenuList from './components/MenuList.js'
-import MenuItem from './components/MenuItem.js'
+import Header from './components/Header'
+import Menu from './components/Menu'
+import 'normalize.css'
 
 const App = (): DocumentFragment => {
   const app: DocumentFragment = document.createDocumentFragment()
 
-  const items: HTMLLIElement[] = [MenuItem('Seccion 1')]
-
-  app.prepend(Header)
-  app.append(MenuList(items))
+  app.prepend(Header())
+  app.append(Menu())
 
   return app
 }
 
-export default App()
+export default App
