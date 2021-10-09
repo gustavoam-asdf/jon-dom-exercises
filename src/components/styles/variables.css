@@ -1,9 +1,8 @@
-:host {
-  --yellow: #f2ff3d;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
 :root {
   --yellow: #f2ff3d;
+  --gold: #ffd700;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  --z-index-normal: 0;
+  --z-index-modal: 1;
+  --z-index-alert: 2;
 }

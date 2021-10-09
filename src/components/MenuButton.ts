@@ -1,12 +1,14 @@
 import Icon from './Icon'
+import './styles/MenuButton'
 
-const MenuButton = (iconClass: string): HTMLElement => {
+const MenuButton = (): HTMLElement => {
   const button = document.createElement('div')
+  button.classList.add('menu-button')
 
-  const icon: HTMLSpanElement = Icon('fa-times-circle')
-
-  icon.classList.add('fas')
-  icon.classList.add(iconClass)
+  const icon: HTMLSpanElement = Icon({
+    iconType: 'fa-bars',
+    className: 'menu-button__icon fa-3x'
+  })
 
   button.append(icon)
 

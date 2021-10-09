@@ -3,9 +3,10 @@ import MenuItem from './MenuItem'
 import MenuList from './MenuList'
 
 const Menu = (): HTMLElement => {
-  const menu = document.createElement('div')
+  const menu = document.createElement('nav')
+  menu.classList.add('menu')
 
-  const button = MenuButton('fa-bars')
+  const button = MenuButton()
 
   const items: HTMLLIElement[] = [
     MenuItem('Seccion 1'),

@@ -1,4 +1,4 @@
-import './styles/MenuItem.css'
+import './styles/MenuItem'
 
 const MenuItem = (text: string): HTMLLIElement => {
   const li = document.createElement('li')
