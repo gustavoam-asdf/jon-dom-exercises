@@ -1,7 +1,5 @@
-@import url(./variables.css);
-
 .main-header {
-  background-color: var(--gold);
+  background-color: var(--yellow);
   margin: 0;
   display: block;
   padding: 0.5em;

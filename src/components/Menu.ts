@@ -1,6 +1,7 @@
 import MenuButton from './MenuButton'
 import MenuItem from './MenuItem'
 import MenuList from './MenuList'
+import './styles/Menu'
 
 const Menu = (): HTMLElement => {
   const menu = document.createElement('nav')

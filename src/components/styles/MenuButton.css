@@ -1,17 +1,14 @@
-@import url(./variables.css);
-
 .menu-button {
   position: absolute;
   bottom: 2em;
   right: 2em;
   display: inline-block;
-  padding: 1em;
+  padding: 1em 1.2em;
   border-radius: 50%;
-  background-color: var(--yellow);
-  z-index: var(--z-index-modal);
+  background-color: var(--gold);
   cursor: pointer;
 }
 
 .menu-button:hover {
-  background-color: var(--gold);
+  background-color: var(--old-gold);
 }

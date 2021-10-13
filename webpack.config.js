@@ -2,13 +2,13 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const tsRule = {
-  test: /\.ts$/,
+  test: /\.ts$/i,
   use: 'ts-loader',
   exclude: /node_modules/
 }
 
 const cssRule = {
-  test: /\.css$/,
+  test: /\.css$/i,
   use: ['style-loader', 'css-loader']
 }
 
@@ -39,6 +39,9 @@ module.exports = (env, argv) => {
     output: {
       filename: isProduction ? '[name].[contenthash].js' : 'main.js',
       path: path.resolve(__dirname, 'build')
+    },
+    performance: {
+      hints: false
     },
     devServer: {
       port: 5500,

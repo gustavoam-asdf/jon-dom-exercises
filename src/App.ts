@@ -1,6 +1,7 @@
 import Header from './components/Header'
 import Menu from './components/Menu'
 import 'normalize.css'
+import './components/styles/variables'
 import '@fortawesome/fontawesome-free/js/fontawesome'
 import '@fortawesome/fontawesome-free/js/solid'
 import '@fortawesome/fontawesome-free/js/regular'

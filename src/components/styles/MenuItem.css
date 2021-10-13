@@ -1,7 +1,12 @@
-@import url(./variables.css);
-
 .menu-item {
   text-decoration: none;
   font-weight: 600;
   font-size: 1.5em;
+  padding: 1em 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: var(--old-gold);
 }

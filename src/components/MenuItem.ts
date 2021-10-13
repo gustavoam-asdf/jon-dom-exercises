@@ -1,9 +1,9 @@
 import './styles/MenuItem'
 
-const MenuItem = (text: string): HTMLLIElement => {
+const MenuItem = (innerHTML: string): HTMLLIElement => {
   const li = document.createElement('li')
   li.classList.add('menu-item')
-  li.innerHTML = text
+  li.innerHTML = innerHTML
   return li
 }
 
