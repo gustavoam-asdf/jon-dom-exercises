@@ -2,13 +2,13 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const tsRule = {
-  test: /\.ts$/,
+  test: /\.ts$/i,
   use: 'ts-loader',
   exclude: /node_modules/
 }
 
 const cssRule = {
-  test: /\.css$/,
+  test: /\.css$/i,
   use: ['style-loader', 'css-loader']
 }
 
