@@ -9,7 +9,9 @@ const htmlPlugin = new HtmlWebpackPlugin({
   filename: 'index.html'
 })
 
-const cssPlugin = new MiniCssExtractPlugin()
+const cssPlugin = new MiniCssExtractPlugin({
+  filename: '[name].[contenthash].css'
+})
 
 const plugins = [htmlPlugin, cssPlugin]
 
