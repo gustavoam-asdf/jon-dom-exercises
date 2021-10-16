@@ -1,4 +1,6 @@
 .menu-item {
+  display: block;
+  color: var(--black);
   text-decoration: none;
   font-weight: 600;
   font-size: 1.5em;
