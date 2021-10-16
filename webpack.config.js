@@ -1,5 +1,17 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizePlugin = require('css-minimizer-webpack-plugin')
+
+const htmlPlugin = new HtmlWebpackPlugin({
+  template: 'template/index.html',
+  favicon: 'template/favicon.png',
+  filename: 'index.html'
+})
+
+const cssPlugin = new MiniCssExtractPlugin()
+
+const plugins = [htmlPlugin, cssPlugin]
 
 const tsRule = {
   test: /\.ts$/i,
@@ -9,7 +21,7 @@ const tsRule = {
 
 const cssRule = {
   test: /\.css$/i,
-  use: ['style-loader', 'css-loader']
+  use: [MiniCssExtractPlugin.loader, 'css-loader']
 }
 
 const imageLoader = {
@@ -30,15 +42,13 @@ module.exports = (env, argv) => {
     resolve: {
       extensions: ['.ts', '.js', '.css']
     },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: 'template/index.html',
-        favicon: 'template/favicon.png'
-      })
-    ],
+    plugins,
     output: {
       filename: isProduction ? '[name].[contenthash].js' : 'main.js',
       path: path.resolve(__dirname, 'build')
+    },
+    optimization: {
+      minimizer: [new CssMinimizePlugin()]
     },
     performance: {
       hints: false
