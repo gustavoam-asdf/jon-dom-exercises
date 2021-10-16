@@ -2,8 +2,11 @@
   position: absolute;
   bottom: 2em;
   right: 2em;
+  width: 3em;
+  height: 3em;
+  text-align: center;
   display: inline-block;
-  padding: 1em 1.2em;
+  padding: 1em;
   border-radius: 50%;
   background-color: var(--gold);
   cursor: pointer;
@@ -11,4 +14,8 @@
 
 .menu-button:hover {
   background-color: var(--old-gold);
+}
+
+.menu-button__icon::before {
+  font-size: 3em;
 }

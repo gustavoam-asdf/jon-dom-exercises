@@ -19,10 +19,8 @@ const Menu = (): HTMLElement => {
   ]
 
   const list = MenuList(items)
-
   menu.append(list)
   menu.append(button)
-
   return menu
 }
 
