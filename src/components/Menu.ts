@@ -1,32 +1,13 @@
-import MenuButton, { options } from './MenuButton'
 import MenuItem from './MenuItem'
 import MenuList from './MenuList'
 import elementIds from '../elementIds'
 import './styles/Menu'
 
-const clickOnMenu = (evt: any): void => {
-  const button = evt.target.closest(`#${elementIds.panel.button}`)
-  if (button) {
-    const menu = document.getElementById(elementIds.panel.menu.self)
-    const icon = button.querySelector(`.${elementIds.panel.button}__icon`)
-    if (icon?.classList.contains(options.hamburger)) {
-      icon.classList.remove(options.hamburger)
-      icon.classList.add(options.cross)
-    } else {
-      icon.classList.remove(options.cross)
-      icon.classList.add(options.hamburger)
-    }
-    menu?.classList.toggle('hide')
-  }
-}
-
-const Menu = (): HTMLElement => {
-  const container: HTMLDivElement = document.createElement('div')
-  container.classList.add(elementIds.panel.self)
-  container.setAttribute('id', elementIds.panel.self)
-
-  const button = MenuButton()
-
+const Menu = (): HTMLDivElement => {
+  const menu: HTMLDivElement = document.createElement('div')
+  menu.classList.add(elementIds.panel.menu.self)
+  menu.setAttribute('id', elementIds.panel.menu.self)
+  menu.classList.add('hide')
   const items: HTMLAnchorElement[] = [
     MenuItem({ href: '#section-1', innerHTML: 'Seccion 1' }),
     MenuItem({ href: '#section-2', innerHTML: 'Seccion 2' }),
@@ -35,21 +16,9 @@ const Menu = (): HTMLElement => {
     MenuItem({ href: '#section-5', innerHTML: 'Seccion 5' }),
     MenuItem({ href: '#section-7', innerHTML: 'Seccion 6' })
   ]
-
-  const menu: HTMLDivElement = document.createElement('div')
-  menu.classList.add(elementIds.panel.menu.self)
-  menu.classList.add('hide')
-  menu.setAttribute('id', elementIds.panel.menu.self)
-
   const list = MenuList(items)
   menu.append(list)
-
-  container.append(menu)
-  container.append(button)
-
-  container.addEventListener('click', clickOnMenu)
-
-  return container
+  return menu
 }
 
 export default Menu
