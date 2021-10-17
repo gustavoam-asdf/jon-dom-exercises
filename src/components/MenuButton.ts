@@ -6,8 +6,8 @@ export const options = { hamburger: 'fa-bars', cross: 'fa-times' }
 
 const MenuButton = (): HTMLElement => {
   const button = document.createElement('div')
-  button.classList.add(elementIds.menu.button)
-  button.setAttribute('id', elementIds.menu.button)
+  button.classList.add(elementIds.panel.button)
+  button.setAttribute('id', elementIds.panel.button)
   const icon: HTMLSpanElement = Icon({
     iconType: options.hamburger,
     className: `${button.className}__icon`

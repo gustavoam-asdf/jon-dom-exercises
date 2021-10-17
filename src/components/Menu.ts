@@ -5,10 +5,10 @@ import elementIds from '../elementIds'
 import './styles/Menu'
 
 const clickOnMenu = (evt: any): void => {
-  const button = evt.target.closest(`#${elementIds.menu.button}`)
+  const button = evt.target.closest(`#${elementIds.panel.button}`)
   if (button) {
-    const menu = document.getElementById(elementIds.menu.self)
-    const icon = button.querySelector(`.${elementIds.menu.button}__icon`)
+    const menu = document.getElementById(elementIds.panel.menu.self)
+    const icon = button.querySelector(`.${elementIds.panel.button}__icon`)
     if (icon?.classList.contains(options.hamburger)) {
       icon.classList.remove(options.hamburger)
       icon.classList.add(options.cross)
@@ -22,8 +22,8 @@ const clickOnMenu = (evt: any): void => {
 
 const Menu = (): HTMLElement => {
   const container: HTMLDivElement = document.createElement('div')
-  container.classList.add(elementIds.menu.container)
-  container.setAttribute('id', elementIds.menu.container)
+  container.classList.add(elementIds.panel.self)
+  container.setAttribute('id', elementIds.panel.self)
 
   const button = MenuButton()
 
@@ -37,9 +37,9 @@ const Menu = (): HTMLElement => {
   ]
 
   const menu: HTMLDivElement = document.createElement('div')
-  menu.classList.add(elementIds.menu.self)
+  menu.classList.add(elementIds.panel.menu.self)
   menu.classList.add('hide')
-  menu.setAttribute('id', elementIds.menu.self)
+  menu.setAttribute('id', elementIds.panel.menu.self)
 
   const list = MenuList(items)
   menu.append(list)
