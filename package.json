@@ -14,7 +14,7 @@
   },
   "keywords": [],
   "author": "Gustavo A. <gustavo.atencio@outlook.com>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "css-loader": "^6.3.0",
     "css-minimizer-webpack-plugin": "^3.1.1",
