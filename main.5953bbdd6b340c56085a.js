@@ -14,10 +14,12 @@ var Header = function () {
 
 ;// CONCATENATED MODULE: ./src/elementIds.ts
 /* harmony default export */ const elementIds = ({
-    menu: {
-        container: 'menu-container',
-        self: 'menu',
-        list: 'menu-list',
+    panel: {
+        self: 'panel',
+        menu: {
+            self: 'menu',
+            list: 'menu-list'
+        },
         button: 'menu-button'
     }
 });
@@ -42,8 +44,8 @@ var Icon = function (_a) {
 var options = { hamburger: 'fa-bars', cross: 'fa-times' };
 var MenuButton = function () {
     var button = document.createElement('div');
-    button.classList.add(elementIds.menu.button);
-    button.setAttribute('id', elementIds.menu.button);
+    button.classList.add(elementIds.panel.button);
+    button.setAttribute('id', elementIds.panel.button);
     var icon = components_Icon({
         iconType: options.hamburger,
         className: button.className + "__icon"
@@ -70,8 +72,8 @@ var MenuItem = function (_a) {
 
 var MenuList = function (listItems) {
     var list = document.createElement('nav');
-    list.classList.add(elementIds.menu.list);
-    list.setAttribute('id', elementIds.menu.list);
+    list.classList.add(elementIds.panel.menu.list);
+    list.setAttribute('id', elementIds.panel.menu.list);
     var listFragment = document.createDocumentFragment();
     listItems.forEach(function (listItem) { return listFragment.append(listItem); });
     list.append(listFragment);
@@ -84,28 +86,11 @@ var MenuList = function (listItems) {
 
 
 
-
-var clickOnMenu = function (evt) {
-    var button = evt.target.closest("#" + elementIds.menu.button);
-    if (button) {
-        var menu = document.getElementById(elementIds.menu.self);
-        var icon = button.querySelector("." + elementIds.menu.button + "__icon");
-        if (icon === null || icon === void 0 ? void 0 : icon.classList.contains(options.hamburger)) {
-            icon.classList.remove(options.hamburger);
-            icon.classList.add(options.cross);
-        }
-        else {
-            icon.classList.remove(options.cross);
-            icon.classList.add(options.hamburger);
-        }
-        menu === null || menu === void 0 ? void 0 : menu.classList.toggle('hide');
-    }
-};
 var Menu = function () {
-    var container = document.createElement('div');
-    container.classList.add(elementIds.menu.container);
-    container.setAttribute('id', elementIds.menu.container);
-    var button = components_MenuButton();
+    var menu = document.createElement('div');
+    menu.classList.add(elementIds.panel.menu.self);
+    menu.setAttribute('id', elementIds.panel.menu.self);
+    menu.classList.add('hide');
     var items = [
         components_MenuItem({ href: '#section-1', innerHTML: 'Seccion 1' }),
         components_MenuItem({ href: '#section-2', innerHTML: 'Seccion 2' }),
@@ -114,20 +99,63 @@ var Menu = function () {
         components_MenuItem({ href: '#section-5', innerHTML: 'Seccion 5' }),
         components_MenuItem({ href: '#section-7', innerHTML: 'Seccion 6' })
     ];
-    var menu = document.createElement('div');
-    menu.classList.add(elementIds.menu.self);
-    menu.classList.add('hide');
-    menu.setAttribute('id', elementIds.menu.self);
     var list = components_MenuList(items);
     menu.append(list);
-    container.append(menu);
-    container.append(button);
-    container.addEventListener('click', clickOnMenu);
-    return container;
+    return menu;
 };
 /* harmony default export */ const components_Menu = (Menu);
 
+;// CONCATENATED MODULE: ./src/components/Panel.ts
+
+
+
+
+var changeIcon = function () {
+    var icon = document.querySelector("." + elementIds.panel.button + "__icon");
+    if (!icon)
+        throw new Error("Icon doesn't exist");
+    var isOpen = icon.classList.contains(options.hamburger);
+    if (isOpen) {
+        icon.classList.remove(options.hamburger);
+        icon.classList.add(options.cross);
+    }
+    else {
+        icon.classList.remove(options.cross);
+        icon.classList.add(options.hamburger);
+    }
+};
+var clickOnPanel = function (evt) {
+    var _a, _b;
+    var clickOnButton = evt.target.matches("#" + elementIds.panel.button + " *") ||
+        evt.target.matches("#" + elementIds.panel.button);
+    if (clickOnButton) {
+        changeIcon();
+        (_a = document
+            .getElementById(elementIds.panel.menu.self)) === null || _a === void 0 ? void 0 : _a.classList.toggle('hide');
+        return;
+    }
+    var clickOnMenuItem = evt.target.matches("#" + elementIds.panel.menu.list + " *");
+    if (clickOnMenuItem) {
+        changeIcon();
+        (_b = document.getElementById(elementIds.panel.menu.self)) === null || _b === void 0 ? void 0 : _b.classList.add('hide');
+        return;
+    }
+};
+var Panel = function () {
+    var panel = document.createElement('div');
+    panel.classList.add(elementIds.panel.self);
+    panel.setAttribute('id', elementIds.panel.self);
+    var menu = components_Menu();
+    var button = components_MenuButton();
+    panel.append(menu);
+    panel.append(button);
+    panel.addEventListener('click', clickOnPanel);
+    return panel;
+};
+/* harmony default export */ const components_Panel = (Panel);
+
 ;// CONCATENATED MODULE: ./src/App.ts
+
 
 
 
@@ -135,7 +163,7 @@ var Menu = function () {
 var App = function () {
     var app = document.createDocumentFragment();
     app.prepend(components_Header());
-    app.append(components_Menu());
+    app.append(components_Panel());
     return app;
 };
 /* harmony default export */ const src_App = (App);
