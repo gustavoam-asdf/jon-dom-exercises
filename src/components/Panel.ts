@@ -3,8 +3,13 @@ import Menu from './Menu'
 import elementIds from '../elementIds'
 import './styles/Menu'
 
-const changeIcon = (icon: HTMLSpanElement, state: boolean): void => {
-  if (state) {
+const changeIcon = (): void => {
+  const icon: HTMLSpanElement | null = document.querySelector(
+    `.${elementIds.panel.button}__icon`
+  )
+  if (!icon) throw new Error("Icon doesn't exist")
+  const isOpen = icon.classList.contains(options.hamburger)
+  if (isOpen) {
     icon.classList.remove(options.hamburger)
     icon.classList.add(options.cross)
   } else {
@@ -14,17 +19,20 @@ const changeIcon = (icon: HTMLSpanElement, state: boolean): void => {
 }
 
 const clickOnPanel = (evt: any): void => {
-  const button = evt.target.closest(`#${elementIds.panel.button}`)
-  if (button) {
-    const menu: HTMLElement | null = document.getElementById(
-      elementIds.panel.menu.self
-    )
-    const icon: HTMLSpanElement = button.querySelector(
-      `.${elementIds.panel.button}__icon`
-    )
-    const isOpen = icon?.classList.contains(options.hamburger)
-    changeIcon(icon, isOpen)
-    menu?.classList.toggle('hide')
+  const clickOnButton =
+    evt.target.matches(`#${elementIds.panel.button} *`) ||
+    evt.target.matches(`#${elementIds.panel.button}`)
+  if (clickOnButton) {
+    changeIcon()
+    document
+      .getElementById(elementIds.panel.menu.self)
+      ?.classList.toggle('hide')
+    return
+  }
+  const clickOnMenuItem = evt.target.matches(`#${elementIds.panel.menu.list} *`)
+  if (clickOnMenuItem) {
+    changeIcon()
+    document.getElementById(elementIds.panel.menu.self)?.classList.add('hide')
     return
   }
 }
