@@ -2,6 +2,7 @@ import Header from './components/Header'
 import Panel from './components/Panel'
 import 'normalize.css'
 import './components/styles/variables'
+import './index.css'
 
 const App = (): DocumentFragment => {
   const app: DocumentFragment = document.createDocumentFragment()

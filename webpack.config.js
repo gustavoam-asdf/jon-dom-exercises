@@ -28,10 +28,15 @@ const cssRule = {
 
 const imageLoader = {
   test: /\.(jpe?g|png|gif|svg)$/i,
-  type: 'asset'
+  type: 'asset/resource'
 }
 
-const rules = [tsRule, cssRule, imageLoader]
+const fontLoader = {
+  test: /\.(woff2?|eot|ttf|otf)$/i,
+  type: 'asset/resource'
+}
+
+const rules = [tsRule, cssRule, imageLoader, fontLoader]
 
 module.exports = (env, argv) => {
   const { mode } = argv
