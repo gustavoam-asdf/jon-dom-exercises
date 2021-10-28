@@ -3,8 +3,8 @@ const IconTemplate = ({
   className,
   id
 }: {
-  iconType: string,
-  className?: string,
+  iconType: string
+  className?: string
   id?: string
 }): HTMLSpanElement => {
   const icon: HTMLSpanElement = document.createElement('span')
@@ -15,20 +15,20 @@ const IconTemplate = ({
   return icon
 }
 
-class Icon {
-  self: HTMLSpanElement
-  iconType: string
+export default class Icon {
+  public self: HTMLSpanElement
+  public iconType: string
 
   constructor({
     iconType,
     className,
     id
   }: {
-    iconType: string,
-    className?: string,
+    iconType: string
+    className?: string
     id?: string
   }) {
-    this.self = IconTemplate({iconType, className,id})
+    this.self = IconTemplate({ iconType, className, id })
     this.iconType = iconType
   }
 
@@ -43,5 +43,3 @@ class Icon {
     }
   }
 }
-
-export default Icon

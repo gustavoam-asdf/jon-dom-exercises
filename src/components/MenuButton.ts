@@ -12,14 +12,14 @@ const MenuButtonTemplate = (icon: Icon): HTMLElement => {
   return button
 }
 
-class MenuButton {
-  self: HTMLElement
-  icon: Icon
+export default class MenuButton {
+  public self: HTMLElement
+  public icon: Icon
 
   constructor(
-    icon: Icon = new Icon({
+    icon = new Icon({
       iconType: icons.hamburger,
-      className: `menu-button__icon`
+      className: 'menu-button__icon'
     })
   ) {
     this.icon = icon
@@ -33,5 +33,3 @@ class MenuButton {
       ?.classList.toggle('hide')
   }
 }
-
-export default MenuButton

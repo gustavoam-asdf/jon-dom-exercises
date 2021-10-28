@@ -1,6 +1,6 @@
 import './styles/MenuItem'
 
-const MenuItem = ({
+const MenuItemTemplate = ({
   href = '#',
   innerHTML
 }: {
@@ -14,4 +14,9 @@ const MenuItem = ({
   return a
 }
 
-export default MenuItem
+export default class MenuItem {
+  public self: HTMLAnchorElement
+  constructor({ href = '#', innerHTML }: { href?: string; innerHTML: string }) {
+    this.self = MenuItemTemplate({ href, innerHTML })
+  }
+}
