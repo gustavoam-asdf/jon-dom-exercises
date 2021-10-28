@@ -7,7 +7,7 @@ export const icons = { hamburger: 'fa-bars', cross: 'fa-times' }
 const MenuButtonTemplate = (icon: Icon): HTMLElement => {
   const button = document.createElement('div')
   button.classList.add(elementIds.panel.button)
-  button.setAttribute('id', elementIds.panel.button)
+  button.setAttribute('id', MenuButton.id)
   button.append(icon.self)
   return button
 }
@@ -15,6 +15,7 @@ const MenuButtonTemplate = (icon: Icon): HTMLElement => {
 export default class MenuButton {
   public self: HTMLElement
   public icon: Icon
+  static id: string = 'menu-button'
 
   constructor(
     icon = new Icon({

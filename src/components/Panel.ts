@@ -40,9 +40,9 @@ const Panel = (): HTMLDivElement => {
   const panel: HTMLDivElement = document.createElement('div')
   panel.classList.add(elementIds.panel.self)
   panel.setAttribute('id', elementIds.panel.self)
-  const menu: HTMLDivElement = Menu()
+  const menu = new Menu()
   const button = new MenuButton()
-  panel.append(menu)
+  panel.append(menu.self)
   panel.append(button.self)
 
   return panel

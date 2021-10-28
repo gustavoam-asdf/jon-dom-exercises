@@ -1,11 +1,14 @@
-import elementIds from '../elementIds'
 import MenuItem from './MenuItem'
 import './styles/MenuList'
 
-const MenuListTemplate = (listItems: MenuItem[]): HTMLElement => {
+const MenuListTemplate = ({
+  listItems
+}: {
+  listItems: MenuItem[]
+}): HTMLElement => {
   const list: HTMLElement = document.createElement('nav')
-  list.classList.add(elementIds.panel.menu.list)
-  list.setAttribute('id', elementIds.panel.menu.list)
+  list.classList.add(MenuList.id)
+  list.setAttribute('id', MenuList.id)
 
   const listFragment: DocumentFragment = document.createDocumentFragment()
   listItems.forEach(listItem => listFragment.append(listItem.self))
@@ -16,7 +19,10 @@ const MenuListTemplate = (listItems: MenuItem[]): HTMLElement => {
 
 export default class MenuList {
   public self: HTMLElement
+  public listItems: MenuItem[]
+  static id: string = 'menu-list'
   constructor({ listItems }: { listItems: MenuItem[] }) {
-    this.self = MenuListTemplate(listItems)
+    this.listItems = listItems
+    this.self = MenuListTemplate({ listItems: this.listItems })
   }
 }
