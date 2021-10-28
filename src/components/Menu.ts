@@ -8,7 +8,7 @@ const Menu = (): HTMLDivElement => {
   menu.classList.add(elementIds.panel.menu.self)
   menu.setAttribute('id', elementIds.panel.menu.self)
   menu.classList.add('hide')
-  const items: MenuItem[] = [
+  const listItems: MenuItem[] = [
     new MenuItem({ href: '#section-1', innerHTML: 'Seccion 1' }),
     new MenuItem({ href: '#section-2', innerHTML: 'Seccion 2' }),
     new MenuItem({ href: '#section-3', innerHTML: 'Seccion 3' }),
@@ -16,8 +16,8 @@ const Menu = (): HTMLDivElement => {
     new MenuItem({ href: '#section-5', innerHTML: 'Seccion 5' }),
     new MenuItem({ href: '#section-7', innerHTML: 'Seccion 6' })
   ]
-  const list = MenuList(items)
-  menu.append(list)
+  const list = new MenuList({ listItems })
+  menu.append(list.self)
   return menu
 }
 
