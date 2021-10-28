@@ -1,4 +1,4 @@
-import MenuButton, { options } from './MenuButton'
+import MenuButton, { icons } from './MenuButton'
 import Menu from './Menu'
 import elementIds from '../elementIds'
 import './styles/Menu'
@@ -7,13 +7,13 @@ const changeIcon = (): void => {
   const icon: HTMLSpanElement = document.querySelector(
     `.${elementIds.panel.button}__icon`
   ) as HTMLSpanElement
-  const isOpen = icon.classList.contains(options.hamburger)
+  const isOpen = icon.classList.contains(icons.hamburger)
   if (isOpen) {
-    icon.classList.remove(options.hamburger)
-    icon.classList.add(options.cross)
+    icon.classList.remove(icons.hamburger)
+    icon.classList.add(icons.cross)
   } else {
-    icon.classList.remove(options.cross)
-    icon.classList.add(options.hamburger)
+    icon.classList.remove(icons.cross)
+    icon.classList.add(icons.hamburger)
   }
 }
 
@@ -41,9 +41,9 @@ const Panel = (): HTMLDivElement => {
   panel.classList.add(elementIds.panel.self)
   panel.setAttribute('id', elementIds.panel.self)
   const menu: HTMLDivElement = Menu()
-  const button = MenuButton()
+  const button = new MenuButton()
   panel.append(menu)
-  panel.append(button)
+  panel.append(button.self)
 
   return panel
 }

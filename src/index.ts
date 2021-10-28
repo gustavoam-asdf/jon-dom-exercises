@@ -1,5 +1,8 @@
 import App from './App'
 
-const root: HTMLElement | null = document.getElementById('root')
-console.clear()
-root?.prepend(App())
+document.addEventListener('DOMContentLoaded', () => {
+  // console.clear()
+  const root: HTMLElement = document.getElementById('root') as HTMLElement
+  const app = App()
+  root.prepend(app)
+})
