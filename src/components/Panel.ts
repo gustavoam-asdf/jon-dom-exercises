@@ -4,10 +4,9 @@ import elementIds from '../elementIds'
 import './styles/Menu'
 
 const changeIcon = (): void => {
-  const icon: HTMLSpanElement | null = document.querySelector(
+  const icon: HTMLSpanElement = document.querySelector(
     `.${elementIds.panel.button}__icon`
-  )
-  if (!icon) throw new Error("Icon doesn't exist")
+  ) as HTMLSpanElement
   const isOpen = icon.classList.contains(options.hamburger)
   if (isOpen) {
     icon.classList.remove(options.hamburger)
@@ -18,10 +17,10 @@ const changeIcon = (): void => {
   }
 }
 
-const clickOnPanel = (evt: any): void => {
+export const panelClickEvent = (evt: any): void => {
   const clickOnButton =
-    evt.target.matches(`#${elementIds.panel.button} *`) ||
-    evt.target.matches(`#${elementIds.panel.button}`)
+    evt.target.matches(`#${elementIds.panel.button}`) ||
+    evt.target.matches(`#${elementIds.panel.button} *`)
   if (clickOnButton) {
     changeIcon()
     document
@@ -45,7 +44,6 @@ const Panel = (): HTMLDivElement => {
   const button = MenuButton()
   panel.append(menu)
   panel.append(button)
-  panel.addEventListener('click', clickOnPanel)
 
   return panel
 }
