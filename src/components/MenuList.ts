@@ -1,4 +1,7 @@
+import Icon from './Icon'
+import { icons } from './MenuButton'
 import MenuItem from './MenuItem'
+import Panel from './Panel'
 import './styles/MenuList'
 
 const MenuListTemplate = ({
@@ -24,5 +27,9 @@ export default class MenuList {
   constructor({ listItems }: { listItems: MenuItem[] }) {
     this.listItems = listItems
     this.self = MenuListTemplate({ listItems: this.listItems })
+  }
+  clickEvent({ icon, panel }: { icon: Icon; panel: Panel }) {
+    icon.switchIcon(icons.hamburger)
+    panel.self.classList.remove('hide')
   }
 }

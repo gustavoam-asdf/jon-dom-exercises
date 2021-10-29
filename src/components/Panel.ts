@@ -1,51 +1,51 @@
-import MenuButton, { icons } from './MenuButton'
+import MenuButton from './MenuButton'
 import Menu from './Menu'
-import elementIds from '../elementIds'
 import './styles/Menu'
+import MenuList from './MenuList'
 
-const changeIcon = (): void => {
-  const icon: HTMLSpanElement = document.querySelector(
-    `.${elementIds.panel.button}__icon`
-  ) as HTMLSpanElement
-  const isOpen = icon.classList.contains(icons.hamburger)
-  if (isOpen) {
-    icon.classList.remove(icons.hamburger)
-    icon.classList.add(icons.cross)
-  } else {
-    icon.classList.remove(icons.cross)
-    icon.classList.add(icons.hamburger)
-  }
-}
-
-export const panelClickEvent = (evt: any): void => {
-  const clickOnButton =
-    evt.target.matches(`#${elementIds.panel.button}`) ||
-    evt.target.matches(`#${elementIds.panel.button} *`)
-  if (clickOnButton) {
-    changeIcon()
-    document
-      .getElementById(elementIds.panel.menu.self)
-      ?.classList.toggle('hide')
-    return
-  }
-  const clickOnMenuItem = evt.target.matches(`#${elementIds.panel.menu.list} *`)
-  if (clickOnMenuItem) {
-    changeIcon()
-    document.getElementById(elementIds.panel.menu.self)?.classList.add('hide')
-    return
-  }
-}
-
-const Panel = (): HTMLDivElement => {
+const PanelTemplate = ({
+  menu,
+  button
+}: {
+  menu: Menu
+  button: MenuButton
+}): HTMLDivElement => {
   const panel: HTMLDivElement = document.createElement('div')
-  panel.classList.add(elementIds.panel.self)
-  panel.setAttribute('id', elementIds.panel.self)
-  const menu = new Menu()
-  const button = new MenuButton()
+  panel.classList.add(Panel.id)
+  panel.setAttribute('id', Panel.id)
   panel.append(menu.self)
   panel.append(button.self)
-
   return panel
 }
 
-export default Panel
+export default class Panel {
+  public self: HTMLDivElement
+  public menu: Menu
+  public button: MenuButton
+  static id: string = 'panel'
+
+  constructor() {
+    this.menu = new Menu()
+    this.button = new MenuButton()
+    this.self = PanelTemplate({
+      menu: this.menu,
+      button: this.button
+    })
+  }
+
+  clickEvent(evt: any) {
+    const clickOnButton =
+      evt.target.matches(`#${MenuButton.id}`) ||
+      evt.target.matches(`#${MenuButton.id} *`)
+    if (clickOnButton) {
+      this.button.clickEvent({ panel: this })
+    }
+    const clickOnMenuItem = evt.target.matches(`#${MenuList.id} *`)
+    if (clickOnMenuItem) {
+      this.menu.list.clickEvent({
+        icon: this.button.icon,
+        panel: this
+      })
+    }
+  }
+}
