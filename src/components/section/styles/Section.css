@@ -5,12 +5,17 @@
 }
 
 .section-title {
+  display: block;
   color: var(--black);
-  border-bottom: 1px solid var(--black);
-  margin: 0;
-  padding: 0.75em 0 0.75em 0.5em;
 }
 
-.section-title a {
-  color: var(--black);
+.section-title h2:hover {
+  background-color: var(--light-grey);
+}
+
+.section-title h2 {
+  margin: 0.4em 0;
+  padding: 0.35em 0 0.35em 0.5em;
+  border-radius: 0.15em;
+  border-bottom: 1px solid var(--black);
 }
