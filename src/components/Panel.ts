@@ -38,13 +38,13 @@ export default class Panel {
       evt.target.matches(`#${MenuButton.id}`) ||
       evt.target.matches(`#${MenuButton.id} *`)
     if (clickOnButton) {
-      this.button.clickEvent({ panel: this })
+      this.button.clickEvent({ menu: this.menu })
     }
     const clickOnMenuItem = evt.target.matches(`#${MenuList.id} *`)
     if (clickOnMenuItem) {
       this.menu.list.clickEvent({
         icon: this.button.icon,
-        panel: this
+        menu: this.menu
       })
     }
   }

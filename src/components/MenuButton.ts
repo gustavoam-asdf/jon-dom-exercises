@@ -1,4 +1,5 @@
 import Icon from './Icon'
+import Menu from './Menu'
 import Panel from './Panel'
 import './styles/MenuButton'
 
@@ -26,8 +27,8 @@ export default class MenuButton {
     this.self = MenuButtonTemplate(this.icon)
   }
 
-  clickEvent({ panel }: { panel: Panel }) {
+  clickEvent({ menu }: { menu: Menu }) {
     this.icon.switchIcon(icons.hamburger)
-    panel.self?.classList.toggle('hide')
+    menu.self.classList.toggle('hide')
   }
 }
