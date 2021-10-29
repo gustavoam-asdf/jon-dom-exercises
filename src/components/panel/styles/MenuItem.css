@@ -7,6 +7,7 @@
   cursor: pointer;
   user-select: none;
   transition: all 0.3s ease;
+  border-radius: var(--border-radius);
 }
 
 .menu-item:hover {
