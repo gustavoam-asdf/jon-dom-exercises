@@ -1,4 +1,4 @@
-import './styles/MenuItem'
+import '../styles/MenuItem'
 
 const MenuItemTemplate = ({
   href = '#',

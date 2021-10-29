@@ -1,5 +1,5 @@
 import Header from './components/Header'
-import Panel from './components/Panel'
+import Panel from './components/panel/Panel'
 import 'normalize.css'
 import './index.css'
 

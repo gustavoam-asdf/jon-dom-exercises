@@ -1,7 +1,6 @@
-import Icon from './Icon'
+import Icon from '../Icon'
 import Menu from './Menu'
-import Panel from './Panel'
-import './styles/MenuButton'
+import '../styles/MenuButton'
 
 export const icons = { hamburger: 'fa-bars', cross: 'fa-times' }
 

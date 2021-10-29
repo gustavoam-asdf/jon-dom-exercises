@@ -1,6 +1,6 @@
 import MenuButton from './MenuButton'
 import Menu from './Menu'
-import './styles/Menu'
+import '../styles/Menu'
 import MenuList from './MenuList'
 
 const PanelTemplate = ({

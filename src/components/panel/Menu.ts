@@ -1,6 +1,6 @@
 import MenuItem from './MenuItem'
 import MenuList from './MenuList'
-import './styles/Menu'
+import '../styles/Menu'
 
 const MenuTemplate = ({ list }: { list: MenuList }): HTMLDivElement => {
   const menu: HTMLDivElement = document.createElement('div')
