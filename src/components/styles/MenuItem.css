@@ -1,6 +1,6 @@
 .menu-item {
   display: block;
-  color: var(--black);
+  color: var(--yellow);
   text-decoration: none;
   font-weight: 600;
   font-size: 1.5em;
@@ -8,8 +8,10 @@
   text-align: center;
   cursor: pointer;
   user-select: none;
+  transition: all 0.3s ease;
 }
 
 .menu-item:hover {
-  background-color: var(--old-gold);
+  background-color: var(--gold);
+  color: var(--black);
 }
