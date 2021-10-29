@@ -3,12 +3,13 @@ import MenuList from './MenuList'
 import sections from '../../Sections'
 import './styles/Menu'
 
-const listItems = sections.map(({ title, href }) => {
-  return new MenuItem({
-    href,
-    innerHTML: `<strong>Sección: </strong>${title}`
-  })
-})
+const itemsList: MenuItem[] = sections.map(
+  ({ title, href }) =>
+    new MenuItem({
+      href,
+      innerHTML: `<strong>Sección: </strong>${title}`
+    })
+)
 
 const MenuTemplate = ({ list }: { list: MenuList }): HTMLDivElement => {
   const menu: HTMLDivElement = document.createElement('div')
@@ -24,7 +25,7 @@ export default class Menu {
   static className: string = 'menu'
 
   constructor() {
-    this.list = new MenuList({ listItems })
+    this.list = new MenuList({ itemsList })
     this.self = MenuTemplate({ list: this.list })
   }
 }

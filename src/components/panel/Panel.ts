@@ -1,7 +1,7 @@
 import MenuButton from './MenuButton'
 import Menu from './Menu'
 import MenuList from './MenuList'
-import './styles/Menu'
+import './styles/Panel'
 
 const PanelTemplate = ({
   menu,
@@ -39,7 +39,7 @@ export default class Panel {
     if (clickOnButton) {
       this.button.clickEvent({ menu: this.menu })
     }
-    const clickOnMenuItem = evt.target.matches(`.${MenuList.className} a`)
+    const clickOnMenuItem = evt.target.matches(`.${MenuList.className} *`)
     if (clickOnMenuItem) {
       this.menu.list.clickEvent({
         icon: this.button.icon,

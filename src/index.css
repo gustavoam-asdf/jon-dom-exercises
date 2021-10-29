@@ -16,7 +16,8 @@
   --old-gold: #d6b708;
   --dark-grey: #adaaaa;
   --black: #0e0c0c;
-  --black-transparent: #0000008f;
+  --white: #fafafa;
+  --black-transparent: #000000b4;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   --z-index-normal: 0;
   --z-index-modal: 1;
@@ -25,5 +26,8 @@
 
 html {
   box-sizing: border-box;
-  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--white);
 }

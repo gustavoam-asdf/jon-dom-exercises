@@ -5,14 +5,14 @@ import MenuItem from './MenuItem'
 import './styles/MenuList'
 
 const MenuListTemplate = ({
-  listItems
+  itemsList
 }: {
-  listItems: MenuItem[]
+  itemsList: MenuItem[]
 }): HTMLElement => {
   const list: HTMLElement = document.createElement('nav')
   list.classList.add(MenuList.className)
   const listFragment: DocumentFragment = document.createDocumentFragment()
-  listItems.forEach(listItem => listFragment.append(listItem.self))
+  itemsList.forEach(listItem => listFragment.append(listItem.self))
   list.append(listFragment)
 
   return list
@@ -20,11 +20,11 @@ const MenuListTemplate = ({
 
 export default class MenuList {
   public self: HTMLElement
-  public listItems: MenuItem[]
+  public itemsList: MenuItem[]
   static className: string = 'menu-list'
-  constructor({ listItems }: { listItems: MenuItem[] }) {
-    this.listItems = listItems
-    this.self = MenuListTemplate({ listItems: this.listItems })
+  constructor({ itemsList }: { itemsList: MenuItem[] }) {
+    this.itemsList = itemsList
+    this.self = MenuListTemplate({ itemsList: this.itemsList })
   }
   clickEvent({ icon, menu }: { icon: Icon; menu: Menu }) {
     icon.switchIcon(icons.hamburger)
