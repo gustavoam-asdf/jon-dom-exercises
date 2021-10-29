@@ -4,8 +4,7 @@ import '../styles/Menu'
 
 const MenuTemplate = ({ list }: { list: MenuList }): HTMLDivElement => {
   const menu: HTMLDivElement = document.createElement('div')
-  menu.classList.add(Menu.id)
-  menu.setAttribute('id', Menu.id)
+  menu.classList.add(Menu.className)
   menu.classList.add('hide')
   menu.append(list.self)
   return menu
@@ -14,7 +13,7 @@ const MenuTemplate = ({ list }: { list: MenuList }): HTMLDivElement => {
 export default class Menu {
   public self: HTMLDivElement
   public list: MenuList
-  static id: string = 'menu'
+  static className: string = 'menu'
 
   constructor() {
     this.list = new MenuList({

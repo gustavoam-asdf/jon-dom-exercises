@@ -10,9 +10,7 @@ const MenuListTemplate = ({
   listItems: MenuItem[]
 }): HTMLElement => {
   const list: HTMLElement = document.createElement('nav')
-  list.classList.add(MenuList.id)
-  list.setAttribute('id', MenuList.id)
-
+  list.classList.add(MenuList.className)
   const listFragment: DocumentFragment = document.createDocumentFragment()
   listItems.forEach(listItem => listFragment.append(listItem.self))
   list.append(listFragment)
@@ -23,7 +21,7 @@ const MenuListTemplate = ({
 export default class MenuList {
   public self: HTMLElement
   public listItems: MenuItem[]
-  static id: string = 'menu-list'
+  static className: string = 'menu-list'
   constructor({ listItems }: { listItems: MenuItem[] }) {
     this.listItems = listItems
     this.self = MenuListTemplate({ listItems: this.listItems })
