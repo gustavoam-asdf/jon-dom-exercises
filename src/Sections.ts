@@ -1,8 +1,8 @@
 const sections = [
   {
-    id: 'section-1',
+    id: 'relojes',
     title: 'Relojes',
-    href: '#section-1'
+    href: '#relojes'
   },
   {
     id: 'section-2',

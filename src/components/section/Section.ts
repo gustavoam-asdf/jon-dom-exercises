@@ -6,7 +6,7 @@ const SectionTemplate = ({
   title
 }: {
   id?: string
-  title?: string
+  title: string
 }): HTMLElement => {
   const section: HTMLElement = document.createElement('section')
   section.classList.add(Section.className)
