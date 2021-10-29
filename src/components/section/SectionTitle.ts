@@ -1,5 +1,6 @@
 const SectionTitleTemplate = ({ title }: { title: string }): HTMLElement => {
   const h2: HTMLElement = document.createElement('h2')
+  h2.classList.add(SectionTitle.className)
   h2.innerHTML = title
   return h2
 }

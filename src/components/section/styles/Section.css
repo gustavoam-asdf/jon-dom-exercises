@@ -1,7 +1,11 @@
 .section {
-  padding: 0;
-  margin: 0;
-  width: 100%;
+  width: 95%;
   height: 100vh;
   display: block;
+}
+
+.section-title {
+  border-bottom: 1px solid var(--black);
+  margin: 0;
+  padding: 0.5em 0;
 }
