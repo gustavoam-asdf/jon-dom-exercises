@@ -1,6 +1,14 @@
 import MenuItem from './MenuItem'
 import MenuList from './MenuList'
-import '../styles/Menu'
+import sections from '../../Sections'
+import '../styles/panel/Menu'
+
+const listItems = sections.map(({ title, href }) => {
+  return new MenuItem({
+    href,
+    innerHTML: `<strong>Sección: </strong>${title}`
+  })
+})
 
 const MenuTemplate = ({ list }: { list: MenuList }): HTMLDivElement => {
   const menu: HTMLDivElement = document.createElement('div')
@@ -16,16 +24,7 @@ export default class Menu {
   static className: string = 'menu'
 
   constructor() {
-    this.list = new MenuList({
-      listItems: [
-        new MenuItem({ href: '#section-1', innerHTML: 'Seccion 1' }),
-        new MenuItem({ href: '#section-2', innerHTML: 'Seccion 2' }),
-        new MenuItem({ href: '#section-3', innerHTML: 'Seccion 3' }),
-        new MenuItem({ href: '#section-4', innerHTML: 'Seccion 4' }),
-        new MenuItem({ href: '#section-5', innerHTML: 'Seccion 5' }),
-        new MenuItem({ href: '#section-7', innerHTML: 'Seccion 6' })
-      ]
-    })
+    this.list = new MenuList({ listItems })
     this.self = MenuTemplate({ list: this.list })
   }
 }
