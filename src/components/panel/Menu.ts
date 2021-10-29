@@ -1,7 +1,7 @@
 import MenuItem from './MenuItem'
 import MenuList from './MenuList'
 import sections from '../../Sections'
-import '../styles/panel/Menu'
+import './styles/Menu'
 
 const listItems = sections.map(({ title, href }) => {
   return new MenuItem({
