@@ -5,13 +5,16 @@ const SectionTemplate = ({
   id,
   title
 }: {
-  id?: string
+  id: string
   title: string
 }): HTMLElement => {
   const section: HTMLElement = document.createElement('section')
   section.classList.add(Section.className)
   id ? section.setAttribute('id', id) : 0
-  const h2: SectionTitle = new SectionTitle({ title })
+  const h2: SectionTitle = new SectionTitle({
+    title,
+    id
+  })
   section.appendChild(h2.self)
   return section
 }
@@ -20,7 +23,7 @@ export default class Section {
   public self: HTMLElement
   static className: string = 'section'
 
-  constructor({ id, title }: { id?: string; title: string }) {
+  constructor({ id, title }: { id: string; title: string }) {
     this.self = SectionTemplate({ id, title })
   }
 }

@@ -32,3 +32,7 @@ html {
 body {
   background-color: var(--white);
 }
+
+a {
+  text-decoration: none;
+}
