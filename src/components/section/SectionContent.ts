@@ -1,7 +1,7 @@
 const SectionContentTemplate = ({
   children
 }: {
-  children?: HTMLElement[] | HTMLElement
+  children: HTMLElement[] | HTMLElement
 }): DocumentFragment => {
   const content = document.createDocumentFragment()
   if (Array.isArray(children)) {
@@ -15,7 +15,9 @@ const SectionContentTemplate = ({
 
 export default class SectionContent {
   public self: DocumentFragment
-  constructor({ children }: { children?: HTMLElement[] }) {
-    this.self = SectionContentTemplate({ children })
+  public children: HTMLElement[] | HTMLElement
+  constructor({ children = [] }: { children?: HTMLElement[] | HTMLElement }) {
+    this.children = children
+    this.self = SectionContentTemplate({ children: this.children })
   }
 }
