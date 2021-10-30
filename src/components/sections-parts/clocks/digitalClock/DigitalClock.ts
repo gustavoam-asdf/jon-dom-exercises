@@ -8,7 +8,7 @@ const DigitalClockTemplate = (): HTMLDivElement => {
   const controller: ClockController = new ClockController({
     text: 'Iniciar reloj'
   })
-  const clock: Clock = new Clock({})
+  const clock: Clock = new Clock()
   section.appendChild(controller.self)
   section.appendChild(clock.self)
   setInterval(() => {
