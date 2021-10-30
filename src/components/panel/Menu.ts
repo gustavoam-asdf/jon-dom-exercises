@@ -1,9 +1,9 @@
 import MenuItem from './MenuItem'
 import MenuList from './MenuList'
-import sections from '../../Sections'
+import list from '../sections-parts/list'
 import './styles/Menu'
 
-const itemsList: MenuItem[] = sections.map(
+const itemsList: MenuItem[] = list.map(
   ({ title, href }) =>
     new MenuItem({
       href,

@@ -11,5 +11,5 @@
     //   "@assets":["modulos"]
     // }
   },
-  "include": ["src/*", "src/components/panel"]
+  "include": ["src/*", "src/components/sections-parts"]
 }

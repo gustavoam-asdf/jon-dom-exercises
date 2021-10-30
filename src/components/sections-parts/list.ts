@@ -1,8 +1,12 @@
-const sections = [
+import SectionContent from '../section/SectionContent'
+import DigitalClock from './clocks/digitalClock/DigitalClock'
+
+const list = [
   {
-    id: 'relojes',
+    id: 'clocks',
     title: 'Relojes',
-    href: '#relojes'
+    href: '#clocks',
+    content: new SectionContent({ children: new DigitalClock().self })
   },
   {
     id: 'section-2',
@@ -36,6 +40,6 @@ const sections = [
   }
 ]
 
-Object.freeze(sections)
+Object.freeze(list)
 
-export default sections
+export default list
