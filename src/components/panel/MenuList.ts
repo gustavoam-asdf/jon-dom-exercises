@@ -27,7 +27,7 @@ export default class MenuList {
     this.self = MenuListTemplate({ itemsList: this.itemsList })
   }
   clickEvent({ icon, menu }: { icon: Icon; menu: Menu }) {
-    icon.switchIcon(icons.hamburger)
+    icon.switchIcon(icons.cross)
     menu.self.classList.add('hide')
   }
 }
