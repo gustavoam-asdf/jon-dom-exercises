@@ -1,9 +1,9 @@
-import './styles/Header'
+import "./styles/Header"
 
 const Header = (): HTMLElement => {
-  const header = document.createElement('header')
-  header.classList.add('main-header')
-  header.innerHTML = 'Ejercicios del DOM'
+  const header = document.createElement("header")
+  header.classList.add("main-header")
+  header.innerHTML = "Ejercicios del DOM"
 
   return header
 }

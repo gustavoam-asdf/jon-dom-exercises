@@ -1,6 +1,6 @@
-import SectionContent from './SectionContent'
-import SectionTitle from './SectionTitle'
-import './styles/Section'
+import SectionContent from "./SectionContent"
+import SectionTitle from "./SectionTitle"
+import "./styles/Section"
 
 const SectionTemplate = ({
   id,
@@ -11,9 +11,9 @@ const SectionTemplate = ({
   title: SectionTitle
   content?: SectionContent
 }): HTMLElement => {
-  const section: HTMLElement = document.createElement('section')
+  const section: HTMLElement = document.createElement("section")
   section.classList.add(Section.className)
-  id ? section.setAttribute('id', id) : 0
+  id ? section.setAttribute("id", id) : 0
   section.appendChild(title.self)
   content ? section.appendChild(content.self) : 0
   return section
@@ -23,7 +23,7 @@ export default class Section {
   public self: HTMLElement
   public title: SectionTitle
   public content: SectionContent
-  static className: string = 'section'
+  static className = "section"
 
   constructor({
     id,

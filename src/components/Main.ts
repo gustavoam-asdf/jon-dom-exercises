@@ -1,6 +1,6 @@
-import Section from './section/Section'
-import list from './sections-parts/list'
-import './styles/Main'
+import Section from "./section/Section"
+import list from "./sections-parts/list"
+import "./styles/Main"
 
 const sectionsList: Section[] = list.map(
   ({ id, title, content }) => new Section({ id, title, content })
@@ -11,7 +11,7 @@ const MainTemplate = ({
 }: {
   sectionsList: Section[]
 }): HTMLElement => {
-  const main = document.createElement('main')
+  const main = document.createElement("main")
   main.classList.add(Main.className)
   const fragment: DocumentFragment = document.createDocumentFragment()
   sectionsList.forEach(section => fragment.appendChild(section.self))
@@ -22,7 +22,7 @@ const MainTemplate = ({
 export default class Main {
   public self: HTMLElement
   public sectionsList: Section[]
-  static className: string = 'main'
+  static className = "main"
 
   constructor() {
     this.sectionsList = sectionsList

@@ -5,19 +5,19 @@ const SectionTitleTemplate = ({
   title: string
   id: string
 }): HTMLElement => {
-  const a: HTMLElement = document.createElement('a')
+  const a: HTMLElement = document.createElement("a")
   a.classList.add(SectionTitle.className)
-  a.setAttribute('href', `#${id}`)
+  a.setAttribute("href", `#${id}`)
   a.innerHTML = `<h2>${title}</h2>`
   return a
 }
 
 export default class SectionTitle {
   public self: HTMLElement
-  static className: string = 'section-title'
+  static className = "section-title"
 
   constructor({
-    title = 'Título de sección',
+    title = "Título de sección",
     id
   }: {
     title?: string

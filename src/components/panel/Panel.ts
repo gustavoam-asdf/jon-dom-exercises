@@ -1,7 +1,7 @@
-import MenuButton from './MenuButton'
-import Menu from './Menu'
-import MenuList from './MenuList'
-import './styles/Panel'
+import MenuButton from "./MenuButton"
+import Menu from "./Menu"
+import MenuList from "./MenuList"
+import "./styles/Panel"
 
 const PanelTemplate = ({
   menu,
@@ -10,7 +10,7 @@ const PanelTemplate = ({
   menu: Menu
   button: MenuButton
 }): HTMLDivElement => {
-  const panel: HTMLDivElement = document.createElement('div')
+  const panel: HTMLDivElement = document.createElement("div")
   panel.classList.add(Panel.className)
   panel.append(menu.self)
   panel.append(button.self)
@@ -21,7 +21,7 @@ export default class Panel {
   public self: HTMLDivElement
   public menu: Menu
   public button: MenuButton
-  static className: string = 'panel'
+  static className = "panel"
 
   constructor() {
     this.menu = new Menu()

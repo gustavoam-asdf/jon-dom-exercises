@@ -3,7 +3,7 @@ const ClockControllerTemplate = ({
 }: {
   text: string
 }): HTMLButtonElement => {
-  const section: HTMLButtonElement = document.createElement('button')
+  const section: HTMLButtonElement = document.createElement("button")
   section.classList.add(ClockController.className)
   section.innerHTML = text
   return section
@@ -11,9 +11,9 @@ const ClockControllerTemplate = ({
 
 export default class ClockController {
   public self: HTMLButtonElement
-  static className: string = 'clock-controller'
+  static className = "clock-controller"
 
-  constructor({ text = 'Push me' }: { text?: string }) {
+  constructor({ text = "Push me" }: { text?: string }) {
     this.self = ClockControllerTemplate({ text })
   }
 }

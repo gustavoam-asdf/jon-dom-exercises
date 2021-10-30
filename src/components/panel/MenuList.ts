@@ -1,15 +1,15 @@
-import Icon from '../Icon'
-import Menu from './Menu'
-import { icons } from './MenuButton'
-import MenuItem from './MenuItem'
-import './styles/MenuList'
+import Icon from "../Icon"
+import Menu from "./Menu"
+import { icons } from "./MenuButton"
+import MenuItem from "./MenuItem"
+import "./styles/MenuList"
 
 const MenuListTemplate = ({
   itemsList
 }: {
   itemsList: MenuItem[]
 }): HTMLElement => {
-  const list: HTMLElement = document.createElement('nav')
+  const list: HTMLElement = document.createElement("nav")
   list.classList.add(MenuList.className)
   const listFragment: DocumentFragment = document.createDocumentFragment()
   itemsList.forEach(listItem => listFragment.append(listItem.self))
@@ -21,13 +21,13 @@ const MenuListTemplate = ({
 export default class MenuList {
   public self: HTMLElement
   public itemsList: MenuItem[]
-  static className: string = 'menu-list'
+  static className = "menu-list"
   constructor({ itemsList }: { itemsList: MenuItem[] }) {
     this.itemsList = itemsList
     this.self = MenuListTemplate({ itemsList: this.itemsList })
   }
   clickEvent({ icon, menu }: { icon: Icon; menu: Menu }) {
     icon.switchIcon(icons.cross)
-    menu.self.classList.add('hide')
+    menu.self.classList.add("hide")
   }
 }

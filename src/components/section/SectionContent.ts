@@ -9,7 +9,7 @@ const SectionContentTemplate = ({
   } else if (children instanceof HTMLElement) {
     content.appendChild(children)
   } else {
-    const tmp = document.createElement('div')
+    const tmp = document.createElement("div")
     tmp.outerHTML = children
     content.appendChild(tmp)
   }
