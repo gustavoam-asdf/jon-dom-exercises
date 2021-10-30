@@ -16,4 +16,8 @@ export default class ClockController {
   constructor({ text = "Push me" }: { text?: string }) {
     this.self = ClockControllerTemplate({ text })
   }
+
+  changeText(text: string) {
+    this.self.innerHTML = text
+  }
 }

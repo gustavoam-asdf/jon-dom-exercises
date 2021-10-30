@@ -2,14 +2,16 @@ import Clock from "./Clock"
 import ClockController from "./ClockController"
 import "./styles/DigitalClock"
 
-const DigitalClockTemplate = (): HTMLDivElement => {
+const DigitalClockTemplate = ({
+  controller,
+  clock
+}: {
+  controller: ClockController
+  clock: Clock
+}): HTMLDivElement => {
   const section: HTMLDivElement = document.createElement("div")
   section.classList.add(DigitalClock.className)
 
-  const controller: ClockController = new ClockController({
-    text: "Iniciar reloj"
-  })
-  const clock: Clock = new Clock()
   section.appendChild(controller.self)
   section.appendChild(clock.self)
 
@@ -22,9 +24,29 @@ const DigitalClockTemplate = (): HTMLDivElement => {
 
 export default class DigitalClock {
   public self: HTMLDivElement
+  public controller: ClockController
+  public clock: Clock
   static className = "digital-clock"
 
   constructor() {
-    this.self = DigitalClockTemplate()
+    this.controller = new ClockController({
+      text: "Iniciar reloj"
+    })
+    this.controller.self.addEventListener("click", () => this.clickEvent())
+    this.clock = new Clock()
+    this.self = DigitalClockTemplate({
+      controller: this.controller,
+      clock: this.clock
+    })
+  }
+
+  clickEvent() {
+    if (this.clock.isShown) {
+      this.controller.changeText("Detener reloj")
+      this.clock.hide()
+    } else {
+      this.controller.changeText("Iniciar reloj")
+      this.clock.show()
+    }
   }
 }

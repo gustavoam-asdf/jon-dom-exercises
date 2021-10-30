@@ -26,16 +26,19 @@ const ClockTemplate = ({
 }: Time): HTMLDivElement => {
   const clock: HTMLDivElement = document.createElement("div")
   clock.classList.add(Clock.className)
-  clock.innerHTML = `${hours} ${separator} ${minutes} ${separator} ${seconds}`
+  clock.classList.add("hide")
+  clock.innerHTML = `${hours}${separator}${minutes}${separator}${seconds}`
   return clock
 }
 
 export default class Clock {
   public self: HTMLDivElement
   public currTime: Time
+  public isShown: boolean
   static className = "clock"
 
   constructor() {
+    this.isShown = false
     this.currTime = clockParts(new Date().toLocaleTimeString())
     this.self = ClockTemplate(this.currTime)
   }
@@ -53,5 +56,15 @@ export default class Clock {
       $(`.${Clock.className}-part.seconds`)!.outerHTML = newTime.seconds
     }
     this.currTime = newTime
+  }
+
+  show() {
+    this.self.classList.remove("hide")
+    this.isShown = true
+  }
+
+  hide() {
+    this.self.classList.add("hide")
+    this.isShown = false
   }
 }
