@@ -1,9 +1,9 @@
 import Section from './section/Section'
-import sections from '../Sections'
+import list from './sections-parts/list'
 import './styles/Main'
 
-const sectionsList: Section[] = sections.map(
-  section => new Section({ id: section.id, title: section.title })
+const sectionsList: Section[] = list.map(
+  ({ id, title, content }) => new Section({ id, title, content })
 )
 
 const MainTemplate = ({
