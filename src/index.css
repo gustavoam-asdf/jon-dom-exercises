@@ -6,6 +6,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Clock';
+  src: url(../assets/fonts/DS-DIGI.TTF) format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
 .nf {
   font-family: 'NerdFont';
 }
@@ -14,6 +21,7 @@
   --yellow: #f7df1e;
   --gold: #ffd700;
   --old-gold: #d6b708;
+  --orange: #ffad16;
   --light-grey: #e0e0e0;
   --dark-grey: #adaaaa;
   --black: #0e0c0c;

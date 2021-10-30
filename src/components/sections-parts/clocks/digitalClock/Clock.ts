@@ -12,13 +12,15 @@ const clockParts = (time: string): Time => {
   return { hours, minutes, seconds }
 }
 
-const printTime = ({ hours, minutes, seconds }: Time) => `
-  <span class="${Clock.className}-part hour">${hours}</span>
-  <span class="${Clock.className}-part separator" >:</span>
-  <span class="${Clock.className}-part minute">${minutes}</span>
-  <span class="${Clock.className}-part separator">:</span>
-  <span class="${Clock.className}-part second">${seconds}</span>
-`
+const printTime = ({ hours, minutes, seconds }: Time): string => {
+  return `
+    <span class="${Clock.className}-part hour">${hours}</span>
+    <span class="${Clock.className}-part separator" >:</span>
+    <span class="${Clock.className}-part minutes">${minutes}</span>
+    <span class="${Clock.className}-part separator">:</span>
+    <span class="${Clock.className}-part second">${seconds}</span>
+  `
+}
 
 const ClockTemplate = (): HTMLDivElement => {
   const clock: HTMLDivElement = document.createElement('div')

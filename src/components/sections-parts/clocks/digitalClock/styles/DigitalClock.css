@@ -1,0 +1,48 @@
+.digital-clock {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock {
+  font-family: 'Clock';
+  font-size: 2em;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-betweens;
+}
+
+.clock-part {
+  text-align: center;
+}
+
+.hour,
+.minute,
+.second {
+  width: 1.1em;
+}
+
+.separator {
+  width: 0.25em;
+}
+
+.clock-controller {
+  border: 0;
+  border-radius: var(--border-radius);
+  background-color: var(--gold);
+  color: var(--black);
+  padding: 0.5em 1em;
+  font-size: 1.25em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clock-controller:hover,
+.clock-controller:focus,
+.clock-controller:active {
+  background-color: var(--orange);
+}

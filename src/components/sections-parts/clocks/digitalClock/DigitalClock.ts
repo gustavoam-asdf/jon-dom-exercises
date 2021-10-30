@@ -1,5 +1,6 @@
 import Clock from './Clock'
 import ClockController from './ClockController'
+import './styles/DigitalClock'
 
 const DigitalClockTemplate = (): HTMLDivElement => {
   const section: HTMLDivElement = document.createElement('div')
