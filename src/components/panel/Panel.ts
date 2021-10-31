@@ -32,12 +32,13 @@ export default class Panel {
     })
   }
 
-  clickEvent(evt: any) {
+  clickEvent(evt: any): boolean {
     const clickOnButton =
       evt.target.matches(`.${MenuButton.className}`) ||
       evt.target.matches(`.${MenuButton.className} *`)
     if (clickOnButton) {
       this.button.clickEvent({ menu: this.menu })
+      return true
     }
     const clickOnMenuItem = evt.target.matches(`.${MenuList.className} *`)
     if (clickOnMenuItem) {
@@ -45,6 +46,8 @@ export default class Panel {
         icon: this.button.icon,
         menu: this.menu
       })
+      return true
     }
+    return false
   }
 }

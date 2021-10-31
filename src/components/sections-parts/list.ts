@@ -6,7 +6,7 @@ const list = [
     id: "clocks",
     title: "Relojes",
     href: "#clocks",
-    content: new SectionContent({ children: new DigitalClock().self })
+    content: new SectionContent({ children: new DigitalClock() })
   },
   {
     id: "section-2",

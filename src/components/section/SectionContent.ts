@@ -1,26 +1,27 @@
 const SectionContentTemplate = ({
   children
 }: {
-  children: HTMLElement[] | HTMLElement
+  children: SectionChild[] | SectionChild
 }): DocumentFragment => {
   const content = document.createDocumentFragment()
   if (Array.isArray(children)) {
-    children.forEach(child => content.appendChild(child))
-  } else if (children instanceof HTMLElement) {
-    content.appendChild(children)
+    children.forEach(child => content.appendChild(child.self))
   } else {
-    const tmp = document.createElement("div")
-    tmp.outerHTML = children
-    content.appendChild(tmp)
+    content.appendChild(children.self)
   }
 
   return content
 }
 
+export interface SectionChild {
+  self: HTMLElement
+  clickEvent?: (evt: any) => boolean
+}
+
 export default class SectionContent {
   public self: DocumentFragment
-  public children: HTMLElement[] | HTMLElement
-  constructor({ children = [] }: { children?: HTMLElement[] | HTMLElement }) {
+  public children: SectionChild[] | SectionChild
+  constructor({ children = [] }: { children?: SectionChild[] | SectionChild }) {
     this.children = children
     this.self = SectionContentTemplate({ children: this.children })
   }

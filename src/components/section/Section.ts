@@ -9,7 +9,7 @@ const SectionTemplate = ({
 }: {
   id: string
   title: SectionTitle
-  content?: SectionContent
+  content: SectionContent
 }): HTMLElement => {
   const section: HTMLElement = document.createElement("section")
   section.classList.add(Section.className)

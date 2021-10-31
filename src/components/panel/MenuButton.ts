@@ -26,7 +26,6 @@ export default class MenuButton {
   }
 
   clickEvent({ menu }: { menu: Menu }) {
-    console.log("Hola")
     this.icon.switchIcon(icons.cross)
     menu.self.classList.toggle("hide")
   }
