@@ -145,9 +145,6 @@ var SectionContent = /** @class */ (function () {
 
 ;// CONCATENATED MODULE: ./src/components/sections-parts/clocks/digitalClock/Clock.ts
 var clockParts = function (time) {
-    if (time.length !== 8) {
-        throw new Error("Invalid time format");
-    }
     var _a = time.split(":"), hours = _a[0], minutes = _a[1], seconds = _a[2];
     return {
         hours: "<span class=\"" + Clock.className + "-part hours\">" + hours + "</span>",
