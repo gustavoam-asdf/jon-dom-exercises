@@ -26,7 +26,8 @@
 
 .hours,
 .minutes,
-.seconds {
+.seconds,
+.format {
   width: 1.2em;
 }
 
