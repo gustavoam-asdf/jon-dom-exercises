@@ -1,3 +1,5 @@
+import Clock from "./Clock"
+
 const ClockControllerTemplate = ({
   text
 }: {
@@ -13,11 +15,17 @@ export default class ClockController {
   public self: HTMLButtonElement
   static className = "clock-controller"
 
-  constructor({ text = "Push me" }: { text?: string }) {
+  constructor({ text }: { text: string }) {
     this.self = ClockControllerTemplate({ text })
   }
 
   changeText(text: string) {
     this.self.innerHTML = text
+  }
+
+  static updater({ clock }: { clock: Clock }): NodeJS.Timer {
+    return setInterval(() => {
+      clock.update()
+    }, 1000)
   }
 }

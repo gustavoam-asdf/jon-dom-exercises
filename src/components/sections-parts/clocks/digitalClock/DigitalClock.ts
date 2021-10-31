@@ -15,10 +15,6 @@ const DigitalClockTemplate = ({
   section.appendChild(controller.self)
   section.appendChild(clock.self)
 
-  const updater: NodeJS.Timer = setInterval(() => {
-    clock.update()
-  }, 1000)
-
   return section
 }
 
@@ -26,14 +22,15 @@ export default class DigitalClock {
   public self: HTMLDivElement
   public controller: ClockController
   public clock: Clock
+  private updater?: NodeJS.Timer
   static className = "digital-clock"
 
   constructor() {
+    this.clock = new Clock()
     this.controller = new ClockController({
       text: "Iniciar reloj"
     })
     this.controller.self.addEventListener("click", () => this.clickEvent())
-    this.clock = new Clock()
     this.self = DigitalClockTemplate({
       controller: this.controller,
       clock: this.clock
@@ -42,10 +39,13 @@ export default class DigitalClock {
 
   clickEvent() {
     if (this.clock.isShown) {
-      this.controller.changeText("Detener reloj")
+      this.controller.changeText("Iniciar reloj")
+      this.updater ? clearInterval(this.updater) : 0
       this.clock.hide()
     } else {
-      this.controller.changeText("Iniciar reloj")
+      this.controller.changeText("Detener reloj")
+      this.clock.update()
+      this.updater = ClockController.updater({ clock: this.clock })
       this.clock.show()
     }
   }
