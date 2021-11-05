@@ -7,5 +7,5 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/*", "src/components/sections-parts"]
+  "include": ["src/*", "types/*"]
 }

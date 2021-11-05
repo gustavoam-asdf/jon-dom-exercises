@@ -28,8 +28,8 @@ const cssRule = {
   use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
 }
 
-const imageLoader = {
-  test: /\.(jpe?g|png|gif|svg)$/i,
+const mediaLoader = {
+  test: /\.(jpe?g|png|gif|svg|mp3)$/i,
   type: "asset/resource"
 }
 
@@ -38,7 +38,7 @@ const fontLoader = {
   type: "asset/resource"
 }
 
-const rules = [tsRule, cssRule, imageLoader, fontLoader]
+const rules = [tsRule, cssRule, mediaLoader, fontLoader]
 
 const optimization = {
   minimize: true,
