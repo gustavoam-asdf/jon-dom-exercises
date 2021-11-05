@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CssMinimizePlugin = require("css-minimizer-webpack-plugin")
 const Autoprefixer = require("autoprefixer")
+const TerserPlugin = require("terser-webpack-plugin")
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: "template/index.html",
@@ -39,6 +40,30 @@ const fontLoader = {
 
 const rules = [tsRule, cssRule, imageLoader, fontLoader]
 
+const optimization = {
+  minimize: true,
+  minimizer: [
+    new CssMinimizePlugin({
+      minimizerOptions: {
+        preset: [
+          "default",
+          {
+            discardComments: { removeAll: true }
+          }
+        ]
+      }
+    }),
+    new TerserPlugin({
+      terserOptions: {
+        format: {
+          comments: false
+        }
+      },
+      extractComments: false
+    })
+  ]
+}
+
 module.exports = (env, argv) => {
   const { mode } = argv
   const isProduction = mode === "production"
@@ -55,9 +80,7 @@ module.exports = (env, argv) => {
       filename: isProduction ? "[name].[contenthash].js" : "main.js",
       path: path.resolve(__dirname, "build")
     },
-    optimization: {
-      minimizer: [new CssMinimizePlugin()]
-    },
+    optimization,
     performance: {
       hints: false
     },
