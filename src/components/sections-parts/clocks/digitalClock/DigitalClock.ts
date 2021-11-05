@@ -10,13 +10,13 @@ const DigitalClockTemplate = ({
   controller: ClockController
   clock: Clock
 }): HTMLDivElement => {
-  const section: HTMLDivElement = document.createElement("div")
-  section.classList.add(DigitalClock.className)
+  const digitalClock: HTMLDivElement = document.createElement("div")
+  digitalClock.classList.add(DigitalClock.className)
 
-  section.appendChild(controller.self)
-  section.appendChild(clock.self)
+  digitalClock.appendChild(controller.self)
+  digitalClock.appendChild(clock.self)
 
-  return section
+  return digitalClock
 }
 
 export default class DigitalClock implements SectionChild {
@@ -39,19 +39,17 @@ export default class DigitalClock implements SectionChild {
 
   clickEvent(evt: any): boolean {
     const clickOnButton = evt.target.matches(`.${ClockController.className}`)
-    if (clickOnButton) {
-      if (this.clock.isShown) {
-        this.controller.changeText("Iniciar reloj")
-        this.updater ? clearInterval(this.updater) : 0
-        this.clock.hide()
-      } else {
-        this.controller.changeText("Detener reloj")
-        this.clock.update()
-        this.updater = ClockController.updater({ clock: this.clock })
-        this.clock.show()
-      }
-      return true
+    if (!clickOnButton) return false
+    if (this.clock.isShown) {
+      this.controller.changeText("Iniciar reloj")
+      this.updater ? clearInterval(this.updater) : 0
+      this.clock.hide()
+    } else {
+      this.controller.changeText("Detener reloj")
+      this.clock.update()
+      this.updater = ClockController.updater({ clock: this.clock })
+      this.clock.show()
     }
-    return false
+    return true
   }
 }

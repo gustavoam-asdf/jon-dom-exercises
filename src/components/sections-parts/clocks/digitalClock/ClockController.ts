@@ -1,14 +1,16 @@
 import Clock from "./Clock"
+import "../../../styles/Button.css"
 
 const ClockControllerTemplate = ({
   text
 }: {
   text: string
 }): HTMLButtonElement => {
-  const section: HTMLButtonElement = document.createElement("button")
-  section.classList.add(ClockController.className)
-  section.innerHTML = text
-  return section
+  const controller: HTMLButtonElement = document.createElement("button")
+  controller.classList.add(ClockController.className)
+  controller.classList.add("button")
+  controller.innerHTML = text
+  return controller
 }
 
 export default class ClockController {

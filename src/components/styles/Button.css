@@ -1,0 +1,17 @@
+.button {
+  border: 0;
+  border-radius: var(--border-radius);
+  background-color: var(--gold);
+  color: var(--black);
+  padding: 0.5em 1em;
+  font-size: 1.25em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button:hover,
+.button:focus,
+.button:active {
+  background-color: var(--orange);
+}
