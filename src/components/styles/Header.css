@@ -2,8 +2,13 @@
   background-color: var(--yellow);
   margin: 0;
   display: block;
-  padding: 0.5em;
+  padding: 1em;
   text-align: center;
-  font-size: 1.6em;
+  font-size: 0.9em;
   font-weight: 800;
+}
+
+.main-header h1 {
+  padding: 0;
+  margin: 0;
 }

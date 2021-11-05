@@ -10,7 +10,8 @@
   color: var(--black);
 }
 
-.section-title h2:hover {
+.section-title h2:hover,
+.section-title h2:focus {
   background-color: var(--light-grey);
 }
 
@@ -18,5 +19,5 @@
   margin: 0;
   padding: 0.35em 0 0.35em 0.5em;
   border-radius: var(--border-radius);
-  border-bottom: 1px solid var(--black);
+  border-bottom: 0.01em solid var(--black);
 }
