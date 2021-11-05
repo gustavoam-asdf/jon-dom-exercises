@@ -9,10 +9,12 @@ export default class Audio {
 
   private template(): HTMLAudioElement {
     const audio = document.createElement("audio")
-    audio.src = this.src
-    audio.loop = true
-    audio.autoplay = true
-    audio.volume = 0.1
+    audio.setAttribute("src", this.src)
+    audio.setAttribute("loop", "")
+    audio.volume = 0.4
+    audio.controls = true
+    audio.innerHTML =
+      "Your browser does not support the <code>audio</code> element."
     return audio
   }
 }
