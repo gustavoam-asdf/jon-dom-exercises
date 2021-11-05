@@ -73,7 +73,10 @@ module.exports = (env, argv) => {
       rules
     },
     resolve: {
-      extensions: [".ts", ".js", ".css"]
+      extensions: [".ts", ".js", ".css"],
+      alias: {
+        "@assets": path.resolve(__dirname, "./assets/")
+      }
     },
     plugins,
     output: {
