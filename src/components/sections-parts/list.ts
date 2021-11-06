@@ -8,9 +8,9 @@ const list = [
     content: clockSection
   },
   {
-    id: "section-2",
-    title: "Sección 2",
-    href: "#section-2"
+    id: "movement",
+    title: "Movimiento",
+    href: "#movement"
   },
   {
     id: "section-3",
