@@ -1,5 +1,5 @@
 import Audio from "./Audio"
-import "../../../styles/Button.css"
+import "@styles/components/Button.css"
 
 export default class AudioController {
   public self: HTMLButtonElement

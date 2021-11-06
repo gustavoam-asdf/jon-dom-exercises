@@ -2,7 +2,7 @@ import Icon from "../Icon"
 import Menu from "./Menu"
 import { icons } from "./MenuButton"
 import MenuItem from "./MenuItem"
-import "./styles/MenuList"
+import "@styles/components/panel/MenuList"
 
 const MenuListTemplate = ({
   itemsList

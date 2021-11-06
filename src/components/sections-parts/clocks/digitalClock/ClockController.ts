@@ -1,5 +1,5 @@
 import Clock from "./Clock"
-import "../../../styles/Button.css"
+import "@styles/components/Button.css"
 
 const ClockControllerTemplate = ({
   text

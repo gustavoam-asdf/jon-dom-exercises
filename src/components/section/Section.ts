@@ -1,6 +1,6 @@
 import SectionContent from "./SectionContent"
 import SectionTitle from "./SectionTitle"
-import "./styles/Section"
+import "@styles/components/section/Section"
 
 const SectionTemplate = ({
   id,

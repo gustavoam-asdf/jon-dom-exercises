@@ -3,7 +3,7 @@ import Panel from "./components/panel/Panel"
 import Main from "./components/Main"
 import list from "./components/sections-parts/list"
 import "normalize.css"
-import "./index.css"
+import "@styles/index.css"
 
 const sectionParts = list
   .map(section => {

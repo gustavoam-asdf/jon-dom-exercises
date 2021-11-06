@@ -1,7 +1,7 @@
 import { SectionChild } from "../../../section/SectionContent"
 import Clock from "./Clock"
 import ClockController from "./ClockController"
-import "./styles/DigitalClock"
+import "@styles/components/clock/DigitalClock.css"
 
 const DigitalClockTemplate = ({
   controller,
