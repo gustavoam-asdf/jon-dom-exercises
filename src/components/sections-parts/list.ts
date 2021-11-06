@@ -1,15 +1,11 @@
-import SectionContent from "../section/SectionContent"
-import DigitalClock from "./clocks/digitalClock/DigitalClock"
-import DigitalAlarm from "./clocks/alarm/DigitalAlarm"
+import clockSection from "./clocks/clockSection"
 
 const list = [
   {
     id: "clocks",
     title: "Relojes",
     href: "#clocks",
-    content: new SectionContent({
-      children: [new DigitalClock(), new DigitalAlarm()]
-    })
+    content: clockSection
   },
   {
     id: "section-2",

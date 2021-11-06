@@ -11,6 +11,7 @@ const MenuListTemplate = ({
 }): HTMLElement => {
   const list: HTMLElement = document.createElement("nav")
   list.classList.add(MenuList.className)
+  list.classList.add("hide")
   const listFragment: DocumentFragment = document.createDocumentFragment()
   itemsList.forEach(listItem => listFragment.append(listItem.self))
   list.append(listFragment)
@@ -28,6 +29,7 @@ export default class MenuList {
   }
   clickEvent({ icon, menu }: { icon: Icon; menu: Menu }) {
     icon.switchIcon(icons.cross)
+    this.self.classList.add("hide")
     menu.self.classList.add("hide")
   }
 }
