@@ -1,0 +1,11 @@
+.digital-alarm {
+  height: 50%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+}
+
+figure {
+  height: 2.1em;
+}

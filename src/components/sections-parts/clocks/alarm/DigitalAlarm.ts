@@ -2,6 +2,7 @@ import { SectionChild } from "./../../../section/SectionContent"
 import alarm from "@assets/audio/alarm.mp3"
 import Audio from "./Audio"
 import AudioController from "./AudioController"
+import "@styles/components/clock/DigitalAlarm.css"
 export default class DigitalAlarm implements SectionChild {
   public self: HTMLElement
   public controller: AudioController
@@ -17,12 +18,14 @@ export default class DigitalAlarm implements SectionChild {
   }
 
   public clickEvent(evt: any) {
-    const clickOnButton = evt.target.matches(`.${DigitalAlarm.className}`)
+    const clickOnButton = evt.target.matches(`.${AudioController.className}`)
     if (!clickOnButton) return false
     if (this.audio.isRinging) {
       this.audio.pause()
+      this.controller.changeText("Iniciar alarma")
     } else {
       this.audio.play()
+      this.controller.changeText("Detener alarma")
     }
     return true
   }

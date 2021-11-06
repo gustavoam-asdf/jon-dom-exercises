@@ -14,7 +14,6 @@ export default class Audio {
     audio.setAttribute("src", this.src)
     audio.setAttribute("loop", "")
     audio.volume = 0.4
-    audio.controls = true
     audio.innerHTML =
       "Your browser does not support the <code>audio</code> element."
     return audio
