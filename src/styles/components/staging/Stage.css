@@ -1,0 +1,8 @@
+.stage {
+  align-self: center;
+  justify-self: center;
+  width: 95%;
+  height: 95%;
+  border-radius: var(--border-radius);
+  background-color: var(--dark-blue);
+}

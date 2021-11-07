@@ -1,4 +1,5 @@
 import clockSection from "./clocks/clockSection"
+import staging from "./staging/staging"
 
 const list = [
   {
@@ -8,9 +9,10 @@ const list = [
     content: clockSection
   },
   {
-    id: "movement",
-    title: "Movimiento",
-    href: "#movement"
+    id: "staging",
+    title: "Escenario",
+    href: "#staging",
+    content: staging
   },
   {
     id: "section-3",

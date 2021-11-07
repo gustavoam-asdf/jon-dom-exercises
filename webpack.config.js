@@ -85,9 +85,6 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, "build")
     },
     optimization,
-    performance: {
-      hints: false
-    },
     devServer: {
       port: 5500,
       client: {
