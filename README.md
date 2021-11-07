@@ -26,7 +26,7 @@
 
 I developed the exercises proposed in the Jon Mircha javacript course [Jon-Mircha-Course](https://youtube.com/playlist?list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA) to practice my javascript knowledge of the DOM using typescript.
 
-You can find the solution at: [gustavoam-asdf/jon-dom-exercices](https://gustavoam-asdf.github.io/jon-dom-exercices)
+You can find the solution at: [gustavoam-asdf/jon-dom-exercices](https://gustavoam-asdf.github.io/jon-dom-exercises)
 
 ### Built With
 
