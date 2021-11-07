@@ -1,33 +1,49 @@
 import "@styles/components/staging/Actor.css"
 
 interface Move {
-  up(movement?: number): void
-  down(movement?: number): void
-  left(movement?: number): void
-  right(movement?: number): void
+  up(movement?: number): number
+  down(movement?: number): number
+  left(movement?: number): number
+  right(movement?: number): number
 }
 
 export default class Actor {
   public self: HTMLDivElement
-  private movementSpeed = 0.3
+  static speed = 10
   public move: Move = {
-    up: (movement: number = this.movementSpeed) => {
-      this.self.getBoundingClientRect()
+    up: (movement: number = Actor.speed) => {
       this.positionY -= movement
+      this.updateDOMPosition()
+      return movement
     },
-    down: (movement: number = this.movementSpeed) => {
-      this.self.getBoundingClientRect()
+    down: (movement: number = Actor.speed) => {
       this.positionY += movement
+      this.updateDOMPosition()
+      return movement
     },
-    left: (movement: number = this.movementSpeed) => {
-      this.self.getBoundingClientRect()
+    left: (movement: number = Actor.speed) => {
       this.positionX -= movement
+      this.updateDOMPosition()
+      return movement
     },
-    right: (movement: number = this.movementSpeed) => {
-      this.self.getBoundingClientRect()
+    right: (movement: number = Actor.speed) => {
       this.positionX += movement
+      this.updateDOMPosition()
+      return movement
     }
   }
+
+  public get limits() {
+    return this.self.getBoundingClientRect()
+  }
+
+  public nextMove: Move = {
+    up: (movement: number = Actor.speed) => this.limits.top - movement,
+    down: (movement: number = Actor.speed) => this.limits.bottom + movement,
+    left: (movement: number = Actor.speed) => this.limits.left - movement,
+    right: (movement: number = Actor.speed) => this.limits.right + movement
+  }
+
   static className = "actor"
 
   public positionX = 0
@@ -43,10 +59,10 @@ export default class Actor {
     return actor
   }
 
-  public updateDOMPosition() {
+  private updateDOMPosition() {
     this.self.setAttribute(
       "style",
-      `transform: translate(${this.positionX * 100}%, ${this.positionY * 100}%)`
+      `transform: translate(${this.positionX}px, ${this.positionY}px)`
     )
   }
 }

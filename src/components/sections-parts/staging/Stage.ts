@@ -19,18 +19,33 @@ export default class Stage implements SectionChild {
     return stage
   }
 
+  public get limits() {
+    return this.self.getBoundingClientRect()
+  }
+
   public keyboardEvent(evt: KeyboardEvent): boolean {
-    evt.preventDefault()
+    if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(evt.code))
+      return false
+
     if (evt.code === "ArrowUp") {
-      this.actor.move.up()
+      evt.preventDefault()
+      this.limits.top < this.actor.nextMove.up()
+        ? this.actor.move.up()
+        : this.actor.move.up(this.actor.limits.top - this.limits.top)
     } else if (evt.code === "ArrowDown") {
-      this.actor.move.down()
+      evt.preventDefault()
+      this.limits.bottom > this.actor.nextMove.down()
+        ? this.actor.move.down()
+        : this.actor.move.down(this.limits.bottom - this.actor.limits.bottom)
     } else if (evt.code === "ArrowLeft") {
-      this.actor.move.left()
+      this.limits.left < this.actor.nextMove.left()
+        ? this.actor.move.left()
+        : this.actor.move.left(this.actor.limits.left - this.limits.left)
     } else if (evt.code === "ArrowRight") {
-      this.actor.move.right()
+      this.limits.right > this.actor.nextMove.right()
+        ? this.actor.move.right()
+        : this.actor.move.right(this.limits.right - this.actor.limits.right)
     }
-    this.actor.updateDOMPosition()
     return true
   }
 }
