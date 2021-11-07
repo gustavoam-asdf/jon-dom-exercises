@@ -2,7 +2,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://gustavoam-asdf.github.io/jon-dom-exercices">
+    <a href="https://gustavoam-asdf.github.io/jon-dom-exercises">
       Solution
     </a>
   </h3>
