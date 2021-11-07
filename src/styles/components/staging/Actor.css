@@ -1,0 +1,7 @@
+.actor {
+  width: 4em;
+  height: 4em;
+  background-color: var(--gold);
+  border-radius: 50%;
+  transition: all 0.6s ease-out;
+}
