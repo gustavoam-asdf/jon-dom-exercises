@@ -36,7 +36,7 @@ const App = (): DocumentFragment => {
       if (match) break
     }
   })
-  document.addEventListener("keydown", (evt: any) => {
+  document.addEventListener("keydown", (evt: KeyboardEvent) => {
     for (let i = 0; i < sectionParts.length; i++) {
       const sectionPart = sectionParts[i]
       if (!sectionPart) continue

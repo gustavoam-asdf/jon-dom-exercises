@@ -27,15 +27,15 @@ export default class Stage implements SectionChild {
     if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(evt.code))
       return false
     if (evt.code === "ArrowUp") {
-      if (this.limits.top < this.actor.nextMove.up()) {
-        evt.preventDefault()
-        this.actor.move.up()
-      } else this.actor.move.up(this.actor.limits.top - this.limits.top)
+      evt.preventDefault()
+      this.limits.top < this.actor.nextMove.up()
+        ? this.actor.move.up()
+        : this.actor.move.up(this.actor.limits.top - this.limits.top)
     } else if (evt.code === "ArrowDown") {
-      if (this.limits.bottom > this.actor.nextMove.down()) {
-        evt.preventDefault()
-        this.actor.move.down()
-      } else this.actor.move.down(this.limits.bottom - this.actor.limits.bottom)
+      evt.preventDefault()
+      this.limits.bottom > this.actor.nextMove.down()
+        ? this.actor.move.down()
+        : this.actor.move.down(this.limits.bottom - this.actor.limits.bottom)
     } else if (evt.code === "ArrowLeft") {
       this.limits.left < this.actor.nextMove.left()
         ? this.actor.move.left()
