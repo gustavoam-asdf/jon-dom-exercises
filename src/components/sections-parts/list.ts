@@ -15,9 +15,9 @@ const list = [
     content: staging
   },
   {
-    id: "section-3",
-    title: "Sección 3",
-    href: "#section-3"
+    id: "shortcuts",
+    title: "Atajos de teclado",
+    href: "#shortcuts"
   },
   {
     id: "section-4",
