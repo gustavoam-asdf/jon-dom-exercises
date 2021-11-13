@@ -64,29 +64,31 @@ const optimization = {
   ]
 }
 
-module.exports = (env, argv) => {
-  const { mode } = argv
+module.exports = (env, { mode }) => {
   const isProduction = mode === "production"
   return {
+    devtool: isProduction ? "source-map" : "inline-source-map",
     entry: "./src/index.ts",
     module: {
       rules
+    },
+    output: {
+      filename: isProduction ? "[name].[contenthash].js" : "main.js",
+      path: path.resolve(__dirname, "build")
     },
     resolve: {
       extensions: [".ts", ".js", ".css"],
       alias: {
         "@assets": path.resolve(__dirname, "./src/assets"),
         "@styles": path.resolve(__dirname, "./src/styles")
-      }
+      },
+      modules: ["src", "node_modules"]
     },
     plugins,
-    output: {
-      filename: isProduction ? "[name].[contenthash].js" : "main.js",
-      path: path.resolve(__dirname, "build")
-    },
     optimization,
     devServer: {
       port: 5500,
+      historyApiFallback: true,
       client: {
         overlay: true,
         progress: true
