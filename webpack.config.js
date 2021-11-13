@@ -69,12 +69,13 @@ module.exports = (env, { mode }) => {
   return {
     devtool: isProduction ? "source-map" : "inline-source-map",
     entry: "./src/index.ts",
-    module: {
-      rules
-    },
     output: {
       filename: isProduction ? "[name].[contenthash].js" : "main.js",
-      path: path.resolve(__dirname, "build")
+      path: path.resolve(__dirname, "build"),
+      clean: true
+    },
+    module: {
+      rules
     },
     resolve: {
       extensions: [".ts", ".js", ".css"],
