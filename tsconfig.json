@@ -4,8 +4,6 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "experimentalDecorators": true,
-    "declaration": true,
-    "declarationDir": "./types",
     "noEmitOnError": true,
     "target": "ES5",
     "module": "ESNext",
@@ -14,7 +12,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "typeRoots": ["node_modules/@types", "./types"],
     "rootDir": "src"
   },
   "include": ["src/*", "types/*"]
