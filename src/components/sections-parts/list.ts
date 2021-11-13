@@ -1,5 +1,6 @@
 import clockSection from "./clocks/clockSection"
 import staging from "./staging/staging"
+import shortcuts from "./shortcuts/shortcuts"
 
 const list = [
   {
@@ -17,7 +18,8 @@ const list = [
   {
     id: "shortcuts",
     title: "Atajos de teclado",
-    href: "#shortcuts"
+    href: "#shortcuts",
+    content: shortcuts
   },
   {
     id: "section-4",

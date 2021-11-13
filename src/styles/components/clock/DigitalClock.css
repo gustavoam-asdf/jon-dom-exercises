@@ -7,7 +7,7 @@
   justify-content: center;
 }
 
-.clock {
+.digital-clock .clock {
   font-family: "Clock";
   font-size: 2.5em;
   padding: 0.25em;
@@ -17,21 +17,21 @@
   transition: all 0.3s ease;
 }
 
-.hide {
+.digital-clock .hide {
   opacity: 0;
 }
 
-.clock-part {
+.digital-clock .clock-part {
   text-align: center;
 }
 
-.hours,
-.minutes,
-.seconds,
-.format {
+.digital-clock .hours,
+.digital-clock .minutes,
+.digital-clock .seconds,
+.digital-clock .format {
   width: 1.2em;
 }
 
-.separator {
+.digital-clock .separator {
   width: 0.3em;
 }

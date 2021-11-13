@@ -11,7 +11,6 @@ const App = (): DocumentFragment => {
 
   const panel = new Panel()
   const main = new Main()
-
   app.prepend(Header())
   app.append(main.self)
   app.append(panel.self)

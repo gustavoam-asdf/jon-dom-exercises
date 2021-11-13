@@ -94,7 +94,7 @@ module.exports = (env, { mode }) => {
         overlay: true,
         progress: true
       },
-      watchFiles: [".ts", ".css"],
+      watchFiles: [".ts"],
       compress: true
     }
   }
