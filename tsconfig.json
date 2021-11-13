@@ -5,7 +5,7 @@
     "importHelpers": true,
     "experimentalDecorators": true,
     "declaration": true,
-    "declarationDir": "./types/declarations",
+    "declarationDir": "./types",
     "noEmitOnError": true,
     "target": "ES5",
     "module": "ESNext",

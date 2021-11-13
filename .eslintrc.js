@@ -20,5 +20,5 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-non-null-assertion": "off"
   },
-  ignorePatterns: ["build/", "webpack.config.js", "declarations"]
+  ignorePatterns: ["build/", "webpack.config.js", "types"]
 }
