@@ -6,14 +6,22 @@
 }
 
 .shortcut {
-  margin: 1em 0;
+  width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.5em;
   font-family: "NerdFont";
+  margin: 1em 0;
 }
 
-.shortcut .key {
+.shortcut .keys {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.shortcut .keys .key {
   font-size: 1em;
   color: var(--black);
   background-color: var(--light-grey);

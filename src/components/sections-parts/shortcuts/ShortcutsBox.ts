@@ -16,9 +16,9 @@ export default class ShortcutsBox implements SectionChild {
     const shortcutsBox = document.createElement("div")
     shortcutsBox.classList.add(ShortcutsBox.className)
     const shortcuts = [
-      new Shortcut("ctrl", "alt", "v"),
-      new Shortcut("ctrl", "shift", "w"),
-      new Shortcut("win", "t")
+      new Shortcut("Do something", "ctrl", "alt", "v"),
+      new Shortcut("Do another thing", "ctrl", "shift", "w"),
+      new Shortcut("Do anything", "win", "t")
     ]
     const list = document.createDocumentFragment()
     list.append(...shortcuts.map(shortcut => shortcut.self))
