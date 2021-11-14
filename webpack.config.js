@@ -72,7 +72,7 @@ module.exports = (env, { mode }) => {
     output: {
       filename: isProduction ? "[name].[contenthash].js" : "main.js",
       path: path.resolve(__dirname, "build"),
-      clean: true
+      clean: isProduction
     },
     module: {
       rules
