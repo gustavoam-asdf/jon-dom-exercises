@@ -1,24 +1,27 @@
+import KeyCombination from "./KeyCombination"
 export default class Shortcut {
   public self: HTMLDivElement
-  public separator = "<span class='separator'></span>"
+  public action: (...params: any[]) => void
   static className = "shortcut"
-  constructor(action: string, ...keys: string[]) {
-    this.self = this.template(action, ...keys)
+
+  constructor(
+    actionName: string,
+    keyCombination: KeyCombination,
+    action: (...params: any[]) => void
+  ) {
+    this.self = this.template(actionName, keyCombination)
+    this.action = action
   }
 
-  private template(action: string, ...keys: string[]): HTMLDivElement {
+  private template(
+    actionName: string,
+    keyCombination: KeyCombination
+  ): HTMLDivElement {
     const shortcut = document.createElement("div")
     shortcut.classList.add(Shortcut.className)
     shortcut.innerHTML = `
-      <div class="keys">
-        ${keys
-          .map((key: string, i: number): string => {
-            if (i === keys.length - 1) return `<span class="key">${key}</span>`
-            return `<span class="key">${key}</span>${this.separator}`
-          })
-          .join("")}
-      </div>
-      <span class="action">${action}</span>
+      <div class="keys"> ${keyCombination.representation} </div>
+      <span class="action">${actionName}</span>
     `
     return shortcut
   }

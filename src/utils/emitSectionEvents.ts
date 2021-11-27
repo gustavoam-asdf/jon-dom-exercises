@@ -20,6 +20,7 @@ export function keyboardEvents(
   sectionParts: (SectionChild | undefined)[],
   evt: KeyboardEvent
 ) {
+  console.log(evt)
   for (let i = 0; i < sectionParts.length; i++) {
     const sectionPart = sectionParts[i]
     if (!sectionPart) continue
