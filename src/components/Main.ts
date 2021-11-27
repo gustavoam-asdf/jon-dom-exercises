@@ -1,5 +1,5 @@
 import Section from "./section/Section"
-import list from "./sections-parts/list"
+import list from "./sections-parts/sectionList"
 import "@styles/components/Main.css"
 
 const sectionsList: Section[] = list.map(

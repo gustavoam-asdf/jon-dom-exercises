@@ -1,6 +1,6 @@
 import MenuItem from "./MenuItem"
 import MenuList from "./MenuList"
-import list from "../sections-parts/list"
+import list from "../sections-parts/sectionList"
 import "@styles/components/panel/Menu.css"
 
 const itemsList: MenuItem[] = list.map(

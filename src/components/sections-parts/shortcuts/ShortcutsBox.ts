@@ -6,7 +6,6 @@ export default class ShortcutsBox implements SectionChild {
   public self: HTMLDivElement
   static className = "shortcuts-box"
   clickEvent?: (evt: any) => boolean
-  keyboardEvent?: (evt: KeyboardEvent) => boolean
 
   constructor() {
     this.self = this.template()
@@ -18,11 +17,16 @@ export default class ShortcutsBox implements SectionChild {
     const shortcuts = [
       new Shortcut("Do something", "ctrl", "alt", "v"),
       new Shortcut("Do another thing", "ctrl", "shift", "w"),
-      new Shortcut("Do anything", "win", "t")
+      new Shortcut("Do anything", "win", "alt", "t")
     ]
     const list = document.createDocumentFragment()
     list.append(...shortcuts.map(shortcut => shortcut.self))
     shortcutsBox.append(list)
     return shortcutsBox
+  }
+
+  keyboardEvent(evt: KeyboardEvent) {
+    console.log(evt)
+    return false
   }
 }
