@@ -1,4 +1,4 @@
-import clockSection from "./clocks/clockSectionPart"
+import clockPart from "./clocks/clockPart"
 import staging from "./staging/stagingPart"
 import shortcuts from "./shortcuts/shortcutsPart"
 import countdown from "./countdown/countdownPart"
@@ -8,7 +8,7 @@ const list = [
     id: "clocks",
     title: "Relojes",
     href: "#clocks",
-    content: clockSection
+    content: clockPart
   },
   {
     id: "staging",

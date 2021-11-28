@@ -1,10 +1,15 @@
 export default class DateTarget {
-  self: HTMLDivElement
+  public self: HTMLDivElement
+  public input?: HTMLInputElement
   static className = "dateTarget"
   static inputId = "dateTarget"
 
   constructor() {
     this.self = this.template()
+  }
+
+  get value() {
+    return this.input?.value
   }
 
   private template() {
@@ -19,6 +24,8 @@ export default class DateTarget {
     input.setAttribute("type", "datetime-local")
     input.setAttribute("name", DateTarget.inputId)
     input.setAttribute("id", DateTarget.inputId)
+
+    this.input = input
 
     dateTarget.appendChild(label)
     dateTarget.appendChild(input)
