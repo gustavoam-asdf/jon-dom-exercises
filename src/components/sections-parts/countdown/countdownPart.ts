@@ -1,7 +1,7 @@
 import SectionContent from "../../section/SectionContent"
-// import ShortcutsBox from "./ShortcutsBox"
+import Countdown from "./Countdown"
 import "@styles/components/countdown/countdown.css"
 
 export default new SectionContent({
-  children: []
+  children: new Countdown()
 })

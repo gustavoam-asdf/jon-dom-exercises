@@ -1,6 +1,7 @@
 import clockSection from "./clocks/clockSectionPart"
 import staging from "./staging/stagingPart"
 import shortcuts from "./shortcuts/shortcutsPart"
+import countdown from "./countdown/countdownPart"
 
 const list = [
   {
@@ -22,9 +23,10 @@ const list = [
     content: shortcuts
   },
   {
-    id: "section-4",
-    title: "Sección 4",
-    href: "#section-4"
+    id: "countdown",
+    title: "Cuenta regresiva",
+    href: "#countdown",
+    content: countdown
   },
   {
     id: "section-5",
