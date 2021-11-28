@@ -1,6 +1,6 @@
-import clockSection from "./clocks/clockSection"
-import staging from "./staging/staging"
-import shortcuts from "./shortcuts/shortcuts"
+import clockSection from "./clocks/clockSectionPart"
+import staging from "./staging/stagingPart"
+import shortcuts from "./shortcuts/shortcutsPart"
 
 const list = [
   {

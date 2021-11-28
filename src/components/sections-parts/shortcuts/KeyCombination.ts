@@ -39,7 +39,6 @@ export default class KeyCombination {
   }
 
   compare(keyCombination: KeyCombination): boolean {
-    console.log({ keyCombination: this, keyCombinationPressed: keyCombination })
     return (
       this.auxKeys.meta === keyCombination.auxKeys.meta &&
       this.auxKeys.ctrl === keyCombination.auxKeys.ctrl &&
