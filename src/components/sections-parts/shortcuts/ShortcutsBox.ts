@@ -1,7 +1,7 @@
 import { SectionChild } from "../../section/SectionContent"
-import Shortcut from "./Shortcut"
 import "@styles/components/shortcuts/ShortcutsBox.css"
-import KeyCombination from "./KeyCombination"
+import shortcutsList from "../shortcutsList"
+import KeyCombination, { AuxiliaryKeys } from "./KeyCombination"
 
 export default class ShortcutsBox implements SectionChild {
   public self: HTMLDivElement
@@ -15,22 +15,7 @@ export default class ShortcutsBox implements SectionChild {
   private template(): HTMLDivElement {
     const shortcutsBox = document.createElement("div")
     shortcutsBox.classList.add(ShortcutsBox.className)
-    const shortcuts = [
-      new Shortcut(
-        "Do something",
-        new KeyCombination("v", "KeyV", { ctrlKey: true, shiftKey: true }),
-        () => {
-          return
-        }
-      ),
-      new Shortcut(
-        "Do something else",
-        new KeyCombination("w", "KeyW", { ctrlKey: true, altKey: true }),
-        () => {
-          return
-        }
-      )
-    ]
+    const shortcuts = shortcutsList
     const list = document.createDocumentFragment()
     list.append(...shortcuts.map(shortcut => shortcut.self))
     shortcutsBox.append(list)
@@ -38,7 +23,20 @@ export default class ShortcutsBox implements SectionChild {
   }
 
   keyboardEvent(evt: KeyboardEvent) {
-    console.log(evt)
-    return false
+    const {
+      metaKey: meta,
+      ctrlKey: ctrl,
+      shiftKey: shift,
+      altKey: alt,
+      code
+    } = evt
+    const auxKeys: AuxiliaryKeys = { meta, ctrl, shift, alt }
+    const keyCombinationPressed = new KeyCombination("", code, auxKeys)
+    const shortcut = shortcutsList.find(shortcut =>
+      shortcut.keyCombination.compare(keyCombinationPressed)
+    )
+    if (!shortcut) return false
+    shortcut.action()
+    return true
   }
 }

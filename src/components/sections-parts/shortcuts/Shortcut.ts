@@ -1,15 +1,21 @@
 import KeyCombination from "./KeyCombination"
 export default class Shortcut {
   public self: HTMLDivElement
+  public keyCombination: KeyCombination
   public action: (...params: any[]) => void
   static className = "shortcut"
 
-  constructor(
-    actionName: string,
-    keyCombination: KeyCombination,
+  constructor({
+    actionName,
+    keyCombination,
+    action
+  }: {
+    actionName: string
+    keyCombination: KeyCombination
     action: (...params: any[]) => void
-  ) {
-    this.self = this.template(actionName, keyCombination)
+  }) {
+    this.keyCombination = keyCombination
+    this.self = this.template(actionName, this.keyCombination)
     this.action = action
   }
 
