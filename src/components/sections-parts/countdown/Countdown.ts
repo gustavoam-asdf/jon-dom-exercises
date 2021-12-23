@@ -12,16 +12,22 @@ export default class Countdown implements SectionChild {
     this.self = this.template()
   }
 
+  public changeEvent(evt: Event) {
+    if (
+      !(
+        this.dateTarget.dateBox.date === evt.target ||
+        this.dateTarget.timeBox.time === evt.target
+      )
+    )
+      return false
+    console.log("Se ejecuta")
+    return true
+  }
+
   private template() {
     const countdown = document.createElement("div")
     countdown.classList.add(Countdown.className)
     countdown.appendChild(this.dateTarget.self)
-    // setInterval(() => {
-    //   console.log(this.dateTarget.value.toLocaleString())
-    //   console.log(this.dateTarget.value.getTime())
-    //   console.log("")
-    // }, 2000)
-
     return countdown
   }
 }

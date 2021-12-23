@@ -4,11 +4,10 @@ import Panel from "./../components/panel/Panel"
 export function clickEvents(
   panel: Panel,
   sectionParts: (SectionChild | undefined)[],
-  evt: any
+  evt: MouseEvent
 ) {
   panel.clickEvent(evt)
-  for (let i = 0; i < sectionParts.length; i++) {
-    const sectionPart = sectionParts[i]
+  for (const sectionPart of sectionParts) {
     if (!sectionPart) continue
     if (!sectionPart.clickEvent) continue
     const match = sectionPart.clickEvent(evt)
@@ -20,11 +19,22 @@ export function keyboardEvents(
   sectionParts: (SectionChild | undefined)[],
   evt: KeyboardEvent
 ) {
-  for (let i = 0; i < sectionParts.length; i++) {
-    const sectionPart = sectionParts[i]
+  for (const sectionPart of sectionParts) {
     if (!sectionPart) continue
     if (!sectionPart.keyboardEvent) continue
     const match = sectionPart.keyboardEvent(evt)
+    if (match) break
+  }
+}
+
+export function changeEvents(
+  sectionParts: (SectionChild | undefined)[],
+  evt: Event
+) {
+  for (const sectionPart of sectionParts) {
+    if (!sectionPart) continue
+    if (!sectionPart.changeEvent) continue
+    const match = sectionPart.changeEvent(evt)
     if (match) break
   }
 }

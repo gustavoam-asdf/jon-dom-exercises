@@ -2,7 +2,11 @@ import Header from "./components/Header"
 import Panel from "./components/panel/Panel"
 import Main from "./components/Main"
 import sectionParts from "./utils/sectionParts"
-import { clickEvents, keyboardEvents } from "./utils/emitSectionEvents"
+import {
+  changeEvents,
+  clickEvents,
+  keyboardEvents
+} from "./utils/emitSectionEvents"
 import "normalize.css"
 import "@styles/index.css"
 
@@ -14,11 +18,14 @@ const App = (): DocumentFragment => {
   app.prepend(Header())
   app.append(main.self)
   app.append(panel.self)
-  document.addEventListener("click", (evt: any) => {
+  document.addEventListener("click", (evt: MouseEvent) => {
     clickEvents(panel, sectionParts, evt)
   })
   document.addEventListener("keydown", (evt: KeyboardEvent) => {
     keyboardEvents(sectionParts, evt)
+  })
+  document.addEventListener("change", (evt: Event) => {
+    changeEvents(sectionParts, evt)
   })
   return app
 }

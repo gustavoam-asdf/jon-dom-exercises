@@ -3,36 +3,32 @@ import TimeTarget from "./TimeTarget"
 
 export default class DatetimeTarget {
   public self: HTMLDivElement
-  public date: DateTarget
-  public time: TimeTarget
+  public dateBox: DateTarget
+  public timeBox: TimeTarget
   static className = "date-target"
   static inputId = "dateTarget"
 
   constructor() {
-    this.date = new DateTarget()
-    this.time = new TimeTarget()
+    this.dateBox = new DateTarget()
+    this.timeBox = new TimeTarget()
     this.self = this.template()
   }
 
   get usable() {
-    return this.date.usable && this.time.usable
+    return this.dateBox.usable && this.timeBox.usable
   }
 
   get value() {
     if (!this.usable) return
-    return new Date(this.date?.value + " " + this.time?.value)
+    return new Date(this.dateBox?.value + " " + this.timeBox?.value)
   }
 
   private template() {
     const datetimeTarget = document.createElement("div")
     datetimeTarget.classList.add(DatetimeTarget.className)
 
-    datetimeTarget.appendChild(this.date.self)
-    datetimeTarget.appendChild(this.time.self)
-
-    datetimeTarget.addEventListener("change", () => {
-      console.log(this.usable && "Datetime usable")
-    })
+    datetimeTarget.appendChild(this.dateBox.self)
+    datetimeTarget.appendChild(this.timeBox.self)
 
     return datetimeTarget
   }

@@ -15,8 +15,9 @@ const SectionContentTemplate = ({
 
 export interface SectionChild {
   self: HTMLElement
-  clickEvent?: (evt: any) => boolean
+  clickEvent?: (evt: MouseEvent) => boolean
   keyboardEvent?: (evt: KeyboardEvent) => boolean
+  changeEvent?: (evt: Event) => boolean
 }
 
 export default class SectionContent {
