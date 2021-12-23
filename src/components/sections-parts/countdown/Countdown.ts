@@ -16,6 +16,11 @@ export default class Countdown implements SectionChild {
     const countdown = document.createElement("div")
     countdown.classList.add(Countdown.className)
     countdown.appendChild(this.dateTarget.self)
+    // setInterval(() => {
+    //   console.log(this.dateTarget.value.toLocaleString())
+    //   console.log(this.dateTarget.value.getTime())
+    //   console.log("")
+    // }, 2000)
 
     return countdown
   }
