@@ -1,0 +1,26 @@
+.date-target {
+  margin: 1.25em 0.5em;
+  font-size: 1.25em;
+  color: var(--black);
+  display: grid;
+  gap: 1em;
+  grid-template-columns: auto auto;
+}
+
+.date-target__date,
+.date-target__time {
+  display: inline-block;
+}
+.date-target label {
+  display: block;
+  padding-left: 0.3em;
+  padding-bottom: 0.25em;
+}
+
+.date-target input {
+  width: 100%;
+  padding: 0.25em 0.5em;
+  border: 2px solid var(--dark-grey);
+  border-radius: var(--border-radius);
+  font-size: 1em;
+}

@@ -1,20 +1,20 @@
 import { SectionChild } from "../../section/SectionContent"
-import DateTarget from "./DateTarget"
+import DatetimeTarget from "./DatetimeTarget"
+import "@styles/components/countdown/Countdown.css"
 
 export default class Countdown implements SectionChild {
   public self: HTMLDivElement
-  public dateTarget: DateTarget
+  public dateTarget: DatetimeTarget
   static className = "countdown"
 
   constructor() {
-    this.dateTarget = new DateTarget()
+    this.dateTarget = new DatetimeTarget()
     this.self = this.template()
   }
 
   private template() {
     const countdown = document.createElement("div")
     countdown.classList.add(Countdown.className)
-
     countdown.appendChild(this.dateTarget.self)
 
     return countdown
