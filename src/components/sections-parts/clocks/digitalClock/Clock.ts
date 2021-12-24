@@ -1,3 +1,5 @@
+import { $ } from "../../../../utils/selector"
+
 interface Time {
   hours: string
   minutes: string
@@ -58,15 +60,16 @@ export default class Clock {
 
   update() {
     const newTime = clockParts(new Date().toLocaleTimeString())
-    const $ = (selector: string) => this.self.querySelector(selector)
     if (newTime.hours !== this.currTime.hours) {
-      $(`.${Clock.className}-part.hours`)!.outerHTML = newTime.hours
+      $(this.self, `.${Clock.className}-part.hours`)!.outerHTML = newTime.hours
     }
     if (newTime.minutes !== this.currTime.minutes) {
-      $(`.${Clock.className}-part.minutes`)!.outerHTML = newTime.minutes
+      $(this.self, `.${Clock.className}-part.minutes`)!.outerHTML =
+        newTime.minutes
     }
     if (newTime.seconds !== this.currTime.seconds) {
-      $(`.${Clock.className}-part.seconds`)!.outerHTML = newTime.seconds
+      $(this.self, `.${Clock.className}-part.seconds`)!.outerHTML =
+        newTime.seconds
     }
     this.currTime = newTime
   }

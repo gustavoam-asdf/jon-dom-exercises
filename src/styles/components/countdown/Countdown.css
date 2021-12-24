@@ -4,11 +4,14 @@
   color: var(--black);
   display: grid;
   gap: 1em;
-  grid-template-columns: auto auto;
+  grid-template-areas:
+    "datetime datetime"
+    "message message";
 }
 
 .date-target__date,
 .date-target__time {
+  grid-area: datetime;
   display: inline-block;
 }
 .date-target label {
@@ -23,4 +26,15 @@
   border: 2px solid var(--dark-grey);
   border-radius: var(--border-radius);
   font-size: 1em;
+}
+
+.time-diff-message {
+  grid-area: message;
+  font-size: 1.25em;
+  color: var(--black);
+}
+
+.time-diff-message span {
+  display: block;
+  text-align: center;
 }

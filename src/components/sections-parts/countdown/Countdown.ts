@@ -1,34 +1,25 @@
 import { SectionChild } from "../../section/SectionContent"
 import DatetimeTarget from "./DatetimeTarget"
 import "@styles/components/countdown/Countdown.css"
+import TimeDifferenceMessage from "./TimeDifferenceMessaje"
+import moment from "moment"
 
-function updater(dtTarget: DatetimeTarget): NodeJS.Timer {
+function updater(tdMessage: TimeDifferenceMessage): NodeJS.Timer {
   return setInterval(() => {
-    const {
-      value: {
-        difference: { years, months, days, hours, minutes, seconds },
-        remaining
-      }
-    } = dtTarget
-    console.log(`${remaining ? "Faltan" : "Hace"}:
-    ${years} años
-    ${months} meses
-    ${days} días
-    ${hours} horas
-    ${minutes} minutos
-    ${seconds} segundos
-    `)
+    tdMessage.update()
   }, 1000)
 }
 
 export default class Countdown implements SectionChild {
   public self: HTMLDivElement
   public dateTarget: DatetimeTarget
+  public message: TimeDifferenceMessage
   public updater?: NodeJS.Timer
   static className = "countdown"
 
   constructor() {
     this.dateTarget = new DatetimeTarget()
+    this.message = new TimeDifferenceMessage(moment())
     this.self = this.template()
   }
 
@@ -42,12 +33,10 @@ export default class Countdown implements SectionChild {
       return false
 
     if (!this.dateTarget.usable) return true
-
+    this.message.dtTarget = this.dateTarget.value
+    this.message.update()
     if (this.updater) clearInterval(this.updater)
-
-    this.updater = updater(this.dateTarget)
-    console.log("Esta habilitado")
-
+    this.updater = updater(this.message)
     return true
   }
 
@@ -55,6 +44,8 @@ export default class Countdown implements SectionChild {
     const countdown = document.createElement("div")
     countdown.classList.add(Countdown.className)
     countdown.appendChild(this.dateTarget.self)
+    countdown.appendChild(this.message.self)
+    this.message.update()
     return countdown
   }
 }

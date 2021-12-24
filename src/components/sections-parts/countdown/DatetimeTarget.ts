@@ -1,7 +1,35 @@
 import DateTarget from "./DateTarget"
 import TimeTarget from "./TimeTarget"
-import moment from "moment"
+import moment, { Moment } from "moment"
+export interface DatetimeData {
+  remaining: boolean
+  years: number
+  months: number
+  days: number
+  hours: number
+  minutes: number
+  seconds: number
+}
 
+export const timeDifference = (
+  timeOrigin: Moment,
+  timeTarget: Moment
+): DatetimeData => {
+  const diff =
+    timeTarget > timeOrigin
+      ? moment.duration(timeTarget.diff(timeOrigin))
+      : moment.duration(timeOrigin.diff(timeTarget))
+
+  return {
+    remaining: timeTarget > timeOrigin,
+    years: diff.years(),
+    months: diff.months(),
+    days: diff.days(),
+    hours: diff.hours(),
+    minutes: diff.minutes(),
+    seconds: diff.seconds()
+  }
+}
 export default class DatetimeTarget {
   public self: HTMLDivElement
   public dateBox: DateTarget
@@ -19,31 +47,13 @@ export default class DatetimeTarget {
     return this.dateBox.usable && this.timeBox.usable
   }
 
-  get value() {
+  get value(): Moment {
     if (!this.usable) throw new Error("DatetimeTarget is not usable")
-    const now = moment()
-    const target = moment(
+    return moment(
       this.dateBox?.value?.split("/").reverse().join("-") +
         " " +
         this.timeBox?.value
     )
-
-    const diff =
-      target > now
-        ? moment.duration(target.diff(now))
-        : moment.duration(now.diff(target))
-
-    return {
-      remaining: target > now,
-      difference: {
-        years: diff.years(),
-        months: diff.months(),
-        days: diff.days(),
-        hours: diff.hours(),
-        minutes: diff.minutes(),
-        seconds: diff.seconds()
-      }
-    }
   }
 
   private template() {
