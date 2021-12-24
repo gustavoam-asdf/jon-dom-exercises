@@ -27,7 +27,7 @@ export default class TimeDifferenceMessage {
 
     Object.keys(parts).forEach(partKey => {
       if (currDiff[partKey] !== newDiff[partKey]) {
-        $(this.self, `.${partKey}`).outerHTML = parts[partKey]
+        $(this.self, `.${partKey}`).textContent = parts[partKey]
       }
     })
     this.dtDifference = newDiff as DatetimeData
@@ -38,28 +38,22 @@ export default class TimeDifferenceMessage {
     differenceMessage.classList.add(TimeDifferenceMessage.className)
     const parts = this.messageParts(dtDifference)
 
-    differenceMessage.innerHTML = `
-      ${Object.keys(parts)
-        .map(partKey => {
-          return parts[partKey]
-        })
-        .join("")} 
-    `
+    differenceMessage.innerHTML = Object.keys(parts)
+      .map(partKey => this.printPart(partKey, parts[partKey]))
+      .join("")
+
     return differenceMessage
   }
 
   private messageParts(dtDifference: DatetimeData): NativeObject {
     return {
-      remaining: this.printPart(
-        "remaining",
-        dtDifference.remaining ? "Faltan: " : "Pasaron: "
-      ),
-      years: this.printPart("years", `${dtDifference.years} años`),
-      months: this.printPart("months", `${dtDifference.months} meses`),
-      days: this.printPart("days", `${dtDifference.days} días`),
-      hours: this.printPart("hours", `${dtDifference.hours} horas`),
-      minutes: this.printPart("minutes", `${dtDifference.minutes} minutos`),
-      seconds: this.printPart("seconds", `${dtDifference.seconds} segundos`)
+      remaining: dtDifference.remaining ? "Faltan: " : "Pasaron: ",
+      years: `${dtDifference.years} años`,
+      months: `${dtDifference.months} meses`,
+      days: `${dtDifference.days} días`,
+      hours: `${dtDifference.hours} horas`,
+      minutes: `${dtDifference.minutes} minutos`,
+      seconds: `${dtDifference.seconds} segundos`
     }
   }
 
