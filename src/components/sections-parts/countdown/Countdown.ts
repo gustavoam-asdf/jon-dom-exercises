@@ -31,11 +31,10 @@ export default class Countdown implements SectionChild {
       )
     )
       return false
-
     if (!this.dateTarget.usable) return true
+    if (this.updater) clearInterval(this.updater)
     this.message.dtTarget = this.dateTarget.value
     this.message.update()
-    if (this.updater) clearInterval(this.updater)
     this.updater = updater(this.message)
     return true
   }

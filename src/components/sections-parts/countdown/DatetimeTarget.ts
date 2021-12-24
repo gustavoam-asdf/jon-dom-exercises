@@ -11,6 +11,10 @@ export interface DatetimeData {
   seconds: number
 }
 
+export interface NativeObject {
+  [propertyName: string]: any
+}
+
 export default class DatetimeTarget {
   public self: HTMLDivElement
   public dateBox: DateTarget
