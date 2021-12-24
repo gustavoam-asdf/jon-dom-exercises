@@ -1,6 +1,7 @@
 import moment, { Moment } from "moment"
 import { $ } from "../../../utils/selector"
-import { DatetimeData, timeDifference } from "./DatetimeTarget"
+import timeDifference from "../../../utils/timeDifference"
+import { DatetimeData } from "./DatetimeTarget"
 
 export default class TimeDifferenceMessage {
   public self: HTMLParagraphElement
