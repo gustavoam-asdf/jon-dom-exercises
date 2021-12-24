@@ -1,5 +1,4 @@
-import { $ } from "../../../../utils/selector"
-
+import { $ } from "@utils/selector"
 interface Time {
   hours: string
   minutes: string

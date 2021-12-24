@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CssMinimizePlugin = require("css-minimizer-webpack-plugin")
 const Autoprefixer = require("autoprefixer")
 const TerserPlugin = require("terser-webpack-plugin")
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin")
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: "template/index.html",
@@ -79,11 +80,7 @@ module.exports = (env, { mode }) => {
     },
     resolve: {
       extensions: [".ts", ".js", ".css"],
-      alias: {
-        "@assets": path.resolve(__dirname, "./src/assets"),
-        "@styles": path.resolve(__dirname, "./src/styles"),
-        "@utils": path.resolve(__dirname, "./src/utils")
-      },
+      plugins: [new TsconfigPathsPlugin()],
       modules: ["src", "node_modules"]
     },
     plugins,

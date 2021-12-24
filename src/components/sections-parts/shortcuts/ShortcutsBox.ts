@@ -1,4 +1,4 @@
-import { SectionChild } from "../../section/SectionContent"
+import { SectionChild } from "@components/section/SectionContent"
 import "@styles/components/shortcuts/ShortcutsBox.css"
 import shortcutsList from "../shortcutsList"
 import KeyCombination, { AuxiliaryKeys } from "./KeyCombination"

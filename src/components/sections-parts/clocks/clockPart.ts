@@ -1,4 +1,4 @@
-import SectionContent from "../../section/SectionContent"
+import SectionContent from "@components/section/SectionContent"
 import DigitalClock from "./digitalClock/DigitalClock"
 import DigitalAlarm from "./alarm/DigitalAlarm"
 import "@styles/components/clock/clockPart.css"

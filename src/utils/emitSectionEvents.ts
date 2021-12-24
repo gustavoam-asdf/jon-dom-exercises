@@ -1,5 +1,5 @@
-import { SectionChild } from "./../components/section/SectionContent"
-import Panel from "./../components/panel/Panel"
+import { SectionChild } from "@components/section/SectionContent"
+import Panel from "@components/panel/Panel"
 
 export function clickEvents(
   panel: Panel,
