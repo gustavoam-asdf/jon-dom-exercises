@@ -2,33 +2,17 @@ declare module "*.css"
 
 declare module "*.mp3"
 
-declare interface DatetimeData {
-  remaining: boolean
-  years: number
-  months: number
-  days: number
-  hours: number
-  minutes: number
-  seconds: number
-}
-
 declare interface NativeObject {
   [propertyName: string]: any
 }
 
-declare interface Time {
-  hours: string
-  minutes: string
-  seconds: string
-  separator: string
-  format?: string
-}
+type EventHandler = <U extends Event>(event: U) => boolean
 
 declare interface SectionChild {
   self: HTMLElement
-  clickEvent?: (evt: MouseEvent) => boolean
-  keyboardEvent?: (evt: KeyboardEvent) => boolean
-  changeEvent?: (evt: Event) => boolean
+  clickEvent?: EventHandler<MouseEvent>
+  keyboardEvent?: EventHandler<KeyboardEvent>
+  changeEvent?: EventHandler<Event>
 }
 
 declare interface AuxiliaryKeys {
