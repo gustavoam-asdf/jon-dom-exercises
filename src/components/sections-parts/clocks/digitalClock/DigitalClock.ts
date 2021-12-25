@@ -1,4 +1,3 @@
-import { SectionChild } from "@components/section/SectionContent"
 import Clock from "./Clock"
 import ClockController from "./ClockController"
 import "@styles/components/clock/DigitalClock.css"

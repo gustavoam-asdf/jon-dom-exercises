@@ -1,4 +1,3 @@
-import { SectionChild } from "@components/section/SectionContent"
 import Actor from "./Actor"
 import "@styles/components/staging/Stage.css"
 

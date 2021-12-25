@@ -1,7 +1,6 @@
-import { SectionChild } from "@components/section/SectionContent"
 import "@styles/components/shortcuts/ShortcutsBox.css"
 import shortcutsList from "../shortcutsList"
-import KeyCombination, { AuxiliaryKeys } from "./KeyCombination"
+import KeyCombination from "./KeyCombination"
 
 export default class ShortcutsBox implements SectionChild {
   public self: HTMLDivElement

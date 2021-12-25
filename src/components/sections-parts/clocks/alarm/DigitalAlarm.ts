@@ -1,4 +1,3 @@
-import { SectionChild } from "@components/section/SectionContent"
 import alarm from "@assets/audio/alarm.mp3"
 import Audio from "./Audio"
 import AudioController from "./AudioController"

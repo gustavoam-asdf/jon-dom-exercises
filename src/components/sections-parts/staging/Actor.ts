@@ -1,35 +1,27 @@
 import "@styles/components/staging/Actor.css"
-
-interface Move {
-  up(movement?: number): number
-  down(movement?: number): number
-  left(movement?: number): number
-  right(movement?: number): number
-}
-
 export default class Actor {
   public self: HTMLDivElement
   static speed = 10
   public move: Move = {
-    up: (movement: number = Actor.speed) => {
-      this.positionY -= movement
+    up: (displacement = Actor.speed) => {
+      this.positionY -= displacement
       this.updateDOMPosition()
-      return movement
+      return displacement
     },
-    down: (movement: number = Actor.speed) => {
-      this.positionY += movement
+    down: (displacement = Actor.speed) => {
+      this.positionY += displacement
       this.updateDOMPosition()
-      return movement
+      return displacement
     },
-    left: (movement: number = Actor.speed) => {
-      this.positionX -= movement
+    left: (displacement = Actor.speed) => {
+      this.positionX -= displacement
       this.updateDOMPosition()
-      return movement
+      return displacement
     },
-    right: (movement: number = Actor.speed) => {
-      this.positionX += movement
+    right: (displacement = Actor.speed) => {
+      this.positionX += displacement
       this.updateDOMPosition()
-      return movement
+      return displacement
     }
   }
 
@@ -38,10 +30,10 @@ export default class Actor {
   }
 
   public nextMove: Move = {
-    up: (movement: number = Actor.speed) => this.limits.top - movement,
-    down: (movement: number = Actor.speed) => this.limits.bottom + movement,
-    left: (movement: number = Actor.speed) => this.limits.left - movement,
-    right: (movement: number = Actor.speed) => this.limits.right + movement
+    up: (displacement = Actor.speed) => this.limits.top - displacement,
+    down: (displacement = Actor.speed) => this.limits.bottom + displacement,
+    left: (displacement = Actor.speed) => this.limits.left - displacement,
+    right: (displacement = Actor.speed) => this.limits.right + displacement
   }
 
   static className = "actor"

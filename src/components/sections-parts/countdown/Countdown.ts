@@ -1,4 +1,3 @@
-import { SectionChild } from "@components/section/SectionContent"
 import DatetimeTarget from "./DatetimeTarget"
 import "@styles/components/countdown/Countdown.css"
 import TimeDifferenceMessage from "./TimeDifferenceMessaje"

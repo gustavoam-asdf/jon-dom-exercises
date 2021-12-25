@@ -13,13 +13,6 @@ const SectionContentTemplate = ({
   return content
 }
 
-export interface SectionChild {
-  self: HTMLElement
-  clickEvent?: (evt: MouseEvent) => boolean
-  keyboardEvent?: (evt: KeyboardEvent) => boolean
-  changeEvent?: (evt: Event) => boolean
-}
-
 export default class SectionContent {
   public self: DocumentFragment
   public children: SectionChild[] | SectionChild

@@ -1,10 +1,3 @@
-export interface AuxiliaryKeys {
-  meta?: boolean
-  ctrl?: boolean
-  shift?: boolean
-  alt?: boolean
-}
-
 export default class KeyCombination {
   public auxKeys: AuxiliaryKeys
   public key: string

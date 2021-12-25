@@ -1,19 +1,6 @@
 import DateTarget from "./DateTarget"
 import TimeTarget from "./TimeTarget"
 import moment, { Moment } from "moment"
-export interface DatetimeData {
-  remaining: boolean
-  years: number
-  months: number
-  days: number
-  hours: number
-  minutes: number
-  seconds: number
-}
-
-export interface NativeObject {
-  [propertyName: string]: any
-}
 
 export default class DatetimeTarget {
   public self: HTMLDivElement

@@ -1,4 +1,3 @@
-import { DatetimeData } from "@components/sections-parts/countdown/DatetimeTarget"
 import moment, { Moment } from "moment"
 export default function timeDifference(
   timeOrigin: Moment,

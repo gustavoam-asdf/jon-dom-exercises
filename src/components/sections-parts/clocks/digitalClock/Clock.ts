@@ -1,11 +1,4 @@
 import { $ } from "@utils/selector"
-interface Time {
-  hours: string
-  minutes: string
-  seconds: string
-  separator: string
-  format?: string
-}
 
 const clockParts = (localTime: string): Time => {
   let usedTime = localTime
