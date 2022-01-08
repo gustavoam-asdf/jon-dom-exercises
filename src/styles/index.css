@@ -1,14 +1,14 @@
 @font-face {
   font-family: "NerdFont";
-  src: url(@assets/fonts/NerdFont.woff2) format("woff2"),
-    url(@assets/fonts/NerdFont.woff) format("woff");
+  src: url(/assets/fonts/NerdFont.woff2) format("woff2"),
+    url(/assets/fonts/NerdFont.woff) format("woff");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Clock";
-  src: url(@assets/fonts/DS-DIGI.TTF) format("truetype");
+  src: url(/assets/fonts/DS-DIGI.TTF) format("truetype");
   font-weight: 600;
   font-style: normal;
 }

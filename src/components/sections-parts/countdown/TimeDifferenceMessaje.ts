@@ -29,6 +29,7 @@ export default class TimeDifferenceMessage {
         $(this.self, `.${partKey}`).textContent = parts[partKey]
       }
     })
+
     this.dtDifference = newDiff as DatetimeData
   }
 

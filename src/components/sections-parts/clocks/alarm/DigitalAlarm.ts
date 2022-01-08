@@ -1,4 +1,4 @@
-import alarm from "@assets/audio/alarm.mp3"
+import alarm from "/assets/audio/alarm.mp3"
 import Audio from "./Audio"
 import AudioController from "./AudioController"
 import "@styles/components/clock/DigitalAlarm.css"

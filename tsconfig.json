@@ -1,23 +1,30 @@
 {
   "compilerOptions": {
+    "target": "ES5",
     "pretty": true,
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
     "moduleResolution": "node",
+    "strict": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
     "importHelpers": true,
     "experimentalDecorators": true,
-    "noEmitOnError": true,
-    "target": "ES5",
-    "module": "ESNext",
-    "lib": ["DOM", "ESNext"],
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "rootDir": "src",
-    "baseUrl": "src",
+    "noEmitOnError": true,
+    "rootDir": "./",
+    "baseUrl": "./",
     "paths": {
-      "@*": ["*"]
+      "@assets": ["assets/*"],
+      "@*": ["src/*"]
     }
   },
-  "include": ["src/*"],
+  "include": ["./src"],
   "exclude": ["node_modules", "build"]
 }

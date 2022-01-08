@@ -6,7 +6,7 @@ declare interface NativeObject {
   [propertyName: string]: any
 }
 
-declare type EventHandler = <U extends Event>(event: U) => boolean
+declare type EventHandler<U extends Event> = (event: U) => boolean
 
 declare interface SectionChild {
   self: HTMLElement
