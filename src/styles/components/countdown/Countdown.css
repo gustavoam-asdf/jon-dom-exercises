@@ -1,17 +1,24 @@
+.countdown {
+  place-self: center;
+  height: min-content;
+  display: grid;
+  grid-template-areas: 
+    "datetarget datetarget"
+    "message message";
+  gap: 1em;
+}
+
 .date-target {
-  margin: 1.25em 0.5em;
+  grid-area: datetarget;
   font-size: 1.25em;
   color: var(--black);
   display: grid;
   gap: 1em;
-  grid-template-areas:
-    "datetime datetime"
-    "message message";
+  grid-template-columns: auto auto;
 }
 
 .date-target__date,
 .date-target__time {
-  grid-area: datetime;
   display: inline-block;
 }
 .date-target label {
@@ -29,12 +36,18 @@
 }
 
 .time-diff-message {
+  margin: 0;
   grid-area: message;
   font-size: 1.25em;
   color: var(--black);
 }
 
+.time-diff-message .remaining {
+  padding-left: 0;
+  font-weight: block;
+} 
+
 .time-diff-message span {
   display: block;
-  text-align: center;
+  padding-left: 1em;
 }
