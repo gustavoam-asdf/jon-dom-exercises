@@ -42,12 +42,13 @@
   color: var(--black);
 }
 
-.time-diff-message .remaining {
-  padding-left: 0;
-  font-weight: block;
-} 
-
 .time-diff-message span {
   display: block;
   padding-left: 1em;
 }
+
+.time-diff-message .remaining {
+  padding-left: 0;
+  font-weight: bold;
+} 
+
