@@ -5,5 +5,8 @@ export default defineConfig({
   plugins: [tsconfigPaths()],
   server: {
     port: 5500
+  },
+  build: {
+    outDir: "./build"
   }
 })

@@ -37,6 +37,7 @@
 
 .time-diff-message {
   margin: 0;
+  place-self: center;
   grid-area: message;
   font-size: 1.25em;
   color: var(--black);
@@ -44,11 +45,12 @@
 
 .time-diff-message span {
   display: block;
-  padding-left: 1em;
+  padding-left: .5em;
 }
 
 .time-diff-message .remaining {
-  padding-left: 0;
   font-weight: bold;
+  padding-bottom: .5em;
+  padding-left: 0;
 } 
 
