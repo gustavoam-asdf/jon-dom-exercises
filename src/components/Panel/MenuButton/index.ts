@@ -1,5 +1,5 @@
-import Icon from "../../Icon"
-import Menu from "../Menu"
+import Icon from "@components/Icon"
+import Menu from "@components/Panel/Menu"
 import "./index.css"
 
 export const icons = { hamburger: "fa-bars", cross: "fa-times" }

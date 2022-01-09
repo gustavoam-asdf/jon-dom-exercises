@@ -7,7 +7,7 @@ import {
   clickEvents,
   keyboardEvents
 } from "@utils/emitSectionEvents"
-import "@styles/index.css"
+import "./styles.css"
 import "normalize.css"
 
 const App = (): DocumentFragment => {

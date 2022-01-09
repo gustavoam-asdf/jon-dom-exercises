@@ -1,6 +1,6 @@
-import MenuItem from "../MenuItem"
-import MenuList from "../MenuList"
-import list from "../../sections-parts/sectionList"
+import MenuItem from "@components/Panel/MenuItem"
+import MenuList from "@components/Panel/MenuList"
+import list from "@components/sections/sectionList"
 import "./index.css"
 
 const itemsList: MenuItem[] = list.map(

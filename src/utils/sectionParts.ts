@@ -1,4 +1,4 @@
-import list from "../components/sections-parts/sectionList"
+import list from "@components/sections/sectionList"
 
 const sectionParts = list
   .map(section => {
