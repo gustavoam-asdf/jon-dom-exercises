@@ -1,7 +1,7 @@
 import Header from "./components/Header"
-import Panel from "./components/panel/Panel"
+import Panel from "./components/Panel"
 import Main from "./components/Main"
-import sectionParts from "./utils/sectionParts"
+import sectionParts from "@utils/sectionParts"
 import {
   changeEvents,
   clickEvents,

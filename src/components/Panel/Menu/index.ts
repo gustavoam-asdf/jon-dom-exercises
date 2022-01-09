@@ -1,7 +1,7 @@
-import MenuItem from "./MenuItem"
-import MenuList from "./MenuList"
-import list from "../sections-parts/sectionList"
-import "@styles/components/panel/Menu.css"
+import MenuItem from "../MenuItem"
+import MenuList from "../MenuList"
+import list from "../../sections-parts/sectionList"
+import "./index.css"
 
 const itemsList: MenuItem[] = list.map(
   ({ title, href }) =>

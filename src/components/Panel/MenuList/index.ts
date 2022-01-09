@@ -1,8 +1,8 @@
-import Icon from "../Icon"
-import Menu from "./Menu"
-import { icons } from "./MenuButton"
-import MenuItem from "./MenuItem"
-import "@styles/components/panel/MenuList.css"
+import Icon from "../../Icon"
+import Menu from "../Menu"
+import { icons } from "../MenuButton"
+import MenuItem from "../MenuItem"
+import "./index.css"
 
 const MenuListTemplate = ({
   itemsList

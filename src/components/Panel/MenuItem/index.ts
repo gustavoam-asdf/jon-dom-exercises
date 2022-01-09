@@ -1,4 +1,4 @@
-import "@styles/components/panel/MenuItem.css"
+import "./index.css"
 
 const MenuItemTemplate = ({
   href = "#",

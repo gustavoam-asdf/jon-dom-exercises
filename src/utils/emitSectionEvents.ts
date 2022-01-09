@@ -1,4 +1,4 @@
-import Panel from "@components/panel/Panel"
+import Panel from "@components/Panel"
 
 export function clickEvents(
   panel: Panel,
