@@ -39,7 +39,7 @@
 html {
   scroll-behavior: smooth;
   text-size-adjust: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 *,
@@ -69,7 +69,6 @@ a {
  /* Estilos barra (thumb) de scroll */
 #root::-webkit-scrollbar-thumb {
   background: var(--gold);
-  border-radius: 4px;
 }
 
 #root::-webkit-scrollbar-thumb:active {
@@ -78,11 +77,9 @@ a {
 
 #root::-webkit-scrollbar-thumb:hover {
   background: var(--orange);
-  box-shadow: 0 0 2px 1px #fbff00cb;
 }
 
  /* Estilos track de scroll */
 #root::-webkit-scrollbar-track {
   background: var(--light-yellow);
-  border-radius: 4px;
 }
