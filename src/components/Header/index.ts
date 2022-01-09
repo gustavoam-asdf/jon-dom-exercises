@@ -1,4 +1,4 @@
-import "@styles/components/Header.css"
+import "./index.css"
 
 const Header = (): HTMLElement => {
   const header = document.createElement("header")
