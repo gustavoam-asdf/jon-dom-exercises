@@ -1,24 +1,15 @@
 import Clock from "./Clock"
-import "@styles/components/Button.css"
-
-const ClockControllerTemplate = ({
-  text
-}: {
-  text: string
-}): HTMLButtonElement => {
-  const controller: HTMLButtonElement = document.createElement("button")
-  controller.classList.add(ClockController.className)
-  controller.classList.add("button")
-  controller.innerHTML = text
-  return controller
-}
+import Button from "@components/Button"
 
 export default class ClockController {
-  public self: HTMLButtonElement
+  public self: Button
   static className = "clock-controller"
 
   constructor({ text }: { text: string }) {
-    this.self = ClockControllerTemplate({ text })
+    this.self = new Button({
+      className: ClockController.className,
+      innerHTML: text
+    })
   }
 
   changeText(text: string) {
