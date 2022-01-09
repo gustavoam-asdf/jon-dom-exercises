@@ -8,13 +8,6 @@ declare interface NativeObject {
 
 declare type EventHandler<U extends Event> = (event: U) => boolean
 
-declare interface SectionChild {
-  self: HTMLElement
-  clickEvent?: EventHandler<MouseEvent>
-  keyboardEvent?: EventHandler<KeyboardEvent>
-  changeEvent?: EventHandler<Event>
-}
-
 declare interface AuxiliaryKeys {
   meta?: boolean
   ctrl?: boolean
