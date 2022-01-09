@@ -1,4 +1,4 @@
-import SectionContent from "@components/section/SectionContent"
+import SectionContent from "@components/Section/SectionContent"
 import Stage from "./Stage"
 import "@styles/components/staging/stagingPart.css"
 

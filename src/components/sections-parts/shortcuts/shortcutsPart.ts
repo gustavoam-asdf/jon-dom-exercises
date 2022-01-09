@@ -1,4 +1,4 @@
-import SectionContent from "@components/section/SectionContent"
+import SectionContent from "@components/Section/SectionContent"
 import ShortcutsBox from "./ShortcutsBox"
 import "@styles/components/shortcuts/shortcutsPart.css"
 

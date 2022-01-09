@@ -1,4 +1,4 @@
-import SectionContent from "@components/section/SectionContent"
+import SectionContent from "@components/Section/SectionContent"
 import Countdown from "./Countdown"
 import "@styles/components/countdown/countdownPart.css"
 

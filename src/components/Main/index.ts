@@ -1,4 +1,4 @@
-import Section from "../section/Section"
+import Section from "../Section"
 import list from "../sections-parts/sectionList"
 import "./index.css"
 
