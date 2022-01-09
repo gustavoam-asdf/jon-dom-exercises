@@ -1,17 +1,17 @@
-import Header from "./components/Header"
-import Panel from "./components/Panel"
-import Main from "./components/Main"
+import Header from "@components/Header"
+import Panel from "@components/Panel"
+import Main from "@components/Main"
 import sectionParts from "@utils/sectionParts"
 import {
   changeEvents,
   clickEvents,
   keyboardEvents
-} from "./utils/emitSectionEvents"
-import "normalize.css"
+} from "@utils/emitSectionEvents"
 import "@styles/index.css"
+import "normalize.css"
 
 const App = (): DocumentFragment => {
-  const app: DocumentFragment = document.createDocumentFragment()
+  const app = document.createDocumentFragment()
 
   const panel = new Panel()
   const main = new Main()

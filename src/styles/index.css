@@ -18,6 +18,7 @@
 }
 
 :root {
+  --light-yellow: #fff6b0;
   --yellow: #f7df1e;
   --gold: #ffd700;
   --old-gold: #d6b708;
@@ -53,4 +54,35 @@ body {
 
 a {
   text-decoration: none;
+}
+
+#root {
+  max-height: 100vh;
+  overflow: hidden scroll;
+}
+
+/* Tamaño del scroll */
+#root::-webkit-scrollbar {
+  width: 8px;
+}
+
+ /* Estilos barra (thumb) de scroll */
+#root::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 4px;
+}
+
+#root::-webkit-scrollbar-thumb:active {
+  background-color: var(--orange);
+}
+
+#root::-webkit-scrollbar-thumb:hover {
+  background: var(--orange);
+  box-shadow: 0 0 2px 1px #fbff00cb;
+}
+
+ /* Estilos track de scroll */
+#root::-webkit-scrollbar-track {
+  background: var(--light-yellow);
+  border-radius: 4px;
 }
