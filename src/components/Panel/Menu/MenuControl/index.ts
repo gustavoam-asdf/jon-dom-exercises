@@ -1,17 +1,12 @@
 import Icon from "@components/Icon"
+import PageControl from "@components/PageControl"
 import Menu from "@components/Panel/Menu"
 import "./styles.css"
 
 export const icons = { hamburger: "fa-bars", cross: "fa-times" }
 
-const MenuButtonTemplate = (icon: Icon): HTMLElement => {
-  const button = document.createElement("div")
-  button.classList.add(MenuButton.className)
-  button.append(icon.self)
-  return button
-}
-export default class MenuButton {
-  public self: HTMLElement
+export default class MenuControl {
+  public self: PageControl
   public icon: Icon
   static className = "menu-button"
 
@@ -22,10 +17,11 @@ export default class MenuButton {
     })
   ) {
     this.icon = icon
-    this.self = MenuButtonTemplate(this.icon)
+    this.self = new PageControl(this.icon)
+    this.self.addClass(MenuControl.className)
   }
 
-  clickEvent({ menu }: { menu: Menu }) {
+  action({ menu }: { menu: Menu }) {
     this.icon.switchIcon(icons.cross)
     menu.list.self.classList.toggle("hide")
     menu.self.classList.toggle("hide")

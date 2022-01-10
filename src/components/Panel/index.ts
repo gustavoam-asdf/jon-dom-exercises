@@ -1,6 +1,6 @@
-import MenuButton from "./MenuButton"
+import MenuControl from "./Menu/MenuControl"
 import Menu from "./Menu"
-import MenuList from "./MenuList"
+import MenuList from "./Menu/MenuList"
 import "./styles.css"
 
 const PanelTemplate = ({
@@ -8,7 +8,7 @@ const PanelTemplate = ({
   button
 }: {
   menu: Menu
-  button: MenuButton
+  button: MenuControl
 }): HTMLDivElement => {
   const panel: HTMLDivElement = document.createElement("div")
   panel.classList.add(Panel.className)
@@ -20,12 +20,12 @@ const PanelTemplate = ({
 export default class Panel {
   public self: HTMLDivElement
   public menu: Menu
-  public button: MenuButton
+  public button: MenuControl
   static className = "panel"
 
   constructor() {
     this.menu = new Menu()
-    this.button = new MenuButton()
+    this.button = new MenuControl()
     this.self = PanelTemplate({
       menu: this.menu,
       button: this.button
@@ -34,15 +34,15 @@ export default class Panel {
 
   clickEvent(evt: any): boolean {
     const clickOnButton =
-      evt.target.matches(`.${MenuButton.className}`) ||
-      evt.target.matches(`.${MenuButton.className} *`)
+      evt.target.matches(`.${MenuControl.className}`) ||
+      evt.target.matches(`.${MenuControl.className} *`)
     if (clickOnButton) {
-      this.button.clickEvent({ menu: this.menu })
+      this.button.action({ menu: this.menu })
       return true
     }
     const clickOnMenuItem = evt.target.matches(`.${MenuList.className} *`)
     if (clickOnMenuItem) {
-      this.menu.list.clickEvent({
+      this.menu.list.action({
         icon: this.button.icon,
         menu: this.menu
       })

@@ -1,20 +1,33 @@
 import Icon from "@components/Icon"
 import "./styles.css"
 
-export default class PageControl {
-  public self: HTMLElement
+export default class PageControl extends HTMLDivElement {
   public icon: Icon
+  static elementName = "page-control"
   static className = "page-control"
 
-  constructor({ icon }: { icon: Icon }) {
+  constructor(icon: Icon) {
+    super()
     this.icon = icon
-    this.self = this.template(this.icon)
+    this.setAttribute("is", PageControl.elementName)
+    this.classList.add(PageControl.className)
+    this.append(this.icon.self)
   }
 
-  private template = (icon: Icon): HTMLElement => {
-    const button = document.createElement("div")
-    button.classList.add(PageControl.className)
-    button.append(icon.self)
-    return button
+  addClass(className: string) {
+    if (this.classList.contains(className)) return
+    this.classList.add(className)
+  }
+
+  removeClass(className: string) {
+    if (!this.classList.contains(className)) return
+    this.classList.remove(className)
+  }
+
+  replaceClass(oldClassName: string, newClassName: string) {
+    if (!this.classList.contains(oldClassName)) return
+    this.classList.replace(oldClassName, newClassName)
   }
 }
+
+customElements.define(PageControl.elementName, PageControl, { extends: "div" })

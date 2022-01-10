@@ -1,5 +1,5 @@
-import MenuItem from "@components/Panel/MenuItem"
-import MenuList from "@components/Panel/MenuList"
+import MenuItem from "@components/Panel/Menu/MenuList/MenuItem"
+import MenuList from "@components/Panel/Menu/MenuList"
 import list from "@components/sections/sectionList"
 import "./styles.css"
 

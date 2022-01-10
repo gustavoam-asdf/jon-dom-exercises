@@ -4,7 +4,7 @@ const IconTemplate = ({
   id
 }: {
   iconType: string
-  className?: string
+  className: string
   id?: string
 }): HTMLSpanElement => {
   const icon: HTMLSpanElement = document.createElement("span")
@@ -18,6 +18,7 @@ const IconTemplate = ({
 export default class Icon {
   public self: HTMLSpanElement
   public iconType: string
+  public className: string
 
   constructor({
     iconType,
@@ -28,18 +29,16 @@ export default class Icon {
     className?: string
     id?: string
   }) {
-    this.self = IconTemplate({ iconType, className, id })
+    this.className = className ? className : ""
+    this.self = IconTemplate({ iconType, className: this.className, id })
     this.iconType = iconType
   }
 
   switchIcon(switchableIcon: string): void {
-    const defaultState = this.self.classList.contains(this.iconType)
-    if (defaultState) {
-      this.self.classList.remove(this.iconType)
-      this.self.classList.add(switchableIcon)
-    } else {
-      this.self.classList.remove(switchableIcon)
-      this.self.classList.add(this.iconType)
-    }
+    const { classList } = this.self
+    const defaultState = classList.contains(this.iconType)
+    defaultState
+      ? classList.replace(this.iconType, switchableIcon)
+      : classList.replace(switchableIcon, this.iconType)
   }
 }
