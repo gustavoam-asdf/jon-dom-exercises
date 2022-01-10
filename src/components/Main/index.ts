@@ -1,6 +1,6 @@
 import Section from "@components/Section"
 import list from "@components/sections/sectionList"
-import "./index.css"
+import "./styles.css"
 
 const sectionsList: Section[] = list.map(
   ({ id, title, content }) => new Section({ id, title, content })

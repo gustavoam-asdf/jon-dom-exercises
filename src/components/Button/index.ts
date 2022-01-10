@@ -1,4 +1,4 @@
-import "./index.css"
+import "./styles.css"
 
 export default class Button extends HTMLButtonElement {
   static className = "button"
