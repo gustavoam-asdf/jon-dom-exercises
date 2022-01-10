@@ -31,9 +31,11 @@
   --black-transparent: #000000c2;
   --border-radius: 0.2em;
   font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", system-ui;
+  --z-index-estructural: -1;
   --z-index-normal: 0;
   --z-index-modal: 1;
   --z-index-alert: 2;
+  --controls-height: 5em;
 }
 
 html {

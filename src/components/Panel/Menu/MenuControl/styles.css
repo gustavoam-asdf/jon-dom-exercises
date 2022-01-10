@@ -2,20 +2,4 @@
   position: fixed;
   bottom: 2em;
   right: 2em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  background-color: var(--gold);
-  cursor: pointer;
-}
-
-.menu-button:hover {
-  background-color: var(--orange);
-}
-
-.menu-button__icon::before {
-  font-size: 2.75em;
 }

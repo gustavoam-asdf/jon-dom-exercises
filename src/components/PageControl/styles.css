@@ -1,12 +1,9 @@
 .page-control {
-  position: fixed;
-  bottom: 2em;
-  right: 2em;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 5rem;
-  height: 5rem;
+  width: var(--controls-height);
+  height: var(--controls-height);
   border-radius: 50%;
   background-color: var(--gold);
   cursor: pointer;
