@@ -2,34 +2,29 @@ import MenuControl from "./MenuControl"
 import Menu from "./Menu"
 import MenuList from "./Menu/MenuList"
 import "./styles.css"
-
-const PanelTemplate = ({
-  menu,
-  button
-}: {
-  menu: Menu
-  button: MenuControl
-}): HTMLDivElement => {
-  const panel: HTMLDivElement = document.createElement("div")
-  panel.classList.add(Panel.className)
-  panel.append(menu.self)
-  panel.append(button.self)
-  return panel
-}
+import ScrollControl from "./ScrollControl"
 
 export default class Panel {
   public self: HTMLDivElement
   public menu: Menu
-  public button: MenuControl
+  public menuControl: MenuControl
+  public scrollControl: ScrollControl
   static className = "panel"
 
   constructor() {
     this.menu = new Menu()
-    this.button = new MenuControl({ menu: this.menu })
-    this.self = PanelTemplate({
-      menu: this.menu,
-      button: this.button
-    })
+    this.menuControl = new MenuControl({ menu: this.menu })
+    this.scrollControl = new ScrollControl()
+    this.self = this.template()
+  }
+
+  private template = (): HTMLDivElement => {
+    const panel: HTMLDivElement = document.createElement("div")
+    panel.classList.add(Panel.className)
+    panel.append(this.menu.self)
+    panel.append(this.menuControl.self)
+    panel.append(this.scrollControl.self)
+    return panel
   }
 
   clickEvent(evt: any): boolean {
@@ -37,12 +32,12 @@ export default class Panel {
       evt.target.matches(`.${MenuControl.className}`) ||
       evt.target.matches(`.${MenuControl.className} *`)
     if (clickOnButton) {
-      this.button.action()
+      this.menuControl.action()
       return true
     }
     const clickOnMenuItem = evt.target.matches(`.${MenuList.className} *`)
     if (clickOnMenuItem) {
-      this.button.action()
+      this.menuControl.action()
       this.menu.action()
       return true
     }

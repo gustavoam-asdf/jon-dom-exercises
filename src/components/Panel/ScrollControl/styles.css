@@ -1,0 +1,3 @@
+.scroll-button {
+  right: calc(var(--page-control-separator) * 2 + var(--controls-height));
+}

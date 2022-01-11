@@ -1,4 +1,6 @@
 .page-control {
+  position: fixed;
+  bottom: var(--page-control-separator);
   display: flex;
   align-items: center;
   justify-content: center;

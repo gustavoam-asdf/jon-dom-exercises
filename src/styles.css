@@ -36,6 +36,7 @@
   --z-index-modal: 1;
   --z-index-alert: 2;
   --controls-height: 5em;
+  --page-control-separator: 2em;
 }
 
 html {
