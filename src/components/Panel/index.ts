@@ -28,11 +28,19 @@ export default class Panel {
   }
 
   clickEvent(evt: any): boolean {
-    const clickOnButton =
+    const clickOnMenuControl =
       evt.target.matches(`.${MenuControl.className}`) ||
       evt.target.matches(`.${MenuControl.className} *`)
-    if (clickOnButton) {
+    if (clickOnMenuControl) {
       this.menuControl.action()
+      return true
+    }
+    const clickOnScrollControl =
+      evt.target.matches(`.${ScrollControl.className}`) ||
+      evt.target.matches(`.${ScrollControl.className} *`)
+    if (clickOnScrollControl) {
+      // this.menuControl.action()
+      // this.menu.action()
       return true
     }
     const clickOnMenuItem = evt.target.matches(`.${MenuList.className} *`)
