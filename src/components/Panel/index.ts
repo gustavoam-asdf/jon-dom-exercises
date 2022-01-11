@@ -3,6 +3,7 @@ import Menu from "./Menu"
 import MenuList from "./Menu/MenuList"
 import "./styles.css"
 import ScrollControl from "./ScrollControl"
+import executeClick from "@utils/executeClick"
 
 export default class Panel {
   public self: HTMLDivElement
@@ -28,27 +29,35 @@ export default class Panel {
   }
 
   clickEvent(evt: any): boolean {
-    const clickOnMenuControl =
-      evt.target.matches(`.${MenuControl.className}`) ||
-      evt.target.matches(`.${MenuControl.className} *`)
-    if (clickOnMenuControl) {
-      this.menuControl.action()
-      return true
-    }
-    const clickOnScrollControl =
-      evt.target.matches(`.${ScrollControl.className}`) ||
-      evt.target.matches(`.${ScrollControl.className} *`)
-    if (clickOnScrollControl) {
-      // this.menuControl.action()
-      // this.menu.action()
-      return true
-    }
-    const clickOnMenuItem = evt.target.matches(`.${MenuList.className} *`)
-    if (clickOnMenuItem) {
-      this.menuControl.action()
-      this.menu.action()
-      return true
-    }
+    const clickOnMenuControl = executeClick({
+      evt,
+      selectors: `.${MenuControl.className}`,
+      deep: true,
+      action: () => {
+        this.menuControl.action()
+      }
+    })
+    if (clickOnMenuControl) return true
+
+    const clickOnScrollControl = executeClick({
+      evt,
+      selectors: `.${ScrollControl.className}`,
+      deep: true,
+      action: () => {
+        this.scrollControl.action()
+      }
+    })
+    if (clickOnScrollControl) return true
+
+    const clickOnMenuItem = executeClick({
+      evt,
+      selectors: `.${MenuList.className} *`,
+      action: () => {
+        this.menuControl.action()
+        this.menu.action()
+      }
+    })
+    if (clickOnMenuItem) return true
     return false
   }
 }
