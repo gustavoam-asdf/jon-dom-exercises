@@ -1,4 +1,4 @@
-import MenuControl from "./Menu/MenuControl"
+import MenuControl from "./MenuControl"
 import Menu from "./Menu"
 import MenuList from "./Menu/MenuList"
 import "./styles.css"
@@ -25,7 +25,7 @@ export default class Panel {
 
   constructor() {
     this.menu = new Menu()
-    this.button = new MenuControl()
+    this.button = new MenuControl({ menu: this.menu })
     this.self = PanelTemplate({
       menu: this.menu,
       button: this.button
@@ -37,15 +37,13 @@ export default class Panel {
       evt.target.matches(`.${MenuControl.className}`) ||
       evt.target.matches(`.${MenuControl.className} *`)
     if (clickOnButton) {
-      this.button.action({ menu: this.menu })
+      this.button.action()
       return true
     }
     const clickOnMenuItem = evt.target.matches(`.${MenuList.className} *`)
     if (clickOnMenuItem) {
-      this.menu.list.action({
-        icon: this.button.icon,
-        menu: this.menu
-      })
+      this.button.action()
+      this.menu.action()
       return true
     }
     return false

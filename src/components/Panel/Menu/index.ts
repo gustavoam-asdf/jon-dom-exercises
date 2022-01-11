@@ -28,4 +28,9 @@ export default class Menu {
     this.list = new MenuList({ itemsList })
     this.self = MenuTemplate({ list: this.list })
   }
+
+  action() {
+    this.list.self.classList.add("hide")
+    this.self.classList.add("hide")
+  }
 }

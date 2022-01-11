@@ -1,6 +1,3 @@
-import Icon from "@components/Icon"
-import Menu from "@components/Panel/Menu"
-import { icons } from "@components/Panel/Menu/MenuControl"
 import MenuItem from "@components/Panel/Menu/MenuList/MenuItem"
 import "./styles.css"
 
@@ -27,11 +24,5 @@ export default class MenuList {
   constructor({ itemsList }: { itemsList: MenuItem[] }) {
     this.itemsList = itemsList
     this.self = MenuListTemplate({ itemsList: this.itemsList })
-  }
-
-  action({ icon, menu }: { icon: Icon; menu: Menu }) {
-    icon.switchIcon(icons.cross)
-    this.self.classList.add("hide")
-    menu.self.classList.add("hide")
   }
 }

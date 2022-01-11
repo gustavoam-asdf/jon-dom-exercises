@@ -14,7 +14,7 @@
   margin: 0;
   display: flex;
   justify-content: space-between;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .digital-clock .hide {
