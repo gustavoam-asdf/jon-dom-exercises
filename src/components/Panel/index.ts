@@ -4,18 +4,21 @@ import MenuList from "./Menu/MenuList"
 import "./styles.css"
 import ScrollControl from "./ScrollControl"
 import executeClick from "@utils/executeClick"
+import ThemeControl from "./ThemeControl"
 
 export default class Panel {
   public self: HTMLDivElement
   public menu: Menu
   public menuControl: MenuControl
   public scrollControl: ScrollControl
+  public themeControl: ThemeControl
   static className = "panel"
 
   constructor() {
     this.menu = new Menu()
     this.menuControl = new MenuControl({ menu: this.menu })
     this.scrollControl = new ScrollControl()
+    this.themeControl = new ThemeControl()
     this.self = this.template()
   }
 
@@ -25,6 +28,7 @@ export default class Panel {
     panel.append(this.menu.self)
     panel.append(this.menuControl.self)
     panel.append(this.scrollControl.self)
+    panel.append(this.themeControl.self)
     return panel
   }
 
@@ -44,6 +48,14 @@ export default class Panel {
       action: () => this.scrollControl.action()
     })
     if (clickOnScrollControl) return true
+
+    const clickOnThemeControl = executeClick({
+      evt,
+      selectors: `.${ThemeControl.className}`,
+      deep: true,
+      action: () => this.themeControl.action()
+    })
+    if (clickOnThemeControl) return true
 
     const clickOnMenuItem = executeClick({
       evt,

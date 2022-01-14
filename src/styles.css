@@ -18,6 +18,8 @@
 }
 
 :root {
+  font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", system-ui;
+  
   --light-yellow: #fff6b0;
   --yellow: #f7df1e;
   --gold: #ffd700;
@@ -26,17 +28,24 @@
   --light-grey: #e0e0e0;
   --dark-grey: #adaaaa;
   --black: #0e0c0c;
-  --dark-blue: #181818;
+  --dark: #181818;
   --white: #fafafa;
   --black-transparent: #000000c2;
-  --border-radius: 0.2em;
-  font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", system-ui;
+
+  /** Schema colors **/
+  --main-color: var(--yellow);
+  --secondary-color: var(--gold);
+  --altern-color: var(--light-grey);
+  --emphasis-color: var(--orange);
+  
   --z-index-estructural: -1;
   --z-index-normal: 0;
   --z-index-modal: 1;
   --z-index-alert: 2;
-  --controls-height: 3.5em;
+  
+  --controls-height: 4em;
   --page-control-separator: 1em;
+  --border-radius: 0.2em;
 }
 
 html {

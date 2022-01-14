@@ -1,0 +1,3 @@
+.theme-button {
+  left: calc(var(--page-control-separator) * 2);
+}
