@@ -7,13 +7,13 @@
   width: var(--controls-height);
   height: var(--controls-height);
   border-radius: 50%;
-  background-color: var(--gold);
+  background-color: var(--secondary-color);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
 .page-control:hover {
-  background-color: var(--orange);
+  background-color: var(--emphasis-color);
   color: var(--light-yellow);
 }
 

@@ -19,12 +19,16 @@
   justify-content: space-between;
   align-items: center;
   gap: 0.5em;
+  color: var(--text-color);
+}
+
+.shortcut .action {
+  color: var(--text-color);
 }
 
 .shortcut .keys .key {
   font-size: 1em;
-  color: var(--black);
-  background-color: var(--light-grey);
+  background-color: var(--altern-color);
   padding: 0.2em 0.4em;
   line-height: 1.5em;
   border-radius: var(--border-radius);

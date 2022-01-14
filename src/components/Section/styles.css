@@ -7,17 +7,17 @@
 
 .section-title {
   display: block;
-  color: var(--black);
+  color: var(--text-color);
 }
 
 .section-title h2:hover,
 .section-title h2:focus {
-  background-color: var(--light-grey);
+  background-color: var(--altern-color);
 }
 
 .section-title h2 {
   margin: 0;
   padding: 0.35em 0 0.35em 0.5em;
   border-radius: var(--border-radius);
-  border-bottom: 0.01em solid var(--black);
+  border-bottom: 0.01em solid var(--text-color);
 }

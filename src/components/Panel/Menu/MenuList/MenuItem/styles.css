@@ -1,6 +1,6 @@
 .menu-item {
   display: block;
-  color: var(--yellow);
+  color: var(--main-color);
   font-size: 1.5em;
   padding: 1em 0;
   text-align: center;
@@ -13,8 +13,8 @@
 }
 
 .menu-item:hover {
-  background-color: var(--orange);
-  color: var(--black);
+  background-color: var(--emphasis-color);
+  color: var(--text-color);
 }
 
 .menu-list.hide .menu-item {

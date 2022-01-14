@@ -11,7 +11,7 @@
 .date-target {
   grid-area: datetarget;
   font-size: 1.25em;
-  color: var(--black);
+  color: var(--text-color);
   display: grid;
   gap: 1em;
   grid-template-columns: auto auto;
@@ -40,7 +40,7 @@
   place-self: center;
   grid-area: message;
   font-size: 1.25em;
-  color: var(--black);
+  color: var(--text-color);
 }
 
 .time-diff-message span {
