@@ -14,7 +14,7 @@
 
 .page-control:hover {
   background-color: var(--orange);
-  color: var(--white);
+  color: var(--light-yellow);
 }
 
 .page-control > span::before {

@@ -23,6 +23,9 @@ export default class ScrollControl {
   }
 
   action() {
-    document.documentElement.scrollTop = 0
+    scrollTo({
+      behavior: "smooth",
+      top: 0
+    })
   }
 }
