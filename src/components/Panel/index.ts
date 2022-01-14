@@ -33,9 +33,7 @@ export default class Panel {
       evt,
       selectors: `.${MenuControl.className}`,
       deep: true,
-      action: () => {
-        this.menuControl.action()
-      }
+      action: this.menuControl.action.bind(this.menuControl)
     })
     if (clickOnMenuControl) return true
 
@@ -43,9 +41,7 @@ export default class Panel {
       evt,
       selectors: `.${ScrollControl.className}`,
       deep: true,
-      action: () => {
-        this.scrollControl.action()
-      }
+      action: () => this.scrollControl.action()
     })
     if (clickOnScrollControl) return true
 
@@ -58,6 +54,7 @@ export default class Panel {
       }
     })
     if (clickOnMenuItem) return true
+
     return false
   }
 }

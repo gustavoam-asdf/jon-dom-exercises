@@ -9,10 +9,12 @@
   border-radius: 50%;
   background-color: var(--gold);
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .page-control:hover {
   background-color: var(--orange);
+  color: var(--white);
 }
 
 .page-control > span::before {

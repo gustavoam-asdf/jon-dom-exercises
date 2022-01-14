@@ -14,14 +14,15 @@ export default class ScrollControl {
     })
     this.self = new PageControl(this.icon)
     this.self.addClass(ScrollControl.className)
-    console.log("Construyendo ScrollControl")
-    // this.self.addClass(ScrollControl.className)
+    this.self.addClass("hide")
+    document.addEventListener("scroll", () => {
+      document.documentElement.scrollTop > 300
+        ? this.self.removeClass("hide")
+        : this.self.addClass("hide")
+    })
   }
 
   action() {
-    console.log("Se ejecuta")
-    // this.icon.switchIcon(icons.cross)
-    // this.menu.list.self.classList.toggle("hide")
-    // this.menu.self.classList.toggle("hide")
+    document.documentElement.scrollTop = 0
   }
 }

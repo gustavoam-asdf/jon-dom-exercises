@@ -1,3 +1,7 @@
 .scroll-button {
   right: calc(var(--page-control-separator) * 3 + var(--controls-height));
 }
+
+.scroll-button.hide {
+  opacity: 0;
+}
