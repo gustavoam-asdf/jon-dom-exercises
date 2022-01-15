@@ -12,10 +12,14 @@
   transition: all 0.2s ease-in-out;
 }
 
-.page-control:hover {
-  background-color: var(--emphasis-color);
-  color: var(--light-yellow);
+
+@media (hover: hover) {
+  .page-control:hover {
+    background-color: var(--emphasis-color);
+    color: var(--light-yellow);
+  }
 }
+
 
 .page-control > span::before {
   font-size: 2em;

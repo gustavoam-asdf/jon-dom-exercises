@@ -10,10 +10,17 @@
   transition-property: background-color, color;
   transition-duration: 0.3s;
   transition-timing-function: ease;
-
+  user-select: none;
 }
 
-.button:hover,
-.button:active {
-  background-color: var(--emphasis-color);
+@media (hover: hover) {
+  .button:hover {
+    background: var(--emphasis-color);
+  }
+}
+
+@media (active: active) {
+  .button:active {
+    background: var(--emphasis-color);
+  }
 }
