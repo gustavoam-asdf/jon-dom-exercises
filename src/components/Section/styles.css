@@ -8,11 +8,9 @@
 .section-title {
   display: block;
   color: var(--text-color);
-}
-
-.section-title h2:hover,
-.section-title h2:focus {
-  background-color: var(--altern-color);
+  transition-property: color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }
 
 .section-title h2 {
@@ -20,4 +18,13 @@
   padding: 0.35em 0 0.35em 0.5em;
   border-radius: var(--border-radius);
   border-bottom: 0.01em solid var(--text-color);
+  transition-property: background-color, border-bottom;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;  
 }
+
+.section-title h2:hover,
+.section-title h2:focus {
+  background-color: var(--altern-color);
+}
+

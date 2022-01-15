@@ -7,7 +7,10 @@
   font-size: 1.25em;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition-property: background-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+
 }
 
 .button:hover,

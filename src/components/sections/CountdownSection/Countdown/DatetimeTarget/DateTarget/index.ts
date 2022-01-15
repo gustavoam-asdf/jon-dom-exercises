@@ -16,7 +16,7 @@ export default class DateTarget {
 
   private template() {
     const dateTarget = document.createElement("div")
-    dateTarget.classList.add(`${DateTarget.className}__date`)
+    dateTarget.classList.add(DateTarget.className)
 
     const dateLabel = document.createElement("label")
     dateLabel.innerText = "Fecha:"

@@ -16,7 +16,7 @@ export default class TimeTarget {
 
   private template() {
     const timeTarget = document.createElement("div")
-    timeTarget.classList.add(`${TimeTarget.className}__date`)
+    timeTarget.classList.add(TimeTarget.className)
 
     const timeLabel = document.createElement("label")
     timeLabel.innerText = "Hora:"
