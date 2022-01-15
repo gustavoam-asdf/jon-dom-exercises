@@ -28,8 +28,9 @@
   --light-grey: #e0e0e0;
   --dark-grey: #797979;
   --black: #181818;
+  --light-blue: #51b3aa;
   --dark: #1d1d1d;
-  --dark-blue: #070120;
+  --dark-blue: #1d1735;
   --white: #ffffff;
   --black-transparent: #000000d5;
   --white-transparent: #ffffffd5;
@@ -39,6 +40,7 @@
   --secondary-color: var(--gold);
   --altern-color: var(--light-grey);
   --emphasis-color: var(--orange);
+  --stage-color: var(--light-blue);
   --text-color: var(--black);
   --background-color: var(--white);
   --transparent-color: var(--black-transparent);
@@ -96,4 +98,5 @@ body::-webkit-scrollbar-track {
   --altern-color: var(--dark-grey);
   --text-color: var(--white);
   --background-color: var(--dark);
+  --stage-color: var(--dark-blue);
 }

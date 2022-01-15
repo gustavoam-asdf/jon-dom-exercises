@@ -3,7 +3,10 @@
   width: 95%;
   height: 95%;
   border-radius: var(--border-radius);
-  background-color: var(--dark-blue);
+  background-color: var(--stage-color);
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
   display: grid;
   place-items: center;
 }
