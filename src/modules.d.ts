@@ -22,3 +22,7 @@ declare interface Move {
   left: Movement
   right: Movement
 }
+
+declare interface ThemeData {
+  isDark: boolean
+}

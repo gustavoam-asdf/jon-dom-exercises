@@ -1,8 +1,8 @@
+import root from "@components/Root"
 import App from "./App"
 
 document.addEventListener("DOMContentLoaded", () => {
-  const root: HTMLElement = document.getElementById("root") as HTMLElement
+  console.clear()
   const app = App()
   root.prepend(app)
-  console.clear()
 })

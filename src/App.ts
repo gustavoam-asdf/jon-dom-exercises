@@ -9,6 +9,8 @@ import {
 } from "@utils/emitSectionEvents"
 import "./styles.css"
 import "normalize.css"
+import { detectTheme } from "@utils/theme"
+import root from "@components/Root"
 
 const App = (): DocumentFragment => {
   const app = document.createDocumentFragment()
@@ -18,6 +20,10 @@ const App = (): DocumentFragment => {
   app.prepend(Header())
   app.append(main.self)
   app.append(panel.self)
+
+  const theme = detectTheme()
+  theme.isDark ? root.classList.add("dark") : 0
+
   document.addEventListener("click", (evt: MouseEvent) => {
     clickEvents(panel, sectionParts, evt)
   })
