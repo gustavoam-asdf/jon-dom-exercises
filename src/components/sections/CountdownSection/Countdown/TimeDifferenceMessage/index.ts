@@ -1,6 +1,7 @@
 import moment, { Moment } from "moment"
 import { $ } from "@utils/selector"
 import timeDifference from "@utils/timeDifference"
+import { completeTwoDigits } from "@utils/completeTwoDigits"
 
 export default class TimeDifferenceMessage {
   public self: HTMLParagraphElement
@@ -48,12 +49,12 @@ export default class TimeDifferenceMessage {
   private messageParts(dtDifference: DatetimeData): NativeObject {
     return {
       remaining: dtDifference.remaining ? "Faltan: " : "Pasaron: ",
-      years: `${dtDifference.years} años`,
-      months: `${dtDifference.months} meses`,
-      days: `${dtDifference.days} días`,
-      hours: `${dtDifference.hours} horas`,
-      minutes: `${dtDifference.minutes} minutos`,
-      seconds: `${dtDifference.seconds} segundos`
+      years: `${completeTwoDigits(dtDifference.years)} años`,
+      months: `${completeTwoDigits(dtDifference.months)} meses`,
+      days: `${completeTwoDigits(dtDifference.days)} días`,
+      hours: `${completeTwoDigits(dtDifference.hours)} horas`,
+      minutes: `${completeTwoDigits(dtDifference.minutes)} minutos`,
+      seconds: `${completeTwoDigits(dtDifference.seconds)} segundos`
     }
   }
 
