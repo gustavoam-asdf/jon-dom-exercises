@@ -19,8 +19,6 @@
   }
 }
 
-@media (active: active) {
-  .button:active {
-    background: var(--emphasis-color);
-  }
+.button:active {
+  background: var(--emphasis-color);
 }

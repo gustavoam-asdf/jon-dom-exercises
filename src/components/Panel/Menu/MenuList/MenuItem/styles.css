@@ -7,12 +7,17 @@
   cursor: pointer;
   user-select: none;
   border-radius: var(--border-radius);
-  transition-property: background-color, color;
-  transition-duration: .3s;
-  transition-timing-function: ease-in;
+  transition: background-color 0.2s ease-in, color 0.3s ease-in;
 }
 
-.menu-item:hover {
+@media (hover: hover) {
+  .menu-item:hover {
+    background-color: var(--emphasis-color);
+    color: var(--text-color);
+  }
+}
+
+.menu-item:active {
   background-color: var(--emphasis-color);
   color: var(--text-color);
 }
