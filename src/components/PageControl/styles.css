@@ -9,7 +9,7 @@
   border-radius: 50%;
   background-color: var(--main-color);
   cursor: pointer;
-  transition-property: background-color, color;
+  transition-property: background-color, color, opacity;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
 }

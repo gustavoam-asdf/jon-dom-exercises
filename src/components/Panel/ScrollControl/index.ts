@@ -1,5 +1,6 @@
 import Icon from "@components/Icon"
 import PageControl from "@components/PageControl"
+import root from "@components/Root"
 import "./styles.css"
 
 export default class ScrollControl {
@@ -15,15 +16,15 @@ export default class ScrollControl {
     this.self = new PageControl(this.icon)
     this.self.addClass(ScrollControl.className)
     this.self.addClass("hide")
-    document.addEventListener("scroll", () => {
-      document.documentElement.scrollTop > 300
+    root.addEventListener("scroll", () => {
+      root.scrollTop > 300
         ? this.self.removeClass("hide")
         : this.self.addClass("hide")
     })
   }
 
   action() {
-    scrollTo({
+    root.scrollTo({
       behavior: "smooth",
       top: 0
     })
