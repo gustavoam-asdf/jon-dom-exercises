@@ -1,6 +1,6 @@
 .main-header {
   color: var(--text-color);
-  background-color: var(--secondary-color);
+  background-color: var(--main-color);
   margin: 0;
   display: block;
   padding: 1em;

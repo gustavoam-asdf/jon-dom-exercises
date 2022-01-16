@@ -37,8 +37,8 @@
   --white-transparent: #ffffffd5;
 
   /** Schema colors **/
-  --main-color: var(--yellow);
-  --secondary-color: var(--gold);
+  --main-color: var(--gold);
+  --secondary-color: var(--yellow);
   --altern-color: var(--light-grey);
   --emphasis-color: var(--orange);
   --stage-color: var(--light-blue);
@@ -88,7 +88,7 @@ html {
 
  /* Estilos barra (thumb) de scroll */
 #root::-webkit-scrollbar-thumb {
-  background: var(--secondary-color);
+  background: var(--main-color);
 }
 
 #root::-webkit-scrollbar-thumb:active {
@@ -105,7 +105,7 @@ html {
 }
 
 #root.dark {
-  --secondary-color: var(--old-gold);
+  --main-color: var(--old-gold);
   --altern-color: var(--dark-grey);
   --text-color: var(--white);
   --background-color: var(--dark);
