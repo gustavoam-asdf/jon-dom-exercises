@@ -2,6 +2,7 @@ import ClocksSection from "./ClocksSection"
 import StagingSection from "./StageSection"
 import ShortcutsSection from "./ShortcutsSection"
 import CountdownSection from "./CountdownSection"
+import AssetsSection from "./AssetsSection"
 
 const list: SectionPart[] = [
   {
@@ -27,6 +28,12 @@ const list: SectionPart[] = [
     title: "Cuenta regresiva",
     href: "#countdown",
     content: CountdownSection
+  },
+  {
+    id: "assets",
+    title: "Recursos",
+    href: "#assets",
+    content: AssetsSection
   }
 ]
 
