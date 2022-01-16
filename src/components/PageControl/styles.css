@@ -6,7 +6,8 @@
   justify-content: center;
   width: var(--controls-height);
   height: var(--controls-height);
-  border: 0;
+  border: 1px solid var(--white);
+  box-shadow: 1px 1px 5px var(--text-color);
   border-radius: 50%;
   background-color: var(--main-color);
   cursor: pointer;
