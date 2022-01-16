@@ -18,15 +18,16 @@
 }
 
 :root {
-  font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", system-ui;
+  font-family: Arial, Helvetica, sans-serif, system-ui;
   
   --light-yellow: #fff6b0;
   --yellow: #f7df1e;
   --gold: #ffd700;
-  --old-gold: #d6b708;
+  --old-gold: #e68200;
   --orange: #ffad16;
-  --light-grey: #e0e0e0;
-  --dark-grey: #797979;
+  --light-grey: #cfcfcf;
+  --grey: #797979;
+  --dark-grey: #575757;
   --black: #181818;
   --light-blue: #73dacf;
   --dark: #1d1d1d;
@@ -44,6 +45,7 @@
   --text-color: var(--black);
   --background-color: var(--white);
   --transparent-color: var(--black-transparent);
+  --scrollbar-track-color: var(--light-yellow);
   
   --z-index-estructural: -1;
   --z-index-normal: 0;
@@ -57,8 +59,6 @@
 
 html {
   text-size-adjust: 100%;
-  scroll-behavior: smooth;
-  overflow: hidden scroll;
 }
 
 *,
@@ -71,34 +71,46 @@ a {
   text-decoration: none;
 }
 
+html {
+  overflow: hidden;
+}
+
+#root {
+  max-height: 100vh;
+  scroll-behavior: smooth;
+  overflow: hidden scroll;
+}
+
 /* Tamaño del scroll */
-body::-webkit-scrollbar {
+#root::-webkit-scrollbar {
   width: 8px;
 }
 
  /* Estilos barra (thumb) de scroll */
-body::-webkit-scrollbar-thumb {
+#root::-webkit-scrollbar-thumb {
   background: var(--secondary-color);
 }
 
-body::-webkit-scrollbar-thumb:active {
+#root::-webkit-scrollbar-thumb:active {
   background-color: var(--emphasis-color);
 }
 
-body::-webkit-scrollbar-thumb:hover {
+#root::-webkit-scrollbar-thumb:hover {
   background: var(--emphasis-color);
 }
 
  /* Estilos track de scroll */
-body::-webkit-scrollbar-track {
-  background: var(--light-yellow);
+#root::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-color);
 }
 
 #root.dark {
+  --secondary-color: var(--old-gold);
   --altern-color: var(--dark-grey);
   --text-color: var(--white);
   --background-color: var(--dark);
   --stage-color: var(--dark-blue);
+  --scrollbar-track-color: var(--dark-grey);
 }
 
 @media (pointer: coarse) {
