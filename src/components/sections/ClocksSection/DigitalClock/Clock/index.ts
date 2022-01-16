@@ -1,3 +1,4 @@
+import { completeTwoDigits } from "@utils/completeTwoDigits"
 import { $ } from "@utils/selector"
 
 const clockParts = (localTime: string): Time => {
@@ -11,9 +12,15 @@ const clockParts = (localTime: string): Time => {
   }
   const [hours, minutes, seconds] = usedTime.split(":")
   const time: Time = {
-    hours: `<span class="${Clock.className}-part hours">${hours}</span>`,
-    minutes: `<span class="${Clock.className}-part minutes">${minutes}</span>`,
-    seconds: `<span class="${Clock.className}-part seconds">${seconds}</span>`,
+    hours: `<span class="${Clock.className}-part hours">${completeTwoDigits(
+      Number(hours)
+    )}</span>`,
+    minutes: `<span class="${Clock.className}-part minutes">${completeTwoDigits(
+      Number(minutes)
+    )}</span>`,
+    seconds: `<span class="${Clock.className}-part seconds">${completeTwoDigits(
+      Number(seconds)
+    )}</span>`,
     separator: `<span class="${Clock.className}-part separator">:</span>`
   }
   if (hour12) {
