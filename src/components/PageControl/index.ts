@@ -1,7 +1,7 @@
 import Icon from "@components/Icon"
 import "./styles.css"
 
-export default class PageControl extends HTMLDivElement {
+export default class PageControl extends HTMLButtonElement {
   public icon: Icon
   static elementName = "page-control"
   static className = "page-control"
@@ -30,4 +30,6 @@ export default class PageControl extends HTMLDivElement {
   }
 }
 
-customElements.define(PageControl.elementName, PageControl, { extends: "div" })
+customElements.define(PageControl.elementName, PageControl, {
+  extends: "button"
+})
