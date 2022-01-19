@@ -57,6 +57,7 @@
   --border-radius: 0.2em;
   --section-title-height: 3rem;
   --scroll-width: 8px;
+  --section-padding: 1.5em;
 }
 
 html {

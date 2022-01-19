@@ -1,7 +1,34 @@
 import { $ } from "@utils/selector"
-import AssetPicture from "./AssetPicture"
-import "./styles.css"
+import Image from "./Image"
 
+interface ImageData {
+  id: string
+  author: string
+}
+
+const construcPexelImageUrl = ({
+  id,
+  author
+}: {
+  id: string
+  author: string
+}) => {
+  const url = "https://images.pexels.com/photos"
+  return `${url}/${id}/pexels-photo-${id}.jpeg?cs=srgb&dl=pexels-${author}-${id}.jpg&fm=jpg`
+}
+
+const images: ImageData[] = [
+  {
+    id: "3608263",
+    author: "laura-the-explaura"
+  },
+  { id: "9713163", author: "eriks-cistovs" },
+  { id: "146083", author: "flickr" },
+  {
+    id: "1034662",
+    author: "jiarong-deng"
+  }
+]
 export default class Assets implements SectionChild {
   public self: HTMLDivElement
   public updater?: NodeJS.Timer
@@ -18,11 +45,24 @@ export default class Assets implements SectionChild {
     const assets = document.createElement("div")
     assets.classList.add(Assets.className)
 
-    const picture = new AssetPicture({
-      mediaQuery: "(min-width: 768px)",
-      src: "https://images.pexels.com/photos/3608263/pexels-photo-3608263.jpeg?cs=srgb&dl=pexels-laura-the-explaura-3608263.jpg&fm=jpg",
-      srcset:
-        "https://images.pexels.com/photos/9713163/pexels-photo-9713163.jpeg?cs=srgb&dl=pexels-eriks-cistovs-9713163.jpg&fm=jpg"
+    const picture = new Image({
+      sources: [
+        {
+          mediaQuery: "(min-width: 600px)",
+          srcset: construcPexelImageUrl(images[1])
+        },
+        {
+          mediaQuery: "(min-width: 500px)",
+          srcset: construcPexelImageUrl(images[2])
+        },
+        {
+          mediaQuery: "(min-width: 400px)",
+          srcset: construcPexelImageUrl(images[3])
+        }
+      ],
+      src: construcPexelImageUrl(images[0]),
+      className: "asset-image__img",
+      alt: "image"
     })
 
     assets.append(picture)
