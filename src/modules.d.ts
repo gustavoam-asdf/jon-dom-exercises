@@ -2,6 +2,8 @@ declare module "*.css"
 
 declare module "*.mp3"
 
+declare module "*.mp4"
+
 declare interface NativeObject {
   [propertyName: string]: any
 }
@@ -25,4 +27,9 @@ declare interface Move {
 
 declare interface ThemeData {
   isDark: boolean
+}
+
+interface Source {
+  mediaQuery: string
+  src: string
 }

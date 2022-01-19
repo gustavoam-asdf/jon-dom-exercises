@@ -9,7 +9,8 @@
   place-items: center;
 }
 
-.asset-image {
+.asset-image,
+.asset-video {
   display: block;
   height: 100%;
   padding: 1em;

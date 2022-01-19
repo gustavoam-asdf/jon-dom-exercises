@@ -1,5 +1,9 @@
 import { $ } from "@utils/selector"
 import Image from "./Image"
+import Video from "./Video"
+import video1Path from "/assets/videos/video-1.mp4"
+import video2Path from "/assets/videos/video-2.mp4"
+import video3Path from "/assets/videos/video-3.mp4"
 
 interface ImageData {
   id: string
@@ -49,35 +53,43 @@ export default class Assets implements SectionChild {
       sources: [
         {
           mediaQuery: "(min-width: 600px)",
-          srcset: construcPexelImageUrl(images[1])
+          src: construcPexelImageUrl(images[1])
         },
         {
           mediaQuery: "(min-width: 500px)",
-          srcset: construcPexelImageUrl(images[2])
+          src: construcPexelImageUrl(images[2])
         },
         {
           mediaQuery: "(min-width: 400px)",
-          srcset: construcPexelImageUrl(images[3])
+          src: construcPexelImageUrl(images[3])
         }
       ],
       src: construcPexelImageUrl(images[0]),
       className: "asset-image__img",
       alt: "image"
     })
-    const picture2 = new Image({
+
+    const video = new Video({
       sources: [
         {
-          mediaQuery: "(min-width: 600px)",
-          srcset: construcPexelImageUrl(images[3])
+          mediaQuery: "screen and (min-device-width: 600px)",
+          src: video1Path
+        },
+        {
+          mediaQuery: "screen and (min-device-width: 500px)",
+          src: video2Path
+        },
+        {
+          mediaQuery: "screen and (min-device-width: 400px)",
+          src: video3Path
         }
       ],
-      src: construcPexelImageUrl(images[1]),
-      className: "asset-image__img",
-      alt: "image"
+      controls: true,
+      loop: true
     })
 
     assets.append(picture)
-    assets.append(picture2)
+    assets.append(video)
 
     return assets
   }

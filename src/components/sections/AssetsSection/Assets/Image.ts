@@ -1,8 +1,3 @@
-interface Source {
-  mediaQuery: string
-  srcset: string
-}
-
 export default class Image extends HTMLPictureElement {
   static className = "asset-image"
   static elementName = "asset-image"
@@ -26,9 +21,9 @@ export default class Image extends HTMLPictureElement {
       ${sources
         .map(
           source => `<source
-          media="${source.mediaQuery}"
-          srcset="${source.srcset}"
-        />`
+            media="${source.mediaQuery}"
+            srcset="${source.src}"
+          />`
         )
         .join("")}
       <img

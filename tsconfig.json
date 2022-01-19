@@ -21,8 +21,6 @@
     "rootDir": "./",
     "baseUrl": "./",
     "paths": {
-      "@assets": ["assets/*"],
-      "@components": ["components/*"],
       "@*": ["src/*"]
     }
   },
