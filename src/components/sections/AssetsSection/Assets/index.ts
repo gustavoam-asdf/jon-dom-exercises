@@ -64,8 +64,20 @@ export default class Assets implements SectionChild {
       className: "asset-image__img",
       alt: "image"
     })
+    const picture2 = new Image({
+      sources: [
+        {
+          mediaQuery: "(min-width: 600px)",
+          srcset: construcPexelImageUrl(images[3])
+        }
+      ],
+      src: construcPexelImageUrl(images[1]),
+      className: "asset-image__img",
+      alt: "image"
+    })
 
     assets.append(picture)
+    assets.append(picture2)
 
     return assets
   }
