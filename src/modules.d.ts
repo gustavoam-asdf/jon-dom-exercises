@@ -32,4 +32,5 @@ declare interface ThemeData {
 interface Source {
   mediaQuery: string
   src: string
+  matcher?: MediaQueryList
 }

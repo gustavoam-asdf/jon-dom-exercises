@@ -1,0 +1,22 @@
+[
+  {
+    "name": "video1",
+    "url": "https://drive.google.com/uc?export=download&id=1-nsRs3QhhFZetm0eo_kjDPERvS3umTy7",
+    "mediaQuery": ""
+  },
+  {
+    "name": "video2",
+    "url": "https://drive.google.com/uc?export=download&id=1-pJJ2u1ExUAqFxV46S0EsJDqrOoKG_Vq",
+    "mediaQuery": "screen and (min-width: 800px)"
+  },
+  {
+    "name": "video3",
+    "url": "https://drive.google.com/uc?export=download&id=1-zhrl4YOhBgkiuBE5W5bCh3kxvr4xCyc",
+    "mediaQuery": "screen and (min-width: 600px)"
+  },
+  {
+    "name": "video4",
+    "url": "https://drive.google.com/uc?export=download&id=102ze5Yl3AbEETP9jbsWvGe_izfBljnZf",
+    "mediaQuery": "screen and (min-width: 400px)"
+  }
+]

@@ -1,9 +1,6 @@
-import { $ } from "@utils/selector"
 import Image from "./Image"
 import Video from "./Video"
-import video1Path from "/assets/videos/video-1.mp4"
-import video2Path from "/assets/videos/video-2.mp4"
-import video3Path from "/assets/videos/video-3.mp4"
+import videos from "assets/videos.json"
 
 interface ImageData {
   id: string
@@ -40,9 +37,6 @@ export default class Assets implements SectionChild {
 
   constructor() {
     this.self = this.template()
-    setTimeout(() => {
-      $(document.documentElement, '[href="#assets"]').click()
-    }, 1000)
   }
 
   private template() {
@@ -52,15 +46,15 @@ export default class Assets implements SectionChild {
     const picture = new Image({
       sources: [
         {
-          mediaQuery: "(min-width: 600px)",
+          mediaQuery: "screen and (min-width: 800px)",
           src: construcPexelImageUrl(images[1])
         },
         {
-          mediaQuery: "(min-width: 500px)",
+          mediaQuery: "screen and (min-width: 600px)",
           src: construcPexelImageUrl(images[2])
         },
         {
-          mediaQuery: "(min-width: 400px)",
+          mediaQuery: "screen and (min-width: 400px)",
           src: construcPexelImageUrl(images[3])
         }
       ],
@@ -70,18 +64,22 @@ export default class Assets implements SectionChild {
     })
 
     const video = new Video({
+      src: videos[0].url,
       sources: [
         {
-          mediaQuery: "screen and (min-device-width: 600px)",
-          src: video1Path
+          mediaQuery: videos[1].mediaQuery,
+          matcher: window.matchMedia(videos[1].mediaQuery),
+          src: videos[1].url
         },
         {
-          mediaQuery: "screen and (min-device-width: 500px)",
-          src: video2Path
+          mediaQuery: videos[2].mediaQuery,
+          matcher: window.matchMedia(videos[2].mediaQuery),
+          src: videos[2].url
         },
         {
-          mediaQuery: "screen and (min-device-width: 400px)",
-          src: video3Path
+          mediaQuery: videos[3].mediaQuery,
+          matcher: window.matchMedia(videos[3].mediaQuery),
+          src: videos[3].url
         }
       ],
       controls: true,
