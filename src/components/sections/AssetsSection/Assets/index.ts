@@ -63,9 +63,6 @@ export default class Assets implements SectionChild {
       alt: "image"
     })
 
-    const videoWrapper = document.createElement("div")
-    videoWrapper.className = "asset-video"
-
     const video = new Video({
       src: videos[0].url,
       sources: [
@@ -89,10 +86,8 @@ export default class Assets implements SectionChild {
       loop: true
     })
 
-    videoWrapper.append(video)
-
     assets.append(picture)
-    assets.append(videoWrapper)
+    assets.append(video.self)
 
     return assets
   }

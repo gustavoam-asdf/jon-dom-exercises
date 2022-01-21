@@ -3,9 +3,14 @@ const detectMediaQueryActive = (sources: Source[]) =>
     .filter(source => source.matcher)
     .find(source => source.matcher?.matches)
 
-export default class Video extends HTMLVideoElement {
-  public source: HTMLSourceElement
-  static elementName = "asset-video"
+export default class Video {
+  public self: HTMLDivElement
+  public video?: HTMLVideoElement
+  public source?: HTMLSourceElement
+
+  public src: string
+  public sources: Source[]
+  static className = "asset-video"
 
   constructor({
     src,
@@ -20,34 +25,52 @@ export default class Video extends HTMLVideoElement {
     controls?: boolean
     loop?: boolean
   }) {
-    super()
-    this.setAttribute("is", Video.elementName)
+    this.sources = sources
+    this.src = src
+    this.self = this.template({ className, controls, loop })
 
-    controls && this.setAttribute("controls", "")
-    loop && this.setAttribute("loop", "")
-    className && this.classList.add(className)
-
-    this.source = document.createElement("source")
-    this.source.setAttribute("src", detectMediaQueryActive(sources)?.src || src)
-    this.append(this.source)
-
-    sources.forEach(source => {
+    sources.forEach(source =>
       source.matcher?.addEventListener("change", () => {
-        this.source.setAttribute(
+        this.source?.setAttribute(
           "src",
           detectMediaQueryActive(sources)?.src || src
         )
-        this.load()
+        this.video?.load()
       })
-    })
+    )
+  }
 
-    this.insertAdjacentText(
+  private template({
+    className,
+    controls,
+    loop
+  }: {
+    className?: string
+    controls?: boolean
+    loop?: boolean
+  }) {
+    const videoWrapper = document.createElement("div")
+    videoWrapper.classList.add(Video.className)
+
+    this.video = document.createElement("video")
+    controls && this.video.setAttribute("controls", "")
+    loop && this.video.setAttribute("loop", "")
+    className && this.video.classList.add(className)
+
+    this.source = document.createElement("source")
+    this.source.setAttribute(
+      "src",
+      detectMediaQueryActive(this.sources)?.src || this.src
+    )
+
+    this.video.append(this.source)
+    this.video.insertAdjacentText(
       "beforeend",
       "Sorry, your browser doesn't support embedded videos."
     )
+
+    videoWrapper.append(this.video)
+
+    return videoWrapper
   }
 }
-
-customElements.define(Video.elementName, Video, {
-  extends: "video"
-})
