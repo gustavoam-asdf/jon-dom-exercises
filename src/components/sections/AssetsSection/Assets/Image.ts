@@ -8,7 +8,7 @@ export default class Image extends HTMLPictureElement {
     className,
     alt
   }: {
-    sources: Source[]
+    sources: SourceData[]
     src: string
     className?: string
     alt?: string

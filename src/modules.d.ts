@@ -29,7 +29,7 @@ declare interface ThemeData {
   isDark: boolean
 }
 
-interface Source {
+declare interface SourceData {
   mediaQuery: string
   src: string
   matcher?: MediaQueryList

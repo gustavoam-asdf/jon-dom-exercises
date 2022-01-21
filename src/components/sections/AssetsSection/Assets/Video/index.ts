@@ -1,15 +1,11 @@
-const detectMediaQueryActive = (sources: Source[]) =>
-  sources
-    .filter(source => source.matcher)
-    .find(source => source.matcher?.matches)
+import Source from "./Source"
 
 export default class Video {
   public self: HTMLDivElement
   public video?: HTMLVideoElement
-  public source?: HTMLSourceElement
+  public source: Source
 
-  public src: string
-  public sources: Source[]
+  public sources: SourceData[]
   static className = "asset-video"
 
   constructor({
@@ -20,21 +16,18 @@ export default class Video {
     loop
   }: {
     src: string
-    sources: Source[]
+    sources: SourceData[]
     className?: string
     controls?: boolean
     loop?: boolean
   }) {
     this.sources = sources
-    this.src = src
+    this.source = new Source(src, sources)
     this.self = this.template({ className, controls, loop })
 
     sources.forEach(source =>
       source.matcher?.addEventListener("change", () => {
-        this.source?.setAttribute(
-          "src",
-          detectMediaQueryActive(sources)?.src || src
-        )
+        this.source.assingMediaQueryActive()
         this.video?.load()
       })
     )
@@ -57,13 +50,7 @@ export default class Video {
     loop && this.video.setAttribute("loop", "")
     className && this.video.classList.add(className)
 
-    this.source = document.createElement("source")
-    this.source.setAttribute(
-      "src",
-      detectMediaQueryActive(this.sources)?.src || this.src
-    )
-
-    this.video.append(this.source)
+    this.video.append(this.source.self)
     this.video.insertAdjacentText(
       "beforeend",
       "Sorry, your browser doesn't support embedded videos."
