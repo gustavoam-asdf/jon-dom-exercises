@@ -1,3 +1,8 @@
+const detectMediaQueryActive = (sources: Source[]) =>
+  sources
+    .filter(source => source.matcher)
+    .find(source => source.matcher?.matches)
+
 export default class Video extends HTMLVideoElement {
   public source: HTMLSourceElement
   static elementName = "asset-video"
@@ -23,13 +28,15 @@ export default class Video extends HTMLVideoElement {
     className && this.classList.add(className)
 
     this.source = document.createElement("source")
-    this.source.setAttribute("src", src)
+    this.source.setAttribute("src", detectMediaQueryActive(sources)?.src || src)
     this.append(this.source)
 
     sources.forEach(source => {
       source.matcher?.addEventListener("change", () => {
-        const source = sources.find(source => source.matcher?.matches)
-        this.source.setAttribute("src", source?.src || src)
+        this.source.setAttribute(
+          "src",
+          detectMediaQueryActive(sources)?.src || src
+        )
         this.load()
       })
     })
