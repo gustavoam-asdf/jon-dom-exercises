@@ -3,6 +3,7 @@ import StagingSection from "./StageSection"
 import ShortcutsSection from "./ShortcutsSection"
 import CountdownSection from "./CountdownSection"
 import AssetsSection from "./AssetsSection"
+import NestedWebSection from "./NestedWebSection"
 
 const list: SectionPart[] = [
   {
@@ -34,6 +35,12 @@ const list: SectionPart[] = [
     title: "Recursos",
     href: "#assets",
     content: AssetsSection
+  },
+  {
+    id: "nested-web",
+    title: "Web anidada",
+    href: "#nested-web",
+    content: NestedWebSection
   }
 ]
 
