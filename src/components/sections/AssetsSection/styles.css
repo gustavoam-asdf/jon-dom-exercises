@@ -9,16 +9,20 @@
   place-items: center;
 }
 
-.asset-image,
-.asset-video {
-  display: block;
+.asset-video,
+.asset-image {
   height: 100%;
   padding: 1em;
 }
 
+.asset-video {
+  display: flex;
+  justify-content: center;
+}
+
+.asset-video video,
 .asset-image img {
   aspect-ratio: 9/16;
-  display: block;
   height: 100%;
   object-fit: cover;
 }

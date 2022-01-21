@@ -1,6 +1,5 @@
 export default class Video extends HTMLVideoElement {
   public source: HTMLSourceElement
-  static className = "asset-video"
   static elementName = "asset-video"
 
   constructor({
@@ -18,7 +17,6 @@ export default class Video extends HTMLVideoElement {
   }) {
     super()
     this.setAttribute("is", Video.elementName)
-    this.classList.add(Video.className)
 
     controls && this.setAttribute("controls", "")
     loop && this.setAttribute("loop", "")
