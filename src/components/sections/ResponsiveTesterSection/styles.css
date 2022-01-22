@@ -1,6 +1,10 @@
-#nested-web {
+#responsive-tester {
   display: grid;
   grid-template-rows: auto 1fr;
+}
+
+.responsive-tester {
+  align-self: center;
 }
 
 .responsive-tester form {
@@ -13,7 +17,7 @@
 }
 
 .responsive-tester form > * {
-  width: 60%;
+  width: 70%;
 }
 
 .responsive-tester label {
