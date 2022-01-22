@@ -1,0 +1,44 @@
+#nested-web {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.responsive-tester form {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.responsive-tester form > * {
+  width: 60%;
+}
+
+.responsive-tester label {
+  display: grid;
+  grid-template-columns: 4em 1fr;
+  gap: 1em;
+}
+
+.responsive-tester label * {
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.responsive-tester span {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.responsive-tester input {
+  width: 100%;
+  padding: 0 .3em;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  border: 2px solid var(--dark-grey);
+  border-radius: var(--border-radius);
+}

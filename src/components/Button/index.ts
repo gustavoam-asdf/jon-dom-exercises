@@ -6,15 +6,18 @@ export default class Button extends HTMLButtonElement {
 
   constructor({
     innerHTML,
-    className
+    className,
+    type
   }: {
     innerHTML?: string
     className?: string
+    type?: string
   }) {
     super()
     this.setAttribute("is", Button.elementName)
     this.classList.add(Button.className)
-    this.classList.add(className || "")
+    className && this.classList.add(className)
+    type && this.setAttribute("type", type)
     this.innerHTML = innerHTML || ""
   }
 }
