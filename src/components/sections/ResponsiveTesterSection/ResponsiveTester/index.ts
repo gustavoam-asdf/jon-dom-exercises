@@ -11,9 +11,6 @@ export default class ResponsiveTester implements SectionChild {
   constructor() {
     this.button = new Button({ type: "submit", innerHTML: "Testear" })
     this.self = this.template()
-    setTimeout(() => {
-      $(document.documentElement, '[href="#responsive-tester"]').click()
-    }, 1000)
   }
 
   public clickEvent(evt: any) {
