@@ -2,6 +2,7 @@ import alarm from "/assets/audio/alarm.mp3"
 import Audio from "./Audio"
 import AudioController from "./AudioController"
 import "./styles.css"
+import executeClick from "@utils/executeClick"
 
 export default class Alarm implements SectionChild {
   public self: HTMLElement
@@ -18,16 +19,19 @@ export default class Alarm implements SectionChild {
   }
 
   public clickEvent(evt: any) {
-    const clickOnButton = evt.target.matches(`.${AudioController.className}`)
-    if (!clickOnButton) return false
-    if (this.audio.isRinging) {
-      this.audio.pause()
-      this.controller.changeText("Iniciar alarma")
-    } else {
-      this.audio.play()
-      this.controller.changeText("Detener alarma")
-    }
-    return true
+    return executeClick({
+      evt,
+      selectors: `.${AudioController.className}`,
+      action: () => {
+        if (this.audio.isRinging) {
+          this.audio.pause()
+          this.controller.changeText("Iniciar alarma")
+        } else {
+          this.audio.play()
+          this.controller.changeText("Detener alarma")
+        }
+      }
+    })
   }
 
   private template(): HTMLElement {

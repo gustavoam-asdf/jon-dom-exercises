@@ -1,3 +1,4 @@
+import executeClick from "@utils/executeClick"
 import Clock from "./Clock"
 import ClockController from "./ClockController"
 import "./styles.css"
@@ -37,18 +38,21 @@ export default class DigitalClock implements SectionChild {
   }
 
   clickEvent(evt: any): boolean {
-    const clickOnButton = evt.target.matches(`.${ClockController.className}`)
-    if (!clickOnButton) return false
-    if (this.clock.isShown) {
-      this.controller.changeText("Iniciar reloj")
-      this.updater ? clearInterval(this.updater) : 0
-      this.clock.hide()
-    } else {
-      this.controller.changeText("Detener reloj")
-      this.clock.update()
-      this.updater = ClockController.updater({ clock: this.clock })
-      this.clock.show()
-    }
-    return true
+    return executeClick({
+      evt,
+      selectors: `.${ClockController.className}`,
+      action: () => {
+        if (this.clock.isShown) {
+          this.controller.changeText("Iniciar reloj")
+          this.updater ? clearInterval(this.updater) : 0
+          this.clock.hide()
+        } else {
+          this.controller.changeText("Detener reloj")
+          this.clock.update()
+          this.updater = ClockController.updater({ clock: this.clock })
+          this.clock.show()
+        }
+      }
+    })
   }
 }
