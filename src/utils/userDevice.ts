@@ -1,4 +1,4 @@
-export default function userDevice() {
+function userDevice() {
   const userAgent = navigator.userAgent
 
   const isAndroid = userAgent.search(/android/i) !== -1
@@ -41,3 +41,5 @@ export default function userDevice() {
     }
   }
 }
+
+export default userDevice()

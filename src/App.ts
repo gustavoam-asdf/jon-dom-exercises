@@ -11,7 +11,6 @@ import "./styles.css"
 import "normalize.css"
 import { detectTheme } from "@utils/theme"
 import root from "@components/Root"
-import userDevice from "@utils/userDevice"
 
 const App = (): DocumentFragment => {
   const app = document.createDocumentFragment()
@@ -35,7 +34,6 @@ const App = (): DocumentFragment => {
     changeEvents(sectionParts, evt)
   })
 
-  userDevice()
   return app
 }
 
