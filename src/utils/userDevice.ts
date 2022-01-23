@@ -42,4 +42,4 @@ function userDevice() {
   }
 }
 
-export default userDevice()
+export default Object.freeze(userDevice())

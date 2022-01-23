@@ -4,6 +4,7 @@ import ShortcutsSection from "./ShortcutsSection"
 import CountdownSection from "./CountdownSection"
 import AssetsSection from "./AssetsSection"
 import NestedWebSection from "./ResponsiveTesterSection"
+import UserDataSection from "./UserDataSection"
 
 const list: SectionPart[] = [
   {
@@ -41,6 +42,12 @@ const list: SectionPart[] = [
     title: "Responsive tester",
     href: "#responsive-tester",
     content: NestedWebSection
+  },
+  {
+    id: "user-data",
+    title: "Datos del usuario",
+    href: "#user-data",
+    content: UserDataSection
   }
 ]
 
