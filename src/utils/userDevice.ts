@@ -13,9 +13,31 @@ export default function userDevice() {
 
   const isWindows = userAgent.search(/windows nt/i) !== -1
 
+  const isChrome = userAgent.search(/chrome/i) !== -1
+
+  const isSafari = userAgent.search(/safari/i) !== -1
+
+  const isFirefox = userAgent.search(/firefox/i) !== -1
+
+  const isOpera = userAgent.search(/opera|opera mini/i) !== -1
+
+  const isIE = userAgent.search(/msie|iemobile/i) !== -1
+
+  const isEdge = userAgent.search(/edge/i) !== -1
+
   return {
     isDesktop,
-    mobile: { isAndroid, isIOS },
-    desktop: { isLinux, isMac, isWindows }
+    os: {
+      mobile: { isAndroid, isIOS },
+      desktop: { isLinux, isMac, isWindows }
+    },
+    browser: {
+      isChrome,
+      isSafari,
+      isFirefox,
+      isOpera,
+      isIE,
+      isEdge
+    }
   }
 }
