@@ -42,8 +42,6 @@ export default class ResponsiveTester implements SectionChild {
           `popup, width=${pageWidth}, height=${pageHeight}`
         ) as Window
         this.button.textContent = "Cerrar"
-
-        console.log({ url, pageWidth, pageHeight })
       }
     })
   }
