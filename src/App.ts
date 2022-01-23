@@ -11,6 +11,7 @@ import "./styles.css"
 import "normalize.css"
 import { detectTheme } from "@utils/theme"
 import root from "@components/Root"
+import userDevice from "@utils/userDevice"
 
 const App = (): DocumentFragment => {
   const app = document.createDocumentFragment()
@@ -22,7 +23,7 @@ const App = (): DocumentFragment => {
   app.append(panel.self)
 
   const theme = detectTheme()
-  theme.isDark ? root.classList.add("dark") : 0
+  theme.isDark && root.classList.add("dark")
 
   document.addEventListener("click", (evt: MouseEvent) => {
     clickEvents(panel, sectionParts, evt)
@@ -33,6 +34,8 @@ const App = (): DocumentFragment => {
   document.addEventListener("change", (evt: Event) => {
     changeEvents(sectionParts, evt)
   })
+
+  userDevice()
   return app
 }
 
