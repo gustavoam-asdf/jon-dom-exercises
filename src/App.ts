@@ -12,7 +12,7 @@ import "normalize.css"
 import { detectTheme } from "@utils/theme"
 import root from "@components/Root"
 
-const App = (): DocumentFragment => {
+export function App() {
 	const app = document.createDocumentFragment()
 
 	const panel = new Panel()
@@ -36,5 +36,3 @@ const App = (): DocumentFragment => {
 
 	return app
 }
-
-export default App

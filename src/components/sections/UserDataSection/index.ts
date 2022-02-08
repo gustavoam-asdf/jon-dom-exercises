@@ -3,5 +3,5 @@ import UserData from "./UserData"
 import "./styles.css"
 
 export default new SectionContent({
-  children: new UserData()
+	children: new UserData()
 })

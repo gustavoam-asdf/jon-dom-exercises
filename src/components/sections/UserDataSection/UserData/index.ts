@@ -1,23 +1,23 @@
 import { $ } from "@utils/selector"
 
 export default class UserData implements SectionChild {
-  public self: HTMLDivElement
-  static className = "user-data"
+	public self: HTMLDivElement
+	static className = "user-data"
 
-  constructor() {
-    this.self = this.template()
-    setTimeout(() => {
-      $(document.documentElement, "[href='#user-data']").click()
-    }, 1000)
-  }
+	constructor() {
+		this.self = this.#template()
+		setTimeout(() => {
+			$(document.documentElement, "[href='#user-data']").click()
+		}, 1000)
+	}
 
-  private template() {
-    const userData = document.createElement("div")
-    userData.classList.add(UserData.className)
+	#template() {
+		const userData = document.createElement("div")
+		userData.classList.add(UserData.className)
 
-    userData.innerHTML = `
+		userData.innerHTML = `
     `
 
-    return userData
-  }
+		return userData
+	}
 }

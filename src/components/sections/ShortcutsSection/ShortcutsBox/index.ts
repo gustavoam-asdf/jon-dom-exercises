@@ -14,9 +14,8 @@ export default class ShortcutsBox implements SectionChild {
 	private template(): HTMLDivElement {
 		const shortcutsBox = document.createElement("div")
 		shortcutsBox.classList.add(ShortcutsBox.className)
-		const shortcuts = shortcutsList
 		const list = document.createDocumentFragment()
-		list.append(...shortcuts.map(shortcut => shortcut.self))
+		list.append(...shortcutsList.map(shortcut => shortcut.self))
 		shortcutsBox.append(list)
 		return shortcutsBox
 	}
