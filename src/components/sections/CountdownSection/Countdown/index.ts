@@ -19,7 +19,7 @@ export default class Countdown implements SectionChild {
 	constructor() {
 		this.dateTarget = new DatetimeTarget()
 		this.message = new TimeDifferenceMessage(moment())
-		this.self = this.template()
+		this.self = this.#template()
 	}
 
 	public changeEvent(evt: Event) {
@@ -38,7 +38,7 @@ export default class Countdown implements SectionChild {
 		return true
 	}
 
-	private template() {
+	#template() {
 		const countdown = document.createElement("div")
 		countdown.classList.add(Countdown.className)
 		countdown.appendChild(this.dateTarget.self)

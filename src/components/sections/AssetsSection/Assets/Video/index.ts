@@ -23,7 +23,7 @@ export default class Video {
 	}) {
 		this.sources = sources
 		this.source = new Source(src, sources)
-		this.self = this.template({ className, controls, loop })
+		this.self = this.#template({ className, controls, loop })
 
 		sources.forEach(source =>
 			source.matcher?.addEventListener("change", () => {
@@ -33,7 +33,7 @@ export default class Video {
 		)
 	}
 
-	private template({
+	#template({
 		className,
 		controls,
 		loop

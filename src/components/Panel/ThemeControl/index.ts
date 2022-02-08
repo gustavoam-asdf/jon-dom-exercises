@@ -8,17 +8,17 @@ const icons = { sun: "fa-sun", moon: "fa-moon" }
 export default class ThemeControl {
 	public self: PageControl
 	public icon: Icon
-	private initialIcon: string
-	private targetIcon: string
 	public themeData: ThemeData
+	#targetIcon: string
+	#initialIcon: string
 	static className = "theme-button"
 
 	constructor() {
 		this.themeData = detectTheme()
-		this.initialIcon = this.themeData.isDark ? icons.sun : icons.moon
-		this.targetIcon = this.themeData.isDark ? icons.moon : icons.sun
+		this.#initialIcon = this.themeData.isDark ? icons.sun : icons.moon
+		this.#targetIcon = this.themeData.isDark ? icons.moon : icons.sun
 		this.icon = new Icon({
-			iconType: this.initialIcon,
+			iconType: this.#initialIcon,
 			className: `${ThemeControl.className}__icon`
 		})
 		this.self = new PageControl(this.icon)
@@ -27,7 +27,7 @@ export default class ThemeControl {
 
 	action() {
 		this.themeData = switchTheme(this.themeData)
-		this.icon.switchIcon(this.targetIcon)
+		this.icon.switchIcon(this.#targetIcon)
 		saveTheme(this.themeData)
 	}
 }

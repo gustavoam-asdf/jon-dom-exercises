@@ -36,10 +36,10 @@ export default class Assets implements SectionChild {
 	static className = "assets"
 
 	constructor() {
-		this.self = this.template()
+		this.self = this.#template()
 	}
 
-	private template() {
+	#template() {
 		const assets = document.createElement("div")
 		assets.classList.add(Assets.className)
 

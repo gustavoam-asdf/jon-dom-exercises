@@ -6,7 +6,7 @@ export default class TimeTarget {
 	static inputId = "time"
 
 	constructor() {
-		this.self = this.template()
+		this.self = this.#template()
 	}
 
 	get value() {
@@ -14,7 +14,7 @@ export default class TimeTarget {
 		return this.time?.value
 	}
 
-	private template() {
+	#template() {
 		const timeTarget = document.createElement("div")
 		timeTarget.classList.add(TimeTarget.className)
 

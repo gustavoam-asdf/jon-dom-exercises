@@ -10,7 +10,7 @@ export default class ResponsiveTester implements SectionChild {
 
 	constructor() {
 		this.button = new Button({ type: "submit", innerHTML: "Testear" })
-		this.self = this.template()
+		this.self = this.#template()
 	}
 
 	public clickEvent(evt: any) {
@@ -46,7 +46,7 @@ export default class ResponsiveTester implements SectionChild {
 		})
 	}
 
-	private template() {
+	#template() {
 		const nestedWeb = document.createElement("div")
 		nestedWeb.classList.add(ResponsiveTester.className)
 

@@ -8,10 +8,10 @@ export default class ShortcutsBox implements SectionChild {
 	clickEvent?: (evt: any) => boolean
 
 	constructor() {
-		this.self = this.template()
+		this.self = this.#template()
 	}
 
-	private template(): HTMLDivElement {
+	#template(): HTMLDivElement {
 		const shortcutsBox = document.createElement("div")
 		shortcutsBox.classList.add(ShortcutsBox.className)
 		const list = document.createDocumentFragment()

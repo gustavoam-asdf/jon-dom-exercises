@@ -16,11 +16,11 @@ export default class Shortcut {
 		action: (...params: any[]) => void
 	}) {
 		this.keyCombination = keyCombination
-		this.self = this.template(actionName, this.keyCombination)
+		this.self = this.#template(actionName, this.keyCombination)
 		this.action = action
 	}
 
-	private template(
+	#template(
 		actionName: string,
 		keyCombination: KeyCombination
 	): HTMLDivElement {

@@ -3,7 +3,7 @@ export default class KeyCombination {
 	public key: string
 	public code: string
 
-	private separator = "<span class='separator'></span>"
+	#separator = "<span class='separator'></span>"
 
 	constructor(key: string, code: string, auxKeys: AuxiliaryKeys) {
 		this.key = key
@@ -17,17 +17,19 @@ export default class KeyCombination {
 		}
 	}
 
-	private printKey(key: string): string {
+	#printKey(key: string): string {
 		return `<span class="key">${key}</span>`
 	}
 
 	get representation(): string {
 		return `
-      ${this.auxKeys.meta ? `${this.printKey("win")}${this.separator}` : ""}
-      ${this.auxKeys.ctrl ? `${this.printKey("ctrl")}${this.separator}` : ""}
-      ${this.auxKeys.shift ? `${this.printKey("shift")}${this.separator}` : ""}
-      ${this.auxKeys.alt ? `${this.printKey("alt")}${this.separator}` : ""}
-      ${this.printKey(this.key)}
+      ${this.auxKeys.meta ? `${this.#printKey("win")}${this.#separator}` : ""}
+      ${this.auxKeys.ctrl ? `${this.#printKey("ctrl")}${this.#separator}` : ""}
+      ${
+				this.auxKeys.shift ? `${this.#printKey("shift")}${this.#separator}` : ""
+			}
+      ${this.auxKeys.alt ? `${this.#printKey("alt")}${this.#separator}` : ""}
+      ${this.#printKey(this.key)}
     `.trim()
 	}
 

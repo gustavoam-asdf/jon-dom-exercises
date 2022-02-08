@@ -13,7 +13,7 @@ export default class TimeDifferenceMessage {
 	constructor(dtTarget: Moment) {
 		this.dtTarget = dtTarget
 		this.dtDifference = timeDifference(moment(), dtTarget)
-		this.self = this.template(this.dtDifference)
+		this.self = this.#template(this.dtDifference)
 	}
 
 	public update(): void {
@@ -23,7 +23,7 @@ export default class TimeDifferenceMessage {
 			moment(this.dtTarget)
 		) as NativeObject
 
-		const parts = this.messageParts(newDiff as DatetimeData)
+		const parts = this.#messageParts(newDiff as DatetimeData)
 
 		Object.keys(parts).forEach(partKey => {
 			if (currDiff[partKey] !== newDiff[partKey]) {
@@ -34,19 +34,19 @@ export default class TimeDifferenceMessage {
 		this.dtDifference = newDiff as DatetimeData
 	}
 
-	private template(dtDifference: DatetimeData) {
+	#template(dtDifference: DatetimeData) {
 		const differenceMessage = document.createElement("p")
 		differenceMessage.classList.add(TimeDifferenceMessage.className)
-		const parts = this.messageParts(dtDifference)
+		const parts = this.#messageParts(dtDifference)
 
 		differenceMessage.innerHTML = Object.keys(parts)
-			.map(partKey => this.printPart(partKey, parts[partKey]))
+			.map(partKey => this.#printPart(partKey, parts[partKey]))
 			.join("")
 
 		return differenceMessage
 	}
 
-	private messageParts(dtDifference: DatetimeData): NativeObject {
+	#messageParts(dtDifference: DatetimeData): NativeObject {
 		return {
 			remaining: dtDifference.remaining ? "Faltan: " : "Pasaron: ",
 			years: `${completeTwoDigits(dtDifference.years)} años`,
@@ -58,7 +58,7 @@ export default class TimeDifferenceMessage {
 		}
 	}
 
-	private printPart(className: string, value: string): string {
+	#printPart(className: string, value: string): string {
 		return `<span class="${TimeDifferenceMessage.classPart} ${className}">${value}</span>`
 	}
 }

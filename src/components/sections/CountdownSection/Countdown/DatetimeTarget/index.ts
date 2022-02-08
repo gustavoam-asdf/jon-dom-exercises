@@ -12,7 +12,7 @@ export default class DatetimeTarget {
 	constructor() {
 		this.dateBox = new DateTarget()
 		this.timeBox = new TimeTarget()
-		this.self = this.template()
+		this.self = this.#template()
 	}
 
 	get usable() {
@@ -28,7 +28,7 @@ export default class DatetimeTarget {
 		)
 	}
 
-	private template() {
+	#template() {
 		const datetimeTarget = document.createElement("div")
 		datetimeTarget.classList.add(DatetimeTarget.className)
 

@@ -5,11 +5,11 @@ export default class Audio {
 
 	constructor({ src }: { src: string }) {
 		this.src = src
-		this.self = this.template()
+		this.self = this.#template()
 		this.isRinging = false
 	}
 
-	private template(): HTMLAudioElement {
+	#template(): HTMLAudioElement {
 		const audio = document.createElement("audio")
 		audio.setAttribute("src", this.src)
 		audio.setAttribute("loop", "")

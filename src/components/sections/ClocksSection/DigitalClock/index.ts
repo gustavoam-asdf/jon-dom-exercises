@@ -23,7 +23,7 @@ export default class DigitalClock implements SectionChild {
 	public self: HTMLDivElement
 	public controller: ClockController
 	public clock: Clock
-	private updater?: NodeJS.Timer
+	#updater?: NodeJS.Timer
 	static className = "digital-clock"
 
 	constructor() {
@@ -44,12 +44,12 @@ export default class DigitalClock implements SectionChild {
 			action: () => {
 				if (this.clock.isShown) {
 					this.controller.changeText("Iniciar reloj")
-					this.updater ? clearInterval(this.updater) : 0
+					this.#updater ? clearInterval(this.#updater) : 0
 					this.clock.hide()
 				} else {
 					this.controller.changeText("Detener reloj")
 					this.clock.update()
-					this.updater = ClockController.updater({ clock: this.clock })
+					this.#updater = ClockController.updater({ clock: this.clock })
 					this.clock.show()
 				}
 			}

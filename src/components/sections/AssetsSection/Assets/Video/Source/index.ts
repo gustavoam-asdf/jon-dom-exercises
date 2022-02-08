@@ -13,7 +13,7 @@ export default class Source {
 		this.defaultSrc = defaultSrc
 		this.sources = sources
 
-		this.self = this.template()
+		this.self = this.#template()
 		this.assingMediaQueryActive()
 	}
 
@@ -24,7 +24,7 @@ export default class Source {
 		)
 	}
 
-	private template() {
+	#template() {
 		const source = document.createElement("source")
 		source.classList.add(Source.className)
 		return source

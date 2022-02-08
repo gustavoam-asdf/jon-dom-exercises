@@ -6,7 +6,7 @@ export default class DateTarget {
 	static inputId = "date"
 
 	constructor() {
-		this.self = this.template()
+		this.self = this.#template()
 	}
 
 	get value() {
@@ -14,7 +14,7 @@ export default class DateTarget {
 		return this.date?.value
 	}
 
-	private template() {
+	#template() {
 		const dateTarget = document.createElement("div")
 		dateTarget.classList.add(DateTarget.className)
 

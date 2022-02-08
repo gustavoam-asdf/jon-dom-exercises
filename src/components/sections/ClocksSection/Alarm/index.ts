@@ -15,7 +15,7 @@ export default class Alarm implements SectionChild {
 			audio: this.audio,
 			text: "Iniciar alarma"
 		})
-		this.self = this.template()
+		this.self = this.#template()
 	}
 
 	public clickEvent(evt: any) {
@@ -34,7 +34,7 @@ export default class Alarm implements SectionChild {
 		})
 	}
 
-	private template(): HTMLElement {
+	#template(): HTMLElement {
 		const digitalAlarm = document.createElement("div")
 		digitalAlarm.classList.add(Alarm.className)
 		const alarm = document.createElement("figure")

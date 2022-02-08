@@ -8,10 +8,10 @@ export default class Stage implements SectionChild {
 
 	constructor() {
 		this.actor = new Actor()
-		this.self = this.template()
+		this.self = this.#template()
 	}
 
-	private template() {
+	#template() {
 		const stage = document.createElement("div")
 		stage.classList.add(Stage.className)
 		stage.append(this.actor.self)

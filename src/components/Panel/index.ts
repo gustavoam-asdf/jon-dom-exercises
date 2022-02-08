@@ -19,10 +19,10 @@ export default class Panel {
 		this.menuControl = new MenuControl({ menu: this.menu })
 		this.scrollControl = new ScrollControl()
 		this.themeControl = new ThemeControl()
-		this.self = this.template()
+		this.self = this.#template()
 	}
 
-	private template = (): HTMLDivElement => {
+	#template = (): HTMLDivElement => {
 		const panel: HTMLDivElement = document.createElement("div")
 		panel.classList.add(Panel.className)
 		panel.append(this.menu.self)

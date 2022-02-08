@@ -6,22 +6,22 @@ export default class Actor {
 	public move: Move = {
 		up: (displacement = Actor.speed) => {
 			this.positionY -= displacement
-			this.updateDOMPosition()
+			this.#updateDOMPosition()
 			return displacement
 		},
 		down: (displacement = Actor.speed) => {
 			this.positionY += displacement
-			this.updateDOMPosition()
+			this.#updateDOMPosition()
 			return displacement
 		},
 		left: (displacement = Actor.speed) => {
 			this.positionX -= displacement
-			this.updateDOMPosition()
+			this.#updateDOMPosition()
 			return displacement
 		},
 		right: (displacement = Actor.speed) => {
 			this.positionX += displacement
-			this.updateDOMPosition()
+			this.#updateDOMPosition()
 			return displacement
 		}
 	}
@@ -43,16 +43,16 @@ export default class Actor {
 	public positionY = 0
 
 	constructor() {
-		this.self = this.template()
+		this.self = this.#template()
 	}
 
-	private template() {
+	#template() {
 		const actor = document.createElement("div")
 		actor.classList.add(Actor.className)
 		return actor
 	}
 
-	private updateDOMPosition() {
+	#updateDOMPosition() {
 		this.self.setAttribute(
 			"style",
 			`transform: translate(${this.positionX}px, ${this.positionY}px)`
