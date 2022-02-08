@@ -3,5 +3,5 @@ import ResponsiveTester from "./ResponsiveTester"
 import "./styles.css"
 
 export default new SectionContent({
-  children: new ResponsiveTester()
+	children: new ResponsiveTester()
 })

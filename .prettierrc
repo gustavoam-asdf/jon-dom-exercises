@@ -12,8 +12,8 @@
   "semi": false,
   "singleQuote": false,
   "tabWidth": 2,
+  "useTabs": true,
   "trailingComma": "none",
-  "useTabs": false,
   "vueIndentScriptAndStyle": false,
-  "endOfLine": "crlf"
+  "endOfLine": "auto"
 }

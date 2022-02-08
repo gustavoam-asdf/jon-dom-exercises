@@ -4,5 +4,5 @@ import Alarm from "./Alarm"
 import "./styles.css"
 
 export default new SectionContent({
-  children: [new DigitalClock(), new Alarm()]
+	children: [new DigitalClock(), new Alarm()]
 })

@@ -4,33 +4,33 @@ import list from "@components/sections/sectionList"
 import "./styles.css"
 
 const itemsList: MenuItem[] = list.map(
-  ({ title, href }) =>
-    new MenuItem({
-      href,
-      innerHTML: `<strong>Sección: </strong>${title}`
-    })
+	({ title, href }) =>
+		new MenuItem({
+			href,
+			innerHTML: `<strong>Sección: </strong>${title}`
+		})
 )
 
 const MenuTemplate = ({ list }: { list: MenuList }): HTMLDivElement => {
-  const menu: HTMLDivElement = document.createElement("div")
-  menu.classList.add(Menu.className)
-  menu.classList.add("hide")
-  menu.append(list.self)
-  return menu
+	const menu: HTMLDivElement = document.createElement("div")
+	menu.classList.add(Menu.className)
+	menu.classList.add("hide")
+	menu.append(list.self)
+	return menu
 }
 
 export default class Menu {
-  public self: HTMLDivElement
-  public list: MenuList
-  static className = "menu"
+	public self: HTMLDivElement
+	public list: MenuList
+	static className = "menu"
 
-  constructor() {
-    this.list = new MenuList({ itemsList })
-    this.self = MenuTemplate({ list: this.list })
-  }
+	constructor() {
+		this.list = new MenuList({ itemsList })
+		this.self = MenuTemplate({ list: this.list })
+	}
 
-  action() {
-    this.list.self.classList.add("hide")
-    this.self.classList.add("hide")
-  }
+	action() {
+		this.list.self.classList.add("hide")
+		this.self.classList.add("hide")
+	}
 }

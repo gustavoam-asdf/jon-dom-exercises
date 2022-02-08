@@ -3,5 +3,5 @@ import Countdown from "./Countdown"
 import "./styles.css"
 
 export default new SectionContent({
-  children: new Countdown()
+	children: new Countdown()
 })

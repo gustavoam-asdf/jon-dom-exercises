@@ -3,54 +3,54 @@ import executeClick from "@utils/executeClick"
 import { $ } from "@utils/selector"
 
 export default class ResponsiveTester implements SectionChild {
-  public self: HTMLDivElement
-  public button: Button
-  public window?: Window
-  static className = "responsive-tester"
+	public self: HTMLDivElement
+	public button: Button
+	public window?: Window
+	static className = "responsive-tester"
 
-  constructor() {
-    this.button = new Button({ type: "submit", innerHTML: "Testear" })
-    this.self = this.template()
-  }
+	constructor() {
+		this.button = new Button({ type: "submit", innerHTML: "Testear" })
+		this.self = this.template()
+	}
 
-  public clickEvent(evt: any) {
-    return executeClick({
-      evt,
-      selectors: `.${ResponsiveTester.className} button`,
-      action: () => {
-        evt.preventDefault()
-        if (this.window) {
-          this.window.close()
-          this.window = undefined
-          this.button.textContent = "Testear"
-          return
-        }
+	public clickEvent(evt: any) {
+		return executeClick({
+			evt,
+			selectors: `.${ResponsiveTester.className} button`,
+			action: () => {
+				evt.preventDefault()
+				if (this.window) {
+					this.window.close()
+					this.window = undefined
+					this.button.textContent = "Testear"
+					return
+				}
 
-        const url = $<HTMLInputElement>(this.self, "input[name='url']").value
-        const pageWidth = $<HTMLInputElement>(
-          this.self,
-          "input[name='pageWidth']"
-        ).value
-        const pageHeight = $<HTMLInputElement>(
-          this.self,
-          "input[name='pageHeight']"
-        ).value
+				const url = $<HTMLInputElement>(this.self, "input[name='url']").value
+				const pageWidth = $<HTMLInputElement>(
+					this.self,
+					"input[name='pageWidth']"
+				).value
+				const pageHeight = $<HTMLInputElement>(
+					this.self,
+					"input[name='pageHeight']"
+				).value
 
-        this.window = window.open(
-          url,
-          "",
-          `popup, width=${pageWidth}, height=${pageHeight}`
-        ) as Window
-        this.button.textContent = "Cerrar"
-      }
-    })
-  }
+				this.window = window.open(
+					url,
+					"",
+					`popup, width=${pageWidth}, height=${pageHeight}`
+				) as Window
+				this.button.textContent = "Cerrar"
+			}
+		})
+	}
 
-  private template() {
-    const nestedWeb = document.createElement("div")
-    nestedWeb.classList.add(ResponsiveTester.className)
+	private template() {
+		const nestedWeb = document.createElement("div")
+		nestedWeb.classList.add(ResponsiveTester.className)
 
-    nestedWeb.innerHTML = `
+		nestedWeb.innerHTML = `
       <form>
         <label>
           <span>Url :</span>
@@ -82,8 +82,8 @@ export default class ResponsiveTester implements SectionChild {
       </form>
     `
 
-    $(nestedWeb, "form").append(this.button)
+		$(nestedWeb, "form").append(this.button)
 
-    return nestedWeb
-  }
+		return nestedWeb
+	}
 }

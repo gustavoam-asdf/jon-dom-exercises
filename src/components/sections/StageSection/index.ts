@@ -3,5 +3,5 @@ import Stage from "./Stage"
 import "./styles.css"
 
 export default new SectionContent({
-  children: new Stage()
+	children: new Stage()
 })

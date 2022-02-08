@@ -3,5 +3,5 @@ import Assets from "./Assets"
 import "./styles.css"
 
 export default new SectionContent({
-  children: new Assets()
+	children: new Assets()
 })
